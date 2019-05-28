@@ -1,5 +1,7 @@
 package View;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -19,6 +21,7 @@ public class MazeSizes {
     private static TextField rowSize;
     private static TextField colSize;
     private static boolean isUsed;
+    private static final int textFieldSize = 60;
 
     public static int[] getMazeSizes()
     {
@@ -31,12 +34,24 @@ public class MazeSizes {
         Label userGuideText = new Label();
         userGuideText.setText(message);
 
+        Label rowLine = new Label("Row size:");
+        Label colLine = new Label("Col size:");
         rowSize = new TextField(rowSizeDefault);
+        rowSize.setMinWidth(textFieldSize);
         colSize = new TextField(colSizeDefault);
+        colSize.setPrefWidth(textFieldSize);
+
+        rowSize.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+
+            }
+        });
+
 
         HBox rowNcol = new HBox(10);
 
-        rowNcol.getChildren().addAll(rowSize,colSize);
+        rowNcol.getChildren().addAll(rowLine,rowSize,colLine,colSize);
 
         Button createMaze = new Button("Create The Maze");
 

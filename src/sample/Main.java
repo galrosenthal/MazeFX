@@ -12,10 +12,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -86,7 +83,8 @@ public class Main extends Application  {
         //Edit Menu Items
         MenuItem m4 = new MenuItem("Change Maze Size");
 
-        fileMenu.getItems().addAll(newGame,Save,exit);
+        fileMenu.getItems().addAll(newGame,Save,new SeparatorMenuItem(),exit);
+        Save.setDisable(true);
         helpMenu.getItems().add(m3);
         editMenu.getItems().add(m4);
 
