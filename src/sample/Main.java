@@ -5,24 +5,18 @@ import Server.Server;
 import Server.ServerStrategySolveSearchProblem;
 import Server.ServerStrategyGenerateMaze;
 import Client.IClientStrategy;
-import test.RunCommunicateWithServers;
+import View.MazeSizes;
 import Client.Client;
-import Server.Configurations;
 import algorithms.mazeGenerators.Maze;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -83,7 +77,8 @@ public class Main extends Application  {
         newGame.setOnAction(event -> {
             int[] mazeSizes = MazeSizes.getMazeSizes();
 
-            callClientGenerateMaze(mazeSizes[0],mazeSizes[1]);
+            if(mazeSizes != null)
+                callClientGenerateMaze(mazeSizes[0],mazeSizes[1]);
         });
         //Help Menu Items
         MenuItem m3 = new MenuItem("About Us");
