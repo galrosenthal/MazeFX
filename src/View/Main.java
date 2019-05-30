@@ -47,7 +47,7 @@ public class Main extends Application {
 //
 //         levelBox = new ChoiceBox<>();
 
-        Scene scene = new Scene(root,800.0D, 650.0D);
+        Scene scene = new Scene(root,800.0D, 600.0D);
         primaryStage.setScene(scene);
 
 //        levelBox.getItems().add("gal");

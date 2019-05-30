@@ -11,6 +11,8 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.SepiaTone?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -20,7 +22,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
+<?import View.MazeDisplayer?>
+<BorderPane onKeyPressed="#KeyPressedEasy" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
    <top>
       <MenuBar prefWidth="564.0" BorderPane.alignment="CENTER">
          <menus>
@@ -86,7 +89,7 @@
                   </Label>
                   <TextField fx:id="heightField" layoutX="10.0" layoutY="9.0" prefHeight="25.0" prefWidth="30.0" text="5" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                   <TextField fx:id="widthField" prefHeight="25.0" prefWidth="30.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" style="-fx-border-image-source: url(resoureces/gene.png);" text="Generate Maze" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Button id="geneButton" mnemonicParsing="false" onAction="#generateMaze" prefHeight="25.0" prefWidth="170.0" text="Generate Maze" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                   <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" text="Solve Maze" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                   <Label prefHeight="21.0" prefWidth="107.0" text="   My Location:" GridPane.rowIndex="4">
                      <font>
@@ -98,12 +101,12 @@
                   <Insets />
                </opaqueInsets>
             </GridPane>
-            <RadioButton fx:id="levelEasy" layoutX="30.0" layoutY="329.0" mnemonicParsing="false" text="Easy">
+            <RadioButton fx:id="levelEasy" onKeyPressed="#KeyPressedEasy" layoutX="30.0" layoutY="329.0" mnemonicParsing="false" text="Easy">
                <padding>
                   <Insets right="10.0" />
                </padding>
             </RadioButton>
-            <RadioButton fx:id="levelHard" layoutX="85.0" layoutY="329.0" mnemonicParsing="false" text="Hard" />
+            <RadioButton fx:id="levelHard" onKeyPressed="#KeyPressedHard" layoutX="85.0" layoutY="329.0" mnemonicParsing="false" text="Hard" />
             <Text layoutX="30.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Your Level:">
                <font>
                   <Font name="Georgia Bold Italic" size="14.0" />
@@ -123,6 +126,7 @@
    <center>
       <Pane prefHeight="2865.0" prefWidth="4075.0" style="-fx-border-width: 4; -fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
+            <MazeDisplayer fx:id="mazeDisplayer" height="600.0" imageFileNameCharacter="resources/Images/dave.png" imageFileNameWall="resources/Images/wallEM.jpg" onMouseClicked="#mouseClicked" width="600.0" />
             <Text fx:id="valueError" fill="RED" layoutX="138.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong Values!" visible="false">
                <font>
                   <Font name="Georgia Bold Italic" size="14.0" />

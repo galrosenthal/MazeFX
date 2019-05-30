@@ -1,6 +1,7 @@
 package ViewModel;
 
 import Model.IModel;
+import View.MazeDisplayer;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -12,6 +13,11 @@ public class MyViewModel extends Observable implements Observer {
 //        this.m_model.generateMaze(mazeSizes[0], mazeSizes[1]);
 //    }
 
+    private MazeDisplayer mazeDisplayer;
+
+    public void generateMaze() {
+
+    }
     @Override
     public void update(Observable o, Object arg) {
 
