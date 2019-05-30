@@ -53,9 +53,8 @@ public class Main extends Application {
 //        levelBox.getItems().add("gal");
 //        levelBox.setValue("gal");
 //        choiceBox.getItems().addAll("Easy", "Hard");
-
+        controller.playMusic();
         primaryStage.show();
-
     }
 
 
