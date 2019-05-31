@@ -35,8 +35,13 @@ public class MyModel extends Observable implements IModel {
     public void generateMaze(int height, int width) {
     }
 
-//    public void modelSaveMazeToDisk(String fileName) throws FileNotFoundException {
-//            MyCompressorOutputStream out = new MyCompressorOutputStream(new FileOutputStream(fileName + ".maze"));
-//            out.write(maze.toByteArray());
-//    }
+    public void modelSaveMazeToDisk(String fileName){
+        MyCompressorOutputStream out = null;
+        try {
+            out = new MyCompressorOutputStream(new FileOutputStream(fileName + ".maze"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        out.write(maze.toByteArray());
+    }
 }

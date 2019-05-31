@@ -31,17 +31,20 @@ import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 
-public class MyViewController implements IView  {
+public class MyViewController implements IView, Observer {
     @FXML
     public MenuButton menuCharacter;
     public MenuItem daveboy;
     public MenuItem davegirl;
 
 
+    @FXML
     private TextField heightField;
 
     @FXML
@@ -304,24 +307,32 @@ public class MyViewController implements IView  {
         mazeDisplayer.redraw();
     }
 
-//    public void saveMazeView(){
-//        TextInputDialog saveDialog = new TextInputDialog("");
-//        saveDialog.setTitle("Save");
-//        saveDialog.setHeaderText("Please enter Maze name:");
-//        Optional<String> result = saveDialog.showAndWait();
-//        result.ifPresent((name)-> {
-//            try {
-//                finishToSave(name);
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//    }
-//
-//    private void finishToSave(String name) throws FileNotFoundException {
-//        myViewModel.viewModelSaveMazeToTheDisc(name);
-//    }
+    public void saveMazeView(){
+        TextInputDialog saveDialog = new TextInputDialog("");
+        saveDialog.setTitle("Save");
+        saveDialog.setHeaderText("Please enter Maze name:");
+        Optional<String> result = saveDialog.showAndWait();
+        result.ifPresent((name)-> {
+            try {
+                finishToSave(name);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+    }
 
+    private void finishToSave(String name) throws FileNotFoundException {
+        myViewModel.viewModelSaveMazeToTheDisc(name);
+    }
+
+    public void setViewModel(MyViewModel viewModel) {
+        myViewModel = viewModel;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+
+    }
 }
 
 

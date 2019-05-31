@@ -16,6 +16,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.util.Observer;
+
 import static javafx.application.Application.launch;
 
 public class Main extends Application {
@@ -30,6 +32,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        MyModel model = new MyModel();
+        MyViewModel viewModel = new MyViewModel(model);
+        model.addObserver(viewModel);
+
         primaryStage.setTitle("~Dangerous Dave - Maze!~");
         FXMLLoader fxmlLoader = new FXMLLoader();
         Parent root = (Parent)fxmlLoader.load(this.getClass().getResource("MyView.fxml").openStream());
@@ -45,10 +51,9 @@ public class Main extends Application {
 //        primaryStage.setScene(scene);
 //        MyViewController controller =fxmlLoader.getController();
         MyViewController controller = fxmlLoader.getController();
+        controller.setViewModel(viewModel);
+        viewModel.addObserver(controller);
         controller.createLevel();
-//
-//         levelBox = new ChoiceBox<>();
-
         Scene scene = new Scene(root,800.0D, 600.0D);
         primaryStage.setScene(scene);
         scene.getStylesheets().add(getClass().getResource("ViewStyle.css").toExternalForm());
