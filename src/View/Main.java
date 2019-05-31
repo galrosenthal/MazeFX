@@ -3,12 +3,16 @@ package View;
 import Model.MyModel;
 import ViewModel.MyViewModel;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -37,11 +41,9 @@ public class Main extends Application {
 //        layout.getChildren().add(button);
 
 //        primaryStage.show();
-//        scene.getStylesheets().add(getClass().getResource("MainStyle.css").toExternalForm());
 
 //        primaryStage.setScene(scene);
 //        MyViewController controller =fxmlLoader.getController();
-
         MyViewController controller = fxmlLoader.getController();
         controller.createLevel();
 //
@@ -49,6 +51,7 @@ public class Main extends Application {
 
         Scene scene = new Scene(root,800.0D, 600.0D);
         primaryStage.setScene(scene);
+        scene.getStylesheets().add(getClass().getResource("ViewStyle.css").toExternalForm());
 
 //        levelBox.getItems().add("gal");
 //        levelBox.setValue("gal");

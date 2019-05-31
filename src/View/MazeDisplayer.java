@@ -15,6 +15,7 @@ public class MazeDisplayer extends Canvas {
     private int[][] maze;
     private int characterPositionRow = 0;
     private int characterPositionColumn = 0;
+
     private StringProperty ImageFileNameWall = new SimpleStringProperty();
     private StringProperty ImageFileNameCharacter = new SimpleStringProperty();
 

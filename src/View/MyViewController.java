@@ -1,13 +1,16 @@
 package View;
 
+import ViewModel.MyViewModel;
 import com.sun.xml.internal.bind.v2.TODO;
 import javafx.application.Application;
+import javafx.beans.property.ReadOnlyBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -23,17 +26,22 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 
-import java.awt.event.ActionEvent;
+import javax.swing.event.MenuEvent;
+import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 
-public class MyViewController implements IView {
-
-
+public class MyViewController implements IView  {
     @FXML
+    public MenuButton menuCharacter;
+    public MenuItem daveboy;
+    public MenuItem davegirl;
+
+
     private TextField heightField;
 
     @FXML
@@ -52,61 +60,59 @@ public class MyViewController implements IView {
     private CheckBox BGM_checkBox;
 
     @FXML
-    private MenuItem exitButton;
+    public MazeDisplayer mazeDisplayer;
+    @FXML
+    public Label lbl_characterRow;
+    public Label lbl_characterColumn;
+
 
     @FXML
-    public MazeDisplayer mazeDisplayer;
+    public MenuButton menuStyle;
+    public MenuItem redStyle;
+    public MenuItem blueStyle;
+    public MenuItem colorfulStyle;
+    public MenuItem brownStyle;
 
-    public Label locationLabel;
-
-
+    private MyViewModel myViewModel;
 
 
     public StringProperty characterRow = new SimpleStringProperty();
     public StringProperty characterColumn = new SimpleStringProperty();
 
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(MyViewModel myViewModel) {
         //Set Binding for Properties
-        locationLabel.textProperty().bind( characterRow);
-        locationLabel.textProperty().bind( characterColumn);
-
+        lbl_characterRow.textProperty().bind(characterRow);
+        lbl_characterColumn.textProperty().bind(characterColumn);
     }
 
     //    @FXML
 //    private Label valueError;
 
-//    @FXML
-//    private ChoiceBox<String> levelType;
 
-
-//    @FXML
-//    public void initChoiceBox(){
-//        levelType.setValue("Easy");
-//        levelType.setItems(types);
-//
-//    }
-int[][] mazeData = { // a stub...
+    int[][] mazeData = { // a stub...
 //        {0, 1, 1, 1,},
 //        {0, 0, 0, 0},
 //        {0, 0, 1, 1},
 //        {1, 1, 1, 0}
-        {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-        {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1},
-        {0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1},
-        {1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1},
-        {1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1},
-        {1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1},
-        {1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1},
-        {1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1},
-        {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1},
-        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1}
-};
+            {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+            {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1},
+            {0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1},
+            {1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1},
+            {1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1},
+            {1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1},
+            {1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1},
+            {1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1},
+            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1}
+    };
+
     public void generateMaze() {
         //int rows = Integer.valueOf(txtfld_rowsNum.getText());
         //int columns = Integer.valueOf(txtfld_columnsNum.getText());
         //this.mazeDisplayer.setMaze(getRandomMaze(rows,columns));
         this.mazeDisplayer.setMaze(mazeData);
     }
+
     public void createLevel() {
         toggleLevel = new ToggleGroup();
         levelEasy.setSelected(true);
@@ -202,70 +208,120 @@ int[][] mazeData = { // a stub...
         int characterColumnCurrentPosition = mazeDisplayer.getCharacterPositionColumn();
         int characterRowNewPosition = characterRowCurrentPosition;
         int characterColumnNewPosition = characterColumnCurrentPosition;
+        boolean isLegal = false;
 
-        if (keyEvent.getCode() == KeyCode.UP && mazeData[characterRowCurrentPosition - 1][characterColumnCurrentPosition] != 1 && characterRowCurrentPosition - 1 >= 0 ) {
-            characterRowNewPosition = characterRowCurrentPosition - 1;
+        if (keyEvent.getCode() == KeyCode.UP) {
+            if (levelEasy.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1, "upOrDown")) {
+                characterRowNewPosition = characterRowCurrentPosition - 1;
+                isLegal = true;
+            }
+            if (levelHard.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1, "upOrDown")) {
+                characterRowNewPosition = characterRowCurrentPosition + 1;
+                isLegal = true;
+
+            }
+        } else if (keyEvent.getCode() == KeyCode.DOWN) {
+            if (levelEasy.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1, "upOrDown")) {
+                characterRowNewPosition = characterRowCurrentPosition + 1;
+                isLegal = true;
+
+            }
+            if (levelHard.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1, "upOrDown")) {
+                characterRowNewPosition = characterRowCurrentPosition - 1;
+                isLegal = true;
+            }
+        } else if (keyEvent.getCode() == KeyCode.RIGHT) {
+            if (levelEasy.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1, "leftOrRight")) {
+                characterColumnNewPosition = characterColumnCurrentPosition + 1;
+                isLegal = true;
+            }
+            if (levelHard.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1, "leftOrRight")) {
+                characterColumnNewPosition = characterColumnCurrentPosition - 1;
+                isLegal = true;
+            }
+        } else if (keyEvent.getCode() == KeyCode.LEFT) {
+            if (levelEasy.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1, "leftOrRight")) {
+                characterColumnNewPosition = characterColumnCurrentPosition - 1;
+                isLegal = true;
+            }
+            if (levelHard.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1, "leftOrRight")) {
+                characterColumnNewPosition = characterColumnCurrentPosition + 1;
+                isLegal = true;
+            }
         }
-        else if (keyEvent.getCode() == KeyCode.DOWN && mazeData[characterRowCurrentPosition + 1][characterColumnCurrentPosition] != 1 && characterRowCurrentPosition + 1 < mazeData[0].length) {
-            characterRowNewPosition = characterRowCurrentPosition + 1;
-        }
-        else if (keyEvent.getCode() == KeyCode.RIGHT && mazeData[characterRowCurrentPosition][characterColumnCurrentPosition + 1] != 1 && characterColumnCurrentPosition + 1 < mazeData.length) {
-            characterColumnNewPosition = characterColumnCurrentPosition + 1;
-        }
-        else if (keyEvent.getCode() == KeyCode.LEFT && mazeData[characterRowCurrentPosition][characterColumnCurrentPosition - 1] != 1 && characterColumnCurrentPosition - 1 >= 0) {
-            characterColumnNewPosition = characterColumnCurrentPosition -1;
-        }
-        else{
+
+        if (!isLegal) {
             playSound("resources/Audio/punchWall.mp3");
             characterRowNewPosition = 0;
             characterColumnNewPosition = 0;
         }
 
-
         //Updates the MazeDisplayer
         mazeDisplayer.setCharacterPosition(characterRowNewPosition, characterColumnNewPosition);
 
         //Updates the labels
-        this.characterRow.set(characterRowNewPosition + "");
-        this.characterColumn.set(characterColumnNewPosition + "");
+        System.out.println(characterRowNewPosition + "," + characterColumnNewPosition);
+        this.characterRow.setValue(characterRowNewPosition + "");
+        this.characterColumn.setValue(characterColumnNewPosition + "");
         keyEvent.consume();
     }
 
 
-
-    public void KeyPressedHard(KeyEvent keyEvent) {
-        int characterRowCurrentPosition = mazeDisplayer.getCharacterPositionRow();
-        int characterColumnCurrentPosition = mazeDisplayer.getCharacterPositionColumn();
-        int characterRowNewPosition = characterRowCurrentPosition;
-        int characterColumnNewPosition = characterColumnCurrentPosition;
-
-        if (keyEvent.getCode() == KeyCode.UP && mazeData[characterRowCurrentPosition + 1][characterColumnCurrentPosition] != 1 && characterRowCurrentPosition + 1 >= 0 ) {
-            characterRowNewPosition = characterRowCurrentPosition + 1;
+    public boolean checkIfLegalMove(int characterRowCurrentPosition, int characterColumnCurrentPosition, int num, String side) {
+        if (side.equals("upOrDown") && mazeData[characterRowCurrentPosition + num][characterColumnCurrentPosition] != 1) {
+            return true;
         }
-        else if (keyEvent.getCode() == KeyCode.DOWN && mazeData[characterRowCurrentPosition - 1][characterColumnCurrentPosition] != 1 && characterRowCurrentPosition - 1 < mazeData[0].length) {
-            characterRowNewPosition = characterRowCurrentPosition - 1;
+        if (side.equals("leftOrRight") && mazeData[characterRowCurrentPosition][characterColumnCurrentPosition + num] != 1) {
+            return true;
         }
-        else if (keyEvent.getCode() == KeyCode.RIGHT && mazeData[characterRowCurrentPosition][characterColumnCurrentPosition - 1] != 1 && characterColumnCurrentPosition - 1 < mazeData.length) {
-            characterColumnNewPosition = characterColumnCurrentPosition - 1;
-        }
-        else if (keyEvent.getCode() == KeyCode.LEFT && mazeData[characterRowCurrentPosition][characterColumnCurrentPosition + 1] != 1 && characterColumnCurrentPosition + 1 >= 0) {
-            characterColumnNewPosition = characterColumnCurrentPosition + 1;
-        }
-        else{
-            playSound("resources/Audio/punchWall.mp3");
-            characterRowNewPosition = 0;
-            characterColumnNewPosition = 0;
-        }
-
-
-        //Updates the MazeDisplayer
-        mazeDisplayer.setCharacterPosition(characterRowNewPosition, characterColumnNewPosition);
-
-        //Updates the labels
-        this.characterRow.set(characterRowNewPosition + "");
-        this.characterColumn.set(characterColumnNewPosition + "");
-        keyEvent.consume();
+        return false;
     }
 
+    public void changeStyleToBlue () {
+        this.mazeDisplayer.setImageFileNameWall("resources/Images/blueWall.jpg");
+        mazeDisplayer.redraw();
+        }
+    public void changeStyleToRed() {
+        this.mazeDisplayer.setImageFileNameWall("resources/Images/redWall.jpg");
+        mazeDisplayer.redraw();
+    }
+    public void changeStyleTobrown() {
+        this.mazeDisplayer.setImageFileNameWall("resources/Images/brownWall.jpg");
+        mazeDisplayer.redraw();
+    }
+    public void changeStyleToColorful() {
+        this.mazeDisplayer.setImageFileNameWall("resources/Images/ColorfulWall.jpg");
+        mazeDisplayer.redraw();
+    }
+
+    public void changeToDave(ActionEvent actionEvent) {
+        mazeDisplayer.setImageFileNameCharacter("resources/Images/dave.png");
+        mazeDisplayer.redraw();
+    }
+
+    public void changeToLily(ActionEvent actionEvent) {
+        mazeDisplayer.setImageFileNameCharacter("resources/Images/dave_girl.png");
+        mazeDisplayer.redraw();
+    }
+
+//    public void saveMazeView(){
+//        TextInputDialog saveDialog = new TextInputDialog("");
+//        saveDialog.setTitle("Save");
+//        saveDialog.setHeaderText("Please enter Maze name:");
+//        Optional<String> result = saveDialog.showAndWait();
+//        result.ifPresent((name)-> {
+//            try {
+//                finishToSave(name);
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//    }
+//
+//    private void finishToSave(String name) throws FileNotFoundException {
+//        myViewModel.viewModelSaveMazeToTheDisc(name);
+//    }
 
 }
+
+
