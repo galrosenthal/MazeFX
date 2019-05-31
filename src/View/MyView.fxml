@@ -128,15 +128,15 @@
                   <Font name="Georgia Bold Italic" size="14.0" />
                </font>
             </Text>
-            <CheckBox fx:id="BGM_checkBox" layoutX="18.0" layoutY="264.0" mnemonicParsing="false" onAction="#backgroundMusicStatus" selected="true" text="  play music" AnchorPane.rightAnchor="50.666666666666686" AnchorPane.topAnchor="264.0">
+            <CheckBox fx:id="BGM_checkBox" layoutX="18.0" layoutY="285.0" mnemonicParsing="false" onAction="#backgroundMusicStatus" selected="true" text="  play music" AnchorPane.rightAnchor="50" AnchorPane.topAnchor="264.0">
                <effect>
-                  <SepiaTone level="0.56" />
+                  <SepiaTone level="1.0" />
                </effect>
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </CheckBox>
-            <Text layoutX="8.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please choose your style:">
+            <Text layoutX="8.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please choose your style:">
                <font>
                   <Font name="Georgia Bold Italic" size="14.0" />
                </font>
@@ -146,7 +146,7 @@
                   <Font name="Georgia Bold Italic" size="12.0" />
                </font>
             </Text>
-            <MenuButton fx:id="menuStyle" layoutX="65.0" layoutY="415.0" mnemonicParsing="false" text="Style">
+            <MenuButton fx:id="menuStyle" layoutX="65.0" layoutY="405.0" mnemonicParsing="false" text="Style">
                <items>
                   <MenuItem fx:id="redStyle" mnemonicParsing="false"  onAction="#changeStyleToRed" text="Red" />
                   <MenuItem fx:id="blueStyle"  mnemonicParsing="false" onAction="#changeStyleToBlue" text="Blue" />
