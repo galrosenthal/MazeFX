@@ -1,0 +1,5 @@
+.root {
+    -fx-background-image:url("../Images/wallpaper3.jpeg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+}
