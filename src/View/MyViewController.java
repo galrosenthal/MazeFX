@@ -78,6 +78,7 @@ public class MyViewController implements IView, Observer {
 
     private MyViewModel myViewModel;
 
+    public String name = "Dave";
 
     public StringProperty characterRow = new SimpleStringProperty();
     public StringProperty characterColumn = new SimpleStringProperty();
@@ -236,6 +237,7 @@ public class MyViewController implements IView, Observer {
         } else if (keyEvent.getCode() == KeyCode.RIGHT) {
             if (levelEasy.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1, "leftOrRight")) {
                 characterColumnNewPosition = characterColumnCurrentPosition + 1;
+                mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + ".png");
                 isLegal = true;
             }
             if (levelHard.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1, "leftOrRight")) {
@@ -245,6 +247,8 @@ public class MyViewController implements IView, Observer {
         } else if (keyEvent.getCode() == KeyCode.LEFT) {
             if (levelEasy.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1, "leftOrRight")) {
                 characterColumnNewPosition = characterColumnCurrentPosition - 1;
+                mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
+
                 isLegal = true;
             }
             if (levelHard.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1, "leftOrRight")) {
@@ -253,11 +257,17 @@ public class MyViewController implements IView, Observer {
             }
         }
 
-        if (!isLegal) {
+        if (!isLegal && (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.RIGHT)) {
             playSound("resources/Audio/punchWall.mp3");
             characterRowNewPosition = 0;
             characterColumnNewPosition = 0;
         }
+
+//        else if(!isLegal){
+//            Alert alert = new Alert(Alert.AlertType.WARNING, "You pressed on illegal button.\n Please read the instructions and try again. ", ButtonType.OK);
+//            alert.setTitle("WARNING");
+//            alert.showAndWait();
+//        }
 
         //Updates the MazeDisplayer
         mazeDisplayer.setCharacterPosition(characterRowNewPosition, characterColumnNewPosition);
@@ -271,48 +281,53 @@ public class MyViewController implements IView, Observer {
 
 
     public boolean checkIfLegalMove(int characterRowCurrentPosition, int characterColumnCurrentPosition, int num, String side) {
-        if (side.equals("upOrDown") && mazeData[characterRowCurrentPosition + num][characterColumnCurrentPosition] != 1) {
+        if (side.equals("upOrDown") && mazeData[characterRowCurrentPosition + num][characterColumnCurrentPosition] != 1 && mazeData[characterRowCurrentPosition + num][characterColumnCurrentPosition] >= 0 && mazeData[characterRowCurrentPosition + num][characterColumnCurrentPosition] < mazeData[0].length) {
             return true;
         }
-        if (side.equals("leftOrRight") && mazeData[characterRowCurrentPosition][characterColumnCurrentPosition + num] != 1) {
+        if (side.equals("leftOrRight") && mazeData[characterRowCurrentPosition][characterColumnCurrentPosition + num] != 1 && mazeData[characterRowCurrentPosition][characterColumnCurrentPosition + num] >= 0 && mazeData[characterRowCurrentPosition][characterColumnCurrentPosition + num] < mazeData.length) {
             return true;
         }
         return false;
     }
 
-    public void changeStyleToBlue () {
+    public void changeStyleToBlue() {
         this.mazeDisplayer.setImageFileNameWall("resources/Images/blueWall.jpg");
         mazeDisplayer.redraw();
-        }
+    }
+
     public void changeStyleToRed() {
         this.mazeDisplayer.setImageFileNameWall("resources/Images/redWall.jpg");
         mazeDisplayer.redraw();
     }
+
     public void changeStyleTobrown() {
         this.mazeDisplayer.setImageFileNameWall("resources/Images/brownWall.jpg");
         mazeDisplayer.redraw();
     }
+
     public void changeStyleToColorful() {
         this.mazeDisplayer.setImageFileNameWall("resources/Images/ColorfulWall.jpg");
         mazeDisplayer.redraw();
     }
 
     public void changeToDave(ActionEvent actionEvent) {
+        name = "dave";
         mazeDisplayer.setImageFileNameCharacter("resources/Images/dave.png");
         mazeDisplayer.redraw();
     }
 
     public void changeToLily(ActionEvent actionEvent) {
-        mazeDisplayer.setImageFileNameCharacter("resources/Images/dave_girl.png");
+        name = "lily";
+        mazeDisplayer.setImageFileNameCharacter("resources/Images/lily.png");
         mazeDisplayer.redraw();
     }
 
-    public void saveMazeView(){
+    public void saveMazeView() {
         TextInputDialog saveDialog = new TextInputDialog("");
         saveDialog.setTitle("Save");
         saveDialog.setHeaderText("Please enter Maze name:");
         Optional<String> result = saveDialog.showAndWait();
-        result.ifPresent((name)-> {
+        result.ifPresent((name) -> {
             try {
                 finishToSave(name);
             } catch (FileNotFoundException e) {
