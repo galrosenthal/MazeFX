@@ -3,6 +3,7 @@ package View;
 import ViewModel.MyViewModel;
 import com.sun.xml.internal.bind.v2.TODO;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -24,6 +25,7 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 
 import javax.swing.event.MenuEvent;
@@ -192,8 +194,8 @@ public class MyViewController implements IView, Observer {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.YES) {
             playSound("resources/Audio/goodBye.mp3");
-            Thread.sleep(850);
-            System.exit(0);
+            Thread.sleep(855);
+            Platform.exit();
         }
     }
 
@@ -241,6 +243,7 @@ public class MyViewController implements IView, Observer {
                 isLegal = true;
             }
             if (levelHard.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1, "leftOrRight")) {
+                mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
                 characterColumnNewPosition = characterColumnCurrentPosition - 1;
                 isLegal = true;
             }
@@ -248,11 +251,11 @@ public class MyViewController implements IView, Observer {
             if (levelEasy.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1, "leftOrRight")) {
                 characterColumnNewPosition = characterColumnCurrentPosition - 1;
                 mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
-
                 isLegal = true;
             }
             if (levelHard.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1, "leftOrRight")) {
                 characterColumnNewPosition = characterColumnCurrentPosition + 1;
+                mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + ".png");
                 isLegal = true;
             }
         }
@@ -348,6 +351,8 @@ public class MyViewController implements IView, Observer {
     public void update(Observable o, Object arg) {
 
     }
+
+
 }
 
 

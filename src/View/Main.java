@@ -3,6 +3,7 @@ package View;
 import Model.MyModel;
 import ViewModel.MyViewModel;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -50,7 +51,6 @@ public class Main extends Application {
 
         //Layout 1 - children laid out in vertical column
         VBox layout1 = new VBox(0);
-        VBox layout2 = new VBox(0);
         Image imageStart = new Image(new FileInputStream("resources/Images/start.gif"));
         ImageView sImage = new ImageView(imageStart);
         Image imageLoad = new Image(new FileInputStream("resources/Images/StartIcon.png"));
@@ -58,7 +58,7 @@ public class Main extends Application {
         Image imageMaze = new Image(new FileInputStream("resources/Images/mazeCover.png"));
         ImageView mImage = new ImageView(imageMaze);
         lImage.setOnMouseClicked(e -> primaryStage.setScene(scene2));
-        lImage.setY(500);
+
         layout1.getChildren().addAll(sImage,mImage,lImage);
         layout1.setAlignment(Pos.CENTER);
 
@@ -70,7 +70,6 @@ public class Main extends Application {
         // set background
         layout1.setBackground(background);
         scene1 = new Scene(layout1, 600, 600);
-
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         Parent root = (Parent)fxmlLoader.load(this.getClass().getResource("MyView.fxml").openStream());

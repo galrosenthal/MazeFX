@@ -23,7 +23,7 @@
 <?import javafx.scene.text.Text?>
 <?import View.MazeDisplayer?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#KeyPressedEasy" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#KeyPressedEasy" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.201" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
     <top>
         <MenuBar prefWidth="564.0" BorderPane.alignment="CENTER">
             <menus>
@@ -61,7 +61,7 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <GridPane layoutX="10.0" layoutY="45.0" prefHeight="210.0" prefWidth="180.0" style="-fx-background-color: linear-gradient(#FF512F, #DD2476); -fx-background-radius: 10; -fx-border-image-width: 5;">
+                <GridPane layoutX="10.0" layoutY="45.0" prefHeight="210.0" prefWidth="185.0" style="-fx-background-color: linear-gradient(#FF512F, #DD2476); -fx-background-radius: 10; -fx-border-image-width: 5;">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="104.00000762939453" />
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="67.99999237060547" />
@@ -92,7 +92,7 @@
                         <TextField fx:id="heightField" layoutX="10.0" layoutY="9.0" prefHeight="25.0" prefWidth="30.0" text="5" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                         <TextField fx:id="widthField" prefHeight="25.0" prefWidth="30.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <!--GridPane.columnSpan="2" GridPane.halignment="CENTER"-->
-                        <ImageView layoutX="20.0" layoutY="300.0" onMouseClicked="#generateMaze" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+                        <ImageView layoutX="20.0" layoutY="300.0" onMouseClicked="#generateMaze" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                             <image>
                                 <Image url="http://i66.tinypic.com/351wtqe.jpg" />
                             </image>
@@ -102,7 +102,7 @@
                                 <Image url="http://i63.tinypic.com/262mt7s.png" />
                             </image>
                         </ImageView>
-                        <ImageView layoutX="20.0" layoutY="300.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+                        <ImageView layoutX="20.0" layoutY="300.0" GridPane.columnIndex="0"  GridPane.halignment="CENTER" GridPane.rowIndex="3">
                             <image>
                                 <Image url="http://i68.tinypic.com/1zgaudh.png" />
                             </image>
