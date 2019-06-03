@@ -1,12 +1,12 @@
 package Model;
 
-
-import algorithms.mazeGenerators.Maze;
-import algorithms.search.ISearchable;
-import algorithms.search.Solution;
+import java.io.FileNotFoundException;
 
 public interface IModel {
-//    Maze getGeneratedMaze();
-//    Solution getSolution(ISearchable mySolveAble);
+    void generateMaze(int height, int width);
 
+    void modelSaveMazeToDisk(String file);
+
+
+//    void generateMaze(int height, int width);
 }
