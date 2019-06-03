@@ -23,10 +23,25 @@ import java.util.Observer;
 
 public class MyModel extends Observable implements IModel {
     private Maze maze;
+    private Solution solution;
+
+    public Solution getSolution()
+    {
+        if(solution != null)
+            return solution;
+        else
+            return null;
+    }
+
+    public void setSolution(Solution solution) {
+        this.solution = solution;
+    }
+
     private Server generator;
     private Server solver;
     private int characterRowCurrentPosition;
     private int characterColumnCurrentPosition;
+    private boolean finishedGame = false;
 
     public MyModel() {
 
@@ -41,68 +56,73 @@ public class MyModel extends Observable implements IModel {
     }
 
 
-    public boolean isWon(Position pos)
+    public boolean isWon()
     {
-        return pos.equals(maze.getGoalPosition());
+        return characterRowCurrentPosition == maze.getGoalPosition().getRowIndex() && characterColumnCurrentPosition == maze.getGoalPosition().getColumnIndex();
     }
 
     @Override
     public void MoveCharacterEasy(KeyEvent keyEvent, int level) {
 
         boolean isLegal = false;
-
-        if (keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.NUMPAD8) {
-            if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1*level, "upOrDown")) {
-                characterRowCurrentPosition = characterRowCurrentPosition - 1*level;
-                isLegal = true;
-            }
-
-        } else if (keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.NUMPAD2) {
-            if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1*level, "upOrDown")) {
-                characterRowCurrentPosition = characterRowCurrentPosition + 1*level;
-                isLegal = true;
-
-            }
-
-        } else if (keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD6) {
-            if ( checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1*level, "leftOrRight")) {
-                characterColumnCurrentPosition = characterColumnCurrentPosition + 1*level;
-                isLegal = true;
-            }
-
-        } else if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.NUMPAD4) {
-            if ( checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1*level, "leftOrRight")) {
-                characterColumnCurrentPosition = characterColumnCurrentPosition - 1*level;
-                isLegal = true;
-            }
-
-        } else if (keyEvent.getCode() == KeyCode.NUMPAD7) {
-            if ( checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1*level, "leftOrRight")) {
-                characterColumnCurrentPosition = characterColumnCurrentPosition + 1*level;
-                isLegal = true;
-            }
-
-        }
-
-        if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.UP
-                || keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD8 || keyEvent.getCode() == KeyCode.NUMPAD2
-                || keyEvent.getCode() == KeyCode.NUMPAD4 || keyEvent.getCode() == KeyCode.NUMPAD6)
+        if(isWon())
         {
-            if (!isLegal) {
-                playSound("resources/Audio/punchWall.mp3");
-                characterRowCurrentPosition = maze.getStartPosition().getRowIndex();
-                characterColumnCurrentPosition = maze.getStartPosition().getColumnIndex();
-            }
+            keyEvent.consume();
+            finishedGame = true;
         }
 
-        setChanged();
-        notifyObservers();
+        if(!finishedGame) {
+            if (keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.NUMPAD8) {
+                if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1 * level, "upOrDown")) {
+                    characterRowCurrentPosition = characterRowCurrentPosition - 1 * level;
+                    isLegal = true;
+                }
+
+            } else if (keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.NUMPAD2) {
+                if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1 * level, "upOrDown")) {
+                    characterRowCurrentPosition = characterRowCurrentPosition + 1 * level;
+                    isLegal = true;
+
+                }
+
+            } else if (keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD6) {
+                if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1 * level, "leftOrRight")) {
+                    characterColumnCurrentPosition = characterColumnCurrentPosition + 1 * level;
+                    isLegal = true;
+                }
+
+            } else if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.NUMPAD4) {
+                if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1 * level, "leftOrRight")) {
+                    characterColumnCurrentPosition = characterColumnCurrentPosition - 1 * level;
+                    isLegal = true;
+                }
+
+            } else if (keyEvent.getCode() == KeyCode.NUMPAD7) {
+                if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1 * level, "leftOrRight")) {
+                    characterColumnCurrentPosition = characterColumnCurrentPosition + 1 * level;
+                    isLegal = true;
+                }
+
+            }
+
+            if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.UP
+                    || keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD8 || keyEvent.getCode() == KeyCode.NUMPAD2
+                    || keyEvent.getCode() == KeyCode.NUMPAD4 || keyEvent.getCode() == KeyCode.NUMPAD6) {
+                if (!isLegal) {
+                    playSound("resources/Audio/punchWall.mp3");
+                    characterRowCurrentPosition = maze.getStartPosition().getRowIndex();
+                    characterColumnCurrentPosition = maze.getStartPosition().getColumnIndex();
+                }
+            }
+
+            setChanged();
+            notifyObservers();
 
 
-        //Updates the MazeDisplayer
+            //Updates the MazeDisplayer
 
-        //Updates the labels
-
+            //Updates the labels
+        }
 
     }
 
@@ -144,12 +164,46 @@ public class MyModel extends Observable implements IModel {
     @Override
     public void generateMaze(int height, int width) {
         callClientGenerateMaze(height,width);
+        finishedGame = false;
         characterRowCurrentPosition = maze.getStartPosition().getRowIndex();
         characterColumnCurrentPosition = maze.getStartPosition().getColumnIndex();
         setChanged();
         notifyObservers();
 
 
+    }
+
+
+
+    public void solveGame()
+    {
+        callClientSolveMaze();
+        setChanged();
+        notifyObservers();
+    }
+
+    private void callClientSolveMaze() {
+        try {
+            Client client = new Client(InetAddress.getLocalHost(), 5401, new IClientStrategy() {
+                public void clientStrategy(InputStream inFromServer, OutputStream outToServer) {
+                    try {
+                        ObjectOutputStream toServer = new ObjectOutputStream(outToServer);
+                        ObjectInputStream fromServer = new ObjectInputStream(inFromServer);
+                        toServer.flush();
+                        toServer.writeObject(maze);
+                        toServer.flush();
+                        Solution mazeSolution = (Solution)fromServer.readObject();
+                        System.out.println(String.format("Solution steps: %s", mazeSolution));
+                    } catch (Exception var6) {
+                        var6.printStackTrace();
+                    }
+
+                }
+            });
+            client.communicateWithServer();
+        } catch (UnknownHostException var2) {
+            var2.printStackTrace();
+        }
     }
 
     private void callClientGenerateMaze(final int row, final int col) {
@@ -194,5 +248,12 @@ public class MyModel extends Observable implements IModel {
     public void playSound(String fileName) {
         AudioClip sound = new AudioClip(new File(fileName).toURI().toString());
         sound.play();
+
+    }
+
+    @Override
+    public void closeGame() {
+        generator.stop();
+        solver.stop();
     }
 }

@@ -5,6 +5,7 @@ import Model.MyModel;
 import View.MazeDisplayer;
 import algorithms.mazeGenerators.Maze;
 import algorithms.mazeGenerators.Position;
+import algorithms.search.Solution;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.input.KeyEvent;
@@ -60,4 +61,19 @@ public class MyViewModel extends Observable implements Observer {
         model.playSound(s);
     }
 
+    public boolean gameWon() {
+        return model.isWon();
+    }
+
+    public void closeGame() {
+        model.closeGame();
+    }
+
+    public void solveGame() {
+        model.solveGame();
+    }
+
+    public Solution getSolution() {
+        return model.getSolution();
+    }
 }

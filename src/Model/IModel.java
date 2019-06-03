@@ -5,6 +5,7 @@ import algorithms.mazeGenerators.Maze;
 import javax.swing.*;
 
 import algorithms.mazeGenerators.Position;
+import algorithms.search.Solution;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -20,8 +21,14 @@ public interface IModel {
     void MoveCharacterEasy(KeyEvent key, int level);
 
     Position getPosition();
-    boolean isWon(Position nextPos);
+    boolean isWon();
     void playSound(String s);
+
+    void closeGame();
+
+    void solveGame();
+
+    Solution getSolution();
 
 //    void generateMaze(int height, int width);
 }

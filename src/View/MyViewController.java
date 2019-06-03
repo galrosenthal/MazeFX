@@ -1,6 +1,8 @@
 package View;
 
 import ViewModel.MyViewModel;
+import algorithms.mazeGenerators.Maze;
+import algorithms.search.Solution;
 import com.sun.xml.internal.bind.v2.TODO;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -70,6 +72,7 @@ public class MyViewController implements IView, Observer {
 
     @FXML
     public MazeDisplayer mazeDisplayer;
+    public SolutionDisplayer solDisplayer;
     @FXML
     public Label lbl_characterRow;
     public Label lbl_characterColumn;
@@ -91,10 +94,11 @@ public class MyViewController implements IView, Observer {
 
     public BorderPane mainPane;
     public Pane mazePane;
-
+    private boolean finishedAlready;
 
 
     public void initialize(MyViewModel myViewModel) {
+        finishedAlready = false;
         //Set Binding for Properties
         lbl_characterRow.textProperty().bind(characterRow);
         lbl_characterColumn.textProperty().bind(characterColumn);
@@ -109,6 +113,9 @@ public class MyViewController implements IView, Observer {
         mazeDisplayer.widthProperty().addListener((obs,oldVal,newVal)->{
             redrawMazeOnZoom();
         });
+
+
+
 
     }
 
@@ -134,11 +141,18 @@ public class MyViewController implements IView, Observer {
 //            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1}
 //    };
 
+    public void solveMaze()
+    {
+        myViewModel.solveGame();
+
+    }
+
     public void generateMaze() {
         //int rows = Integer.valueOf(txtfld_rowsNum.getText());
         //int columns = Integer.valueOf(txtfld_columnsNum.getText());
         //this.mazeDisplayer.setMaze(getRandomMaze(rows,columns));
         myViewModel.generateMaze(Integer.parseInt(heightField.getText()),Integer.parseInt(widthField.getText()));
+        finishedAlready = false;
 
 //        this.mazeDisplayer.setMaze(mazeData);
     }
@@ -204,6 +218,8 @@ public class MyViewController implements IView, Observer {
 
     }
 
+
+
     public void backgroundMusicStatus() {
         if (BGM_checkBox.isSelected()) {
             mediaPlayer.play();
@@ -218,6 +234,7 @@ public class MyViewController implements IView, Observer {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.YES) {
             myViewModel.playSound("resources/Audio/goodBye.mp3");
+            myViewModel.closeGame();
             Thread.sleep(855);
             Platform.exit();
         }
@@ -225,7 +242,7 @@ public class MyViewController implements IView, Observer {
     
 
 
-    public void mouseClicked(MouseEvent mouseEvent) {
+     public void mouseClicked(MouseEvent mouseEvent) {
         mazeDisplayer.requestFocus();
     }
 
@@ -268,14 +285,30 @@ public class MyViewController implements IView, Observer {
         }
         myViewModel.moveCharacter(keyEvent,level);
 
+        if(myViewModel.gameWon() && !finishedAlready)
+        {
+            mediaPlayer.stop();
+            playSpecificSound("resources/Audio/woohoo.wav");
+            Alert EndGame = new Alert(Alert.AlertType.INFORMATION,"Congratulations!!! You have Won the Game, Dave is Resuced =)");
+            EndGame.setTitle("Congratulations");
+            EndGame.showAndWait();
+            finishedAlready = true;
+
+
+        }
 //        mazeDisplayer.setCharacterPosition(ch);
 
 
 //        System.out.println(characterRowNewPosition + "," + characterColumnNewPosition);
-        this.characterRow.setValue("");
-        this.characterColumn.setValue( "");
+        this.characterRow.setValue(String.valueOf(mazeDisplayer.getCharacterPositionRow()));
+        this.characterColumn.setValue(String.valueOf(mazeDisplayer.getCharacterPositionColumn()));
         keyEvent.consume();
 
+    }
+
+    private void playSpecificSound(String musicPath) {
+        AudioClip sound = new AudioClip(new File(musicPath).toURI().toString());
+        sound.play();
     }
 
 
@@ -415,9 +448,19 @@ public class MyViewController implements IView, Observer {
     public void update(Observable o, Object arg) {
         if(o == myViewModel)
         {
-            mazeDisplayer.setMaze(myViewModel.getMaze());
-            mazeDisplayer.setCharacterPosition(myViewModel.getPosition());
-            System.out.println("New Row=" + myViewModel.getPosition().getRowIndex() + ", New Col=" + myViewModel.getPosition().getColumnIndex());
+            Maze testMaze = myViewModel.getMaze();
+            if(testMaze != null) {
+                mazeDisplayer.setMaze(myViewModel.getMaze());
+                mazeDisplayer.setCharacterPosition(myViewModel.getPosition());
+                System.out.println("New Row=" + myViewModel.getPosition().getRowIndex() + ", New Col=" + myViewModel.getPosition().getColumnIndex());
+            }
+            Solution testSolution = myViewModel.getSolution();
+
+            if(testSolution != null)
+            {
+                solDisplayer.drawSolution(myViewModel.getMaze());
+            }
+
 
         }
 

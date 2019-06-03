@@ -92,6 +92,17 @@ public class Main extends Application {
 //        choiceBox.getItems().addAll("Easy", "Hard");
         controller.playMusic();
         primaryStage.show();
+
+        primaryStage.setOnCloseRequest(e -> {
+            e.consume();
+            try {
+                controller.exitFromTheGame(e);
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
+        });
     }
 
 
