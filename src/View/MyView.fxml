@@ -1,8 +1,232 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="View.MyViewController"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="100" vgap="100">
-</GridPane>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.SepiaTone?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import View.MazeDisplayer?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#KeyPressedEasy" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.201" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
+    <top>
+        <MenuBar prefWidth="564.0" BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#generateMaze" text="New    Ctr+G" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Load    Ctr+L" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveMazeView" text="Save    Ctr+S" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="exitButton" mnemonicParsing="false" onAction="#exitFromTheGame" text="EXIT" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Info">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Properties">
+                        </MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                        <MenuItem mnemonicParsing="false" onAction="#openInstructions" text="Instructions" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <left>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="410.0" prefWidth="201.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" layoutX="155.0" layoutY="180.0" textAlignment="CENTER">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <GridPane layoutX="10.0" layoutY="45.0" prefHeight="210.0" prefWidth="185.0" style="-fx-background-color: linear-gradient(#FF512F, #DD2476); -fx-background-radius: 10; -fx-border-image-width: 5;">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="104.00000762939453" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="67.99999237060547" />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label prefHeight="17.0" prefWidth="309.0" text="        height" textAlignment="CENTER" textOverrun="CLIP" GridPane.hgrow="SOMETIMES">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                            <GridPane.margin>
+                                <Insets />
+                            </GridPane.margin>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="13.0" prefHeight="17.0" prefWidth="309.0" text="        width" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="heightField" layoutX="10.0" layoutY="9.0" prefHeight="25.0" prefWidth="30.0" text="5" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                        <TextField fx:id="widthField" prefHeight="25.0" prefWidth="30.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <!--GridPane.columnSpan="2" GridPane.halignment="CENTER"-->
+                        <ImageView layoutX="20.0" layoutY="300.0" onMouseClicked="#generateMaze" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                            <image>
+                                <Image url="http://i66.tinypic.com/351wtqe.jpg" />
+                            </image>
+                        </ImageView>
+                        <ImageView layoutX="20.0" layoutY="300.0" onMouseClicked="#generateMaze" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                            <image>
+                                <Image url="http://i63.tinypic.com/262mt7s.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView layoutX="20.0" layoutY="300.0" GridPane.columnIndex="0"  GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                            <image>
+                                <Image url="http://i68.tinypic.com/1zgaudh.png" />
+                            </image>
+                        </ImageView>
+
+                        <ImageView layoutX="20.0" layoutY="300.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                            <image>
+                                <Image url="http://i63.tinypic.com/262mt7s.png" />
+                            </image>
+                        </ImageView>
+                        <!--<Button id="geneButton" mnemonicParsing="false" onAction="#generateMaze" prefHeight="25.0" prefWidth="170.0" text="Generate Maze" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />-->
+                        <!--<Button mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" text="Solve Maze" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />-->
+                        <Label prefHeight="21.0" prefWidth="107.0" text="   My Location:" GridPane.rowIndex="4">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="lbl_characterRow" text="#" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                        <Label fx:id="lbl_characterColumn" text="#" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </GridPane>
+                <GridPane layoutY="265.0" prefWidth="200.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Your Level:" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="Georgia Bold Italic" size="14.0" />
+                            </font>
+                        </Text>
+                        <CheckBox fx:id="BGM_checkBox" mnemonicParsing="false" onAction="#backgroundMusicStatus" selected="true" text="  play music" GridPane.halignment="CENTER">
+                            <effect>
+                                <SepiaTone level="1.0" />
+                            </effect>
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </CheckBox>
+                        <RadioButton fx:id="levelEasy" mnemonicParsing="false" onKeyPressed="#KeyPressedEasy" text="Easy" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                            <padding>
+                                <Insets right="10.0" />
+                            </padding>
+                            <GridPane.margin>
+                                <Insets left="25.0" />
+                            </GridPane.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="levelHard" mnemonicParsing="false" onKeyPressed="#KeyPressedEasy" text="Hard" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                            <GridPane.margin>
+                                <Insets right="28.0" />
+                            </GridPane.margin>
+                        </RadioButton>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Please choose your style:" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                            <font>
+                                <Font name="Georgia Bold Italic" size="14.0" />
+                            </font>
+                        </Text>
+                        <MenuButton fx:id="menuStyle" mnemonicParsing="false" text="Style" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+                            <items>
+                                <MenuItem fx:id="redStyle" mnemonicParsing="false" onAction="#changeStyleToRed" text="Red" />
+                                <MenuItem fx:id="blueStyle" mnemonicParsing="false" onAction="#changeStyleToBlue" text="Blue" />
+                                <MenuItem fx:id="brownStyle" mnemonicParsing="false" onAction="#changeStyleTobrown" text="Brown" />
+                                <MenuItem fx:id="colorfulStyle" mnemonicParsing="false" onAction="#changeStyleToColorful" text="Colorful" />
+                            </items>
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </MenuButton>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Please choose your character:" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+                            <font>
+                                <Font name="Georgia Bold Italic" size="12.0" />
+                            </font>
+                        </Text>
+                        <MenuButton fx:id="menuCharacter" mnemonicParsing="false" text="Character" GridPane.halignment="CENTER" GridPane.rowIndex="8">
+                            <items>
+                                <MenuItem fx:id="daveboy" mnemonicParsing="false" onAction="#changeToDave" text="Dave" />
+                                <MenuItem fx:id="davegirl" mnemonicParsing="false" onAction="#changeToLily" text="Lily" />
+
+                            </items>
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </MenuButton>
+                    </children>
+                </GridPane>
+
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <Pane prefHeight="2865.0" prefWidth="4075.0" style="-fx-border-width: 4; -fx-background-color: black;" BorderPane.alignment="CENTER">
+            <children>
+                <MazeDisplayer fx:id="mazeDisplayer" height="600.0" imageFileNameCharacter="resources/Images/dave.png" imageFileNameWall="resources/Images/redWall.jpg" onMouseClicked="#mouseClicked" width="600.0" />
+
+                <Text fx:id="valueError" fill="RED" layoutX="138.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong Values!" visible="false">
+                    <font>
+                        <Font name="Georgia Bold Italic" size="14.0" />
+                    </font>
+                </Text>
+            </children></Pane>
+    </center>
+</BorderPane>
