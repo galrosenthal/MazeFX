@@ -84,9 +84,6 @@ public class Main extends Application {
         primaryStage.setScene(scene1);
         scene2.getStylesheets().add(getClass().getResource("ViewStyle.css").toExternalForm());
 
-
-
-
 //        levelBox.getItems().add("gal");
 //        levelBox.setValue("gal");
 //        choiceBox.getItems().addAll("Easy", "Hard");

@@ -13,6 +13,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -26,6 +27,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import javafx.stage.WindowEvent;
 
 
 import javax.swing.event.MenuEvent;
@@ -188,7 +190,7 @@ public class MyViewController implements IView, Observer {
         }
     }
 
-    public void exitFromTheGame() throws InterruptedException {
+    public void exitFromTheGame(WindowEvent event) throws InterruptedException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to exit?", ButtonType.YES, ButtonType.NO);
         alert.setTitle("EXIT");
         Optional<ButtonType> result = alert.showAndWait();
@@ -198,7 +200,7 @@ public class MyViewController implements IView, Observer {
             Platform.exit();
         }
     }
-
+    
     public void playSound(String fileName) {
         AudioClip sound = new AudioClip(new File(fileName).toURI().toString());
         sound.play();

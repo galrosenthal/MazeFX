@@ -3,8 +3,3 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover, auto;
 }
-.layout1 {
-    -fx-background-image:url("../Images/Wall2.jpg");
-    /*-fx-background-repeat: no-repeat;*/
-    -fx-background-size: cover, auto;
-}
