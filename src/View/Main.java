@@ -77,10 +77,13 @@ public class Main extends Application {
 //        scene.getStylesheets().clear();
 
         MyViewController controller = fxmlLoader.getController();
+        controller.initialize(viewModel);
         controller.setViewModel(viewModel);
         viewModel.addObserver(controller);
         controller.createLevel();
         scene2 = new Scene(root,800.0D, 600.0D);
+        primaryStage.setMinWidth(800);
+        primaryStage.setMinHeight(650);
         primaryStage.setScene(scene1);
         scene2.getStylesheets().add(getClass().getResource("ViewStyle.css").toExternalForm());
 

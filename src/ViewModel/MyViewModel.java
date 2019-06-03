@@ -3,8 +3,11 @@ package ViewModel;
 import Model.IModel;
 import Model.MyModel;
 import View.MazeDisplayer;
+import algorithms.mazeGenerators.Maze;
+import algorithms.mazeGenerators.Position;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.input.KeyEvent;
 
 import java.io.FileNotFoundException;
 import java.util.Observable;
@@ -22,12 +25,21 @@ public class MyViewModel extends Observable implements Observer {
 //    }
 
 
+    public Maze getMaze(){
+        return model.getMaze();
+    }
 
-    public void generateMaze() {
+    public void generateMaze(int row,int col) {
+        model.generateMaze(row,col);
 
     }
     @Override
     public void update(Observable o, Object arg) {
+        if(o == model)
+        {
+            setChanged();
+            notifyObservers();
+        }
 
     }
 
@@ -36,5 +48,16 @@ public class MyViewModel extends Observable implements Observer {
     }
 
 
+    public void moveCharacter(KeyEvent keyEvent,int level) {
+        model.MoveCharacterEasy(keyEvent, level);
+    }
+
+    public Position getPosition(){
+        return model.getPosition();
+    }
+
+    public void playSound(String s) {
+        model.playSound(s);
+    }
 
 }
