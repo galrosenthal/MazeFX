@@ -30,5 +30,7 @@ public interface IModel {
 
     Solution getSolution();
 
+    void loadMaze(String Path);
+
 //    void generateMaze(int height, int width);
 }

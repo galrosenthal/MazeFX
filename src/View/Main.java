@@ -96,7 +96,7 @@ public class Main extends Application {
         primaryStage.setOnCloseRequest(e -> {
             e.consume();
             try {
-                controller.exitFromTheGame(e);
+                controller.exitFromTheGame();
             }
             catch (Exception ex)
             {
