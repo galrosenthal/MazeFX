@@ -32,7 +32,6 @@ public class GameDisplayer  {
         daveDisplayer.setCharacterPosition(currPos);
         characterPositionColumn = currPos.getColumnIndex();
         characterPositionRow = currPos.getRowIndex();
-
         redrawMaze();
     }
     public int getCharacterPositionRow() {
@@ -61,12 +60,10 @@ public class GameDisplayer  {
 
     public void drawGame()
     {
-
         solDisplayer.setVisible(false);
         solDisplayer.clearSolution();
         daveDisplayer.clearDave();
         redrawMaze();
-
     }
 
     public void redrawMaze()

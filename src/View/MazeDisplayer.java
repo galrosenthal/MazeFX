@@ -2,8 +2,10 @@ package View;
 
 import algorithms.mazeGenerators.Maze;
 import algorithms.mazeGenerators.Position;
+import algorithms.search.MazeState;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
@@ -12,15 +14,22 @@ import javafx.scene.image.Image;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.lang.ref.PhantomReference;
+import java.util.Random;
 
 public class MazeDisplayer extends Canvas {
 
 
     private Maze maze;
+    public int golRow;
+    public int golCol;
+    public boolean randomValue = true;
 
+    @FXML
+    public SolutionDisplayer solDisplayer;
 
-
+    private StringProperty ImageFileGolblet = new SimpleStringProperty("resources/Images/goblet.png");
     private StringProperty ImageFileNameWall = new SimpleStringProperty("resources/Images/redWall.jpg");
+    private boolean golToken = false;
 
     public String getImageFileDoor() {
         return ImageFileDoor.get();
@@ -76,12 +85,18 @@ public class MazeDisplayer extends Canvas {
                         }
                     }
                 }
-
                 //Draw Character
                 //gc.setFill(Color.RED);
                 //gc.fillOval(characterPositionColumn * cellHeight, characterPositionRow * cellWidth, cellHeight, cellWidth);
                 Image doorImage = new Image(new FileInputStream(ImageFileDoor.get()));
                 graphicsContext2D.drawImage(doorImage, maze.getGoalPosition().getColumnIndex() * cellWidth, maze.getGoalPosition().getRowIndex() * cellHeight, cellWidth , cellHeight);
+                if(randomValue) {
+                    getrandomPos();
+                }
+                if(!golToken) {
+                    Image goblet = new Image(new FileInputStream(ImageFileGolblet.get()));
+                    graphicsContext2D.drawImage(goblet, golCol * cellWidth, golRow * cellHeight, cellWidth, cellHeight);
+                }
 
 
             } catch (FileNotFoundException e) {
@@ -92,6 +107,35 @@ public class MazeDisplayer extends Canvas {
         }
     }
 
+    public void getrandomPos(){
+        Random randomGenerator = new Random();
+        int indexRow = randomGenerator.nextInt(maze.getHeight());
+        int indexCol = randomGenerator.nextInt(maze.getWidth());
+        boolean found = false;
+        while(!found){
+            if(maze.getMazeArray()[indexRow][indexCol] == 0) {
+                golRow = indexRow;
+                golCol = indexCol;
+                randomValue = false;
+                return;
+            }
+                indexRow = randomGenerator.nextInt(maze.getHeight());
+                indexCol = randomGenerator.nextInt(maze.getWidth());
+
+        }
+    }
+
+    public Position getrandomPosFromSol(){
+        Random randomGenerator = new Random();
+        int index = randomGenerator.nextInt(solDisplayer.getSol().getSolutionPath().size());
+        MazeState m = (MazeState)solDisplayer.getSol().getSolutionPath().get(index);
+
+        return null;
+    }
+
+    public void isGobletVisible() {
+        golToken = true;
+    }
 
 
 //    public void cleanGame() {

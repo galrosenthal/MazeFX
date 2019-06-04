@@ -76,4 +76,8 @@ public class MyViewModel extends Observable implements Observer {
     public Solution getSolution() {
         return model.getSolution();
     }
+
+    public boolean isGobletToken() {
+        return model.isGobletToken();
+    }
 }

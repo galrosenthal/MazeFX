@@ -30,5 +30,7 @@ public interface IModel {
 
     Solution getSolution();
 
+    boolean isGobletToken();
+
 //    void generateMaze(int height, int width);
 }

@@ -1,6 +1,7 @@
 package View;
 
 import algorithms.mazeGenerators.Maze;
+import algorithms.mazeGenerators.Position;
 import algorithms.search.*;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -9,6 +10,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
 
 import java.io.FileInputStream;
+import java.util.Random;
 
 public class SolutionDisplayer extends Canvas {
 
@@ -83,4 +85,5 @@ public class SolutionDisplayer extends Canvas {
         getGraphicsContext2D().beginPath();
 //        sol = null;
     }
+
 }

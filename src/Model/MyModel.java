@@ -24,6 +24,7 @@ import java.util.Observer;
 public class MyModel extends Observable implements IModel {
     private Maze maze;
     private Solution solution;
+    private boolean golToken;
 
     public Solution getSolution()
     {
@@ -58,7 +59,10 @@ public class MyModel extends Observable implements IModel {
 
     public boolean isWon()
     {
-        return characterRowCurrentPosition == maze.getGoalPosition().getRowIndex() && characterColumnCurrentPosition == maze.getGoalPosition().getColumnIndex();
+        if(characterRowCurrentPosition == maze.getGoalPosition().getRowIndex() && characterColumnCurrentPosition == maze.getGoalPosition().getColumnIndex()){
+            return true;
+    }
+        return false;
     }
 
     @Override
@@ -383,4 +387,11 @@ public class MyModel extends Observable implements IModel {
         generator.stop();
         solver.stop();
     }
+
+    public boolean isGobletToken() {
+        golToken = true;
+        playSound("resources/Audio/yes-2.wav");
+        return true;
+    }
+
 }

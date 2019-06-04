@@ -12,6 +12,7 @@ import java.io.FileInputStream;
 
 public class DaveDisplayer extends Canvas {
 
+
     private StringProperty ImageFileNameCharacter = new SimpleStringProperty("resources/Images/dave.png");
 
     private int characterPositionRow = 0;

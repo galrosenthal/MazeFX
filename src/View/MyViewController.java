@@ -2,6 +2,8 @@ package View;
 
 import ViewModel.MyViewModel;
 import algorithms.mazeGenerators.Maze;
+import algorithms.mazeGenerators.Position;
+import algorithms.search.MazeState;
 import algorithms.search.Solution;
 import com.sun.xml.internal.bind.v2.TODO;
 import javafx.application.Application;
@@ -39,10 +41,7 @@ import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
-import java.util.Observable;
-import java.util.Observer;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 
 public class MyViewController implements IView, Observer {
@@ -111,16 +110,17 @@ public class MyViewController implements IView, Observer {
     private boolean finishedAlready;
 
 
+
     public void initialize(MyViewModel myViewModel) {
         finishedAlready = false;
         gameDisplayer = new GameDisplayer();
         gameDisplayer.setMazeDisplayer(mazeDisplayer);
         gameDisplayer.setSolDisplayer(solDisplayer);
         gameDisplayer.setDaveDisplayer(daveDisplayer);
+
         //Set Binding for Properties
         lbl_characterRow.textProperty().bind(characterRow);
         lbl_characterColumn.textProperty().bind(characterColumn);
-
         mazePane.prefHeightProperty().bind(mainPane.heightProperty());
         mazePane.prefWidthProperty().bind(mainPane.widthProperty());
         mazeDisplayer.heightProperty().bind(mazePane.heightProperty());
@@ -157,6 +157,9 @@ public class MyViewController implements IView, Observer {
 
 
     }
+
+
+
 
     private void redrawSolutionOnZoom() {
         gameDisplayer.drawSolution(myViewModel.getMaze());
@@ -441,6 +444,10 @@ public class MyViewController implements IView, Observer {
             if(testMaze != null) {
                 mazeDisplayer.setMaze(myViewModel.getMaze());
                 gameDisplayer.setCharacterPosition(myViewModel.getPosition());
+                if(mazeDisplayer.golCol == myViewModel.getPosition().getColumnIndex() && mazeDisplayer.golRow == myViewModel.getPosition().getRowIndex()){
+                    mazeDisplayer.isGobletVisible();
+                    myViewModel.isGobletToken();
+                }
                 System.out.println("New Row=" + myViewModel.getPosition().getRowIndex() + ", New Col=" + myViewModel.getPosition().getColumnIndex());
             }
             Solution testSolution = myViewModel.getSolution();
