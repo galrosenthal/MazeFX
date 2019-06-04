@@ -65,6 +65,14 @@ public class MyViewController implements IView, Observer {
     @FXML
     private RadioButton levelHard;
 
+    @FXML
+    private ImageView solveMazeImageButton;
+    @FXML
+    private ImageView solveImageButton;
+
+    @FXML
+    private MenuItem solveMazeButton;
+
     private MediaPlayer mediaPlayer;
 
     @FXML
@@ -72,7 +80,13 @@ public class MyViewController implements IView, Observer {
 
     @FXML
     public MazeDisplayer mazeDisplayer;
+    @FXML
     public SolutionDisplayer solDisplayer;
+    @FXML
+    public DaveDisplayer daveDisplayer;
+
+    public GameDisplayer gameDisplayer;
+
     @FXML
     public Label lbl_characterRow;
     public Label lbl_characterColumn;
@@ -99,6 +113,10 @@ public class MyViewController implements IView, Observer {
 
     public void initialize(MyViewModel myViewModel) {
         finishedAlready = false;
+        gameDisplayer = new GameDisplayer();
+        gameDisplayer.setMazeDisplayer(mazeDisplayer);
+        gameDisplayer.setSolDisplayer(solDisplayer);
+        gameDisplayer.setDaveDisplayer(daveDisplayer);
         //Set Binding for Properties
         lbl_characterRow.textProperty().bind(characterRow);
         lbl_characterColumn.textProperty().bind(characterColumn);
@@ -115,8 +133,40 @@ public class MyViewController implements IView, Observer {
         });
 
 
+        solDisplayer.heightProperty().bind(mazeDisplayer.heightProperty());
+        solDisplayer.widthProperty().bind(mazeDisplayer.widthProperty());
+        solDisplayer.widthProperty().addListener(((observable, oldValue, newValue) -> {
+            redrawSolutionOnZoom();
+        }));
+        solDisplayer.heightProperty().addListener((obs,old,newV)->{
+            redrawSolutionOnZoom();
+        });
 
 
+        daveDisplayer.heightProperty().bind(mazeDisplayer.heightProperty());
+        daveDisplayer.widthProperty().bind(mazeDisplayer.widthProperty());
+        daveDisplayer.heightProperty().addListener((obs,oldVal,newVal)->{
+            redrawMazeOnZoom();
+        });
+        daveDisplayer.widthProperty().addListener((obs,oldVal,newVal)->{
+            redrawMazeOnZoom();
+        });
+
+        setDisableSolveButtons(true);
+
+
+
+    }
+
+    private void redrawSolutionOnZoom() {
+        gameDisplayer.drawSolution(myViewModel.getMaze());
+    }
+
+    private void setDisableSolveButtons(Boolean doDisabled)
+    {
+        solveImageButton.setDisable(doDisabled);
+        solveMazeImageButton.setDisable(doDisabled);
+        solveMazeButton.setDisable(doDisabled);
     }
 
     //    @FXML
@@ -143,7 +193,11 @@ public class MyViewController implements IView, Observer {
 
     public void solveMaze()
     {
+        gameDisplayer.solDisplayer.setVisibleMaze(true);
         myViewModel.solveGame();
+
+        setDisableSolveButtons(true);
+
 
     }
 
@@ -151,8 +205,12 @@ public class MyViewController implements IView, Observer {
         //int rows = Integer.valueOf(txtfld_rowsNum.getText());
         //int columns = Integer.valueOf(txtfld_columnsNum.getText());
         //this.mazeDisplayer.setMaze(getRandomMaze(rows,columns));
+
+        gameDisplayer.solDisplayer.setVisibleMaze(false);
         myViewModel.generateMaze(Integer.parseInt(heightField.getText()),Integer.parseInt(widthField.getText()));
         finishedAlready = false;
+        setDisableSolveButtons(false);
+
 
 //        this.mazeDisplayer.setMaze(mazeData);
     }
@@ -231,6 +289,7 @@ public class MyViewController implements IView, Observer {
     public void exitFromTheGame(WindowEvent event) throws InterruptedException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to exit?", ButtonType.YES, ButtonType.NO);
         alert.setTitle("EXIT");
+        mediaPlayer.stop();
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.YES) {
             myViewModel.playSound("resources/Audio/goodBye.mp3");
@@ -239,10 +298,10 @@ public class MyViewController implements IView, Observer {
             Platform.exit();
         }
     }
-    
 
 
-     public void mouseClicked(MouseEvent mouseEvent) {
+
+    public void mouseClicked(MouseEvent mouseEvent) {
         mazeDisplayer.requestFocus();
     }
 
@@ -251,7 +310,9 @@ public class MyViewController implements IView, Observer {
         int level = 1;
         if (!(keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.UP
                 || keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD8 || keyEvent.getCode() == KeyCode.NUMPAD2
-                || keyEvent.getCode() == KeyCode.NUMPAD4 || keyEvent.getCode() == KeyCode.NUMPAD6)) {
+                || keyEvent.getCode() == KeyCode.NUMPAD4 || keyEvent.getCode() == KeyCode.NUMPAD6
+                || keyEvent.getCode() == KeyCode.NUMPAD1 || keyEvent.getCode() == KeyCode.NUMPAD3
+                || keyEvent.getCode() == KeyCode.NUMPAD7 || keyEvent.getCode() == KeyCode.NUMPAD9)) {
             keyEvent.consume();
             Alert alert = new Alert(Alert.AlertType.WARNING, "You pressed on illegal button.\n Please read the instructions and try again. ", ButtonType.OK);
             alert.setTitle("WARNING");
@@ -264,11 +325,11 @@ public class MyViewController implements IView, Observer {
 
             if(keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD6)
             {
-                mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + ".png");
+                daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + ".png");
             }
             else if(keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.NUMPAD4)
             {
-                mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
+                daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
             }
 
 
@@ -276,11 +337,11 @@ public class MyViewController implements IView, Observer {
             level = -1;
             if(keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD4)
             {
-                mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
+                daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
             }
             else if(keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.NUMPAD6)
             {
-                mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + ".png");
+                daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + ".png");
             }
         }
         myViewModel.moveCharacter(keyEvent,level);
@@ -300,8 +361,8 @@ public class MyViewController implements IView, Observer {
 
 
 //        System.out.println(characterRowNewPosition + "," + characterColumnNewPosition);
-        this.characterRow.setValue(String.valueOf(mazeDisplayer.getCharacterPositionRow()));
-        this.characterColumn.setValue(String.valueOf(mazeDisplayer.getCharacterPositionColumn()));
+        this.characterRow.setValue(String.valueOf(daveDisplayer.getCharacterPositionRow()));
+        this.characterColumn.setValue(String.valueOf(daveDisplayer.getCharacterPositionColumn()));
         keyEvent.consume();
 
     }
@@ -313,113 +374,41 @@ public class MyViewController implements IView, Observer {
 
 
 
-    /*
-    private void moveDave(KeyEvent keyEvent) {
-        int characterRowCurrentPosition = mazeDisplayer.getCharacterPositionRow();
-        int characterColumnCurrentPosition = mazeDisplayer.getCharacterPositionColumn();
-        int characterRowNewPosition = characterRowCurrentPosition;
-        int characterColumnNewPosition = characterColumnCurrentPosition;
-        boolean isLegal = false;
-
-        if (keyEvent.getCode() == KeyCode.UP) {
-            if (levelEasy.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1, "upOrDown")) {
-                characterRowNewPosition = characterRowCurrentPosition - 1;
-                isLegal = true;
-            }
-            if (levelHard.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1, "upOrDown")) {
-                characterRowNewPosition = characterRowCurrentPosition + 1;
-                isLegal = true;
-
-            }
-        } else if (keyEvent.getCode() == KeyCode.DOWN) {
-            if (levelEasy.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1, "upOrDown")) {
-                characterRowNewPosition = characterRowCurrentPosition + 1;
-                isLegal = true;
-
-            }
-            if (levelHard.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1, "upOrDown")) {
-                characterRowNewPosition = characterRowCurrentPosition - 1;
-                isLegal = true;
-            }
-        } else if (keyEvent.getCode() == KeyCode.RIGHT) {
-            if (levelEasy.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1, "leftOrRight")) {
-                characterColumnNewPosition = characterColumnCurrentPosition + 1;
-                mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + ".png");
-                isLegal = true;
-            }
-            if (levelHard.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1, "leftOrRight")) {
-                mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
-                characterColumnNewPosition = characterColumnCurrentPosition - 1;
-                isLegal = true;
-            }
-        } else if (keyEvent.getCode() == KeyCode.LEFT) {
-            if (levelEasy.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1, "leftOrRight")) {
-                characterColumnNewPosition = characterColumnCurrentPosition - 1;
-                mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
-                isLegal = true;
-            }
-            if (levelHard.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1, "leftOrRight")) {
-                characterColumnNewPosition = characterColumnCurrentPosition + 1;
-                mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + ".png");
-                isLegal = true;
-            }
-        }
-
-        if (!isLegal && (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.RIGHT)) {
-            playSound("resources/Audio/punchWall.mp3");
-            characterRowNewPosition = 0;
-            characterColumnNewPosition = 0;
-        }
-
-//        else if(!isLegal){
-//            Alert alert = new Alert(Alert.AlertType.WARNING, "You pressed on illegal button.\n Please read the instructions and try again. ", ButtonType.OK);
-//            alert.setTitle("WARNING");
-//            alert.showAndWait();
-//        }
-
-        //Updates the MazeDisplayer
-        mazeDisplayer.setCharacterPosition(characterRowNewPosition, characterColumnNewPosition);
-
-        //Updates the labels
-        System.out.println(characterRowNewPosition + "," + characterColumnNewPosition);
-        this.characterRow.setValue(characterRowNewPosition + "");
-        this.characterColumn.setValue(characterColumnNewPosition + "");
-        keyEvent.consume();
-    }*/
-
-
-
-
-    public void changeStyleToBlue() {
+       public void changeStyleToBlue() {
         this.mazeDisplayer.setImageFileNameWall("resources/Images/blueWall.jpg");
-        mazeDisplayer.redraw();
+           gameDisplayer.redrawMaze();
     }
 
     public void changeStyleToRed() {
         this.mazeDisplayer.setImageFileNameWall("resources/Images/redWall.jpg");
-        mazeDisplayer.redraw();
+//        mazeDisplayer.redraw();
+        gameDisplayer.redrawMaze();
     }
 
     public void changeStyleTobrown() {
         this.mazeDisplayer.setImageFileNameWall("resources/Images/brownWall.jpg");
-        mazeDisplayer.redraw();
+//        mazeDisplayer.redraw();
+        gameDisplayer.redrawMaze();
     }
 
     public void changeStyleToColorful() {
         this.mazeDisplayer.setImageFileNameWall("resources/Images/ColorfulWall.jpg");
-        mazeDisplayer.redraw();
+//        mazeDisplayer.redraw();
+        gameDisplayer.redrawMaze();
     }
 
     public void changeToDave(ActionEvent actionEvent) {
         name = "dave";
-        mazeDisplayer.setImageFileNameCharacter("resources/Images/dave.png");
-        mazeDisplayer.redraw();
+        daveDisplayer.setImageFileNameCharacter("resources/Images/dave.png");
+//        mazeDisplayer.redraw();
+        gameDisplayer.redrawMaze();
     }
 
     public void changeToLily(ActionEvent actionEvent) {
         name = "lily";
-        mazeDisplayer.setImageFileNameCharacter("resources/Images/lily.png");
-        mazeDisplayer.redraw();
+        daveDisplayer.setImageFileNameCharacter("resources/Images/lily.png");
+//        mazeDisplayer.redraw();
+        gameDisplayer.redrawMaze();
     }
 
     public void saveMazeView() {
@@ -451,13 +440,14 @@ public class MyViewController implements IView, Observer {
             Maze testMaze = myViewModel.getMaze();
             if(testMaze != null) {
                 mazeDisplayer.setMaze(myViewModel.getMaze());
-                mazeDisplayer.setCharacterPosition(myViewModel.getPosition());
+                gameDisplayer.setCharacterPosition(myViewModel.getPosition());
                 System.out.println("New Row=" + myViewModel.getPosition().getRowIndex() + ", New Col=" + myViewModel.getPosition().getColumnIndex());
             }
             Solution testSolution = myViewModel.getSolution();
 
             if(testSolution != null)
             {
+                solDisplayer.setSol(myViewModel.getSolution());
                 solDisplayer.drawSolution(myViewModel.getMaze());
             }
 
@@ -468,7 +458,7 @@ public class MyViewController implements IView, Observer {
 
     public void redrawMazeOnZoom()
     {
-        mazeDisplayer.redraw();
+        gameDisplayer.redrawMaze();
     }
 
 

@@ -97,8 +97,30 @@ public class MyModel extends Observable implements IModel {
                     isLegal = true;
                 }
 
-            } else if (keyEvent.getCode() == KeyCode.NUMPAD7) {
-                if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1 * level, "leftOrRight")) {
+            } else if (keyEvent.getCode() == KeyCode.NUMPAD1) {
+                if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition,  level, "leftDown")) {
+                    characterRowCurrentPosition = characterRowCurrentPosition + 1 * level;
+                    characterColumnCurrentPosition = characterColumnCurrentPosition - 1 * level;
+                    isLegal = true;
+                }
+
+            }else if (keyEvent.getCode() == KeyCode.NUMPAD3) {
+                if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition,  level, "rightDown")) {
+                    characterRowCurrentPosition = characterRowCurrentPosition + 1 * level;
+                    characterColumnCurrentPosition = characterColumnCurrentPosition + 1 * level;
+                    isLegal = true;
+                }
+
+            }else if (keyEvent.getCode() == KeyCode.NUMPAD7) {
+                if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition,  level, "leftUp")) {
+                    characterRowCurrentPosition = characterRowCurrentPosition - 1 * level;
+                    characterColumnCurrentPosition = characterColumnCurrentPosition - 1 * level;
+                    isLegal = true;
+                }
+
+            }else if (keyEvent.getCode() == KeyCode.NUMPAD9) {
+                if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition,  level, "rightUp")) {
+                    characterRowCurrentPosition = characterRowCurrentPosition - 1 * level;
                     characterColumnCurrentPosition = characterColumnCurrentPosition + 1 * level;
                     isLegal = true;
                 }
@@ -107,7 +129,9 @@ public class MyModel extends Observable implements IModel {
 
             if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.UP
                     || keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD8 || keyEvent.getCode() == KeyCode.NUMPAD2
-                    || keyEvent.getCode() == KeyCode.NUMPAD4 || keyEvent.getCode() == KeyCode.NUMPAD6) {
+                    || keyEvent.getCode() == KeyCode.NUMPAD4 || keyEvent.getCode() == KeyCode.NUMPAD6
+                    || keyEvent.getCode() == KeyCode.NUMPAD1 || keyEvent.getCode() == KeyCode.NUMPAD3
+                    || keyEvent.getCode() == KeyCode.NUMPAD7 || keyEvent.getCode() == KeyCode.NUMPAD9) {
                 if (!isLegal) {
                     playSound("resources/Audio/punchWall.mp3");
                     characterRowCurrentPosition = maze.getStartPosition().getRowIndex();
@@ -124,6 +148,106 @@ public class MyModel extends Observable implements IModel {
             //Updates the labels
         }
 
+    }
+
+    private boolean checkIfLegalDiagonalMove(int characterRowCurrentPosition, int characterColumnCurrentPosition, int level, String diagSide) {
+        if((characterRowCurrentPosition + 1*level > 0 || characterRowCurrentPosition + 1*level <= maze.getMazeArray().length
+                || characterRowCurrentPosition + 2*level > 0 || characterRowCurrentPosition + 2 *level > maze.getMazeArray().length
+                || characterRowCurrentPosition + 1*level > 0 || characterRowCurrentPosition + 1*level <= maze.getMazeArray().length
+                || characterRowCurrentPosition + 2*level > 0 || characterRowCurrentPosition + 2*level > maze.getMazeArray().length))
+        {
+            int[][] mazeArray = maze.getMazeArray();
+            int diagCellRow,diagCellCol,nextCellRow,nextCellCol,scndCellRow,scndCellCol;
+            if(diagSide.toLowerCase().equals("leftdown"))
+            {
+                diagCellRow = characterRowCurrentPosition + 1*level;
+                diagCellCol = characterColumnCurrentPosition - 1*level;
+                if(checkLegalCell(diagCellRow,diagCellCol))
+                {
+
+                    if (checkLegalCell(characterRowCurrentPosition, diagCellCol) ||
+                            checkLegalCell(diagCellRow, characterColumnCurrentPosition))
+                    {
+
+                        return true;
+                    }
+
+
+                }
+
+
+            }
+            else if(diagSide.toLowerCase().equals("rightdown"))
+            {
+                diagCellRow = characterRowCurrentPosition + 1*level;
+                diagCellCol = characterColumnCurrentPosition + 1*level;
+                if(checkLegalCell(diagCellRow,diagCellCol))
+                {
+
+                    if (checkLegalCell(characterRowCurrentPosition, diagCellCol) ||
+                            checkLegalCell(diagCellRow, characterColumnCurrentPosition))
+                    {
+
+                        return true;
+                    }
+
+
+                }
+
+            }
+            else if(diagSide.toLowerCase().equals("leftup") )
+            {
+                diagCellRow = characterRowCurrentPosition - 1*level;
+                diagCellCol = characterColumnCurrentPosition - 1*level;
+                if(checkLegalCell(diagCellRow,diagCellCol))
+                {
+
+                    if (checkLegalCell(characterRowCurrentPosition, diagCellCol) ||
+                            checkLegalCell(diagCellRow, characterColumnCurrentPosition))
+                    {
+
+                        return true;
+                    }
+
+
+                }
+
+            }
+            else if(diagSide.toLowerCase().equals("rightup"))
+            {
+                diagCellRow = characterRowCurrentPosition - 1*level;
+                diagCellCol = characterColumnCurrentPosition + 1*level;
+                if(checkLegalCell(diagCellRow,diagCellCol))
+                {
+
+                    if (checkLegalCell(characterRowCurrentPosition, diagCellCol) ||
+                            checkLegalCell(diagCellRow, characterColumnCurrentPosition))
+                    {
+
+                        return true;
+                    }
+
+
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+
+
+        }
+
+
+        return false;
+
+    }
+
+    private boolean checkLegalCell(int cellRow,int cellCol) {
+        return maze.getMazeArray()[cellRow][cellCol] != 1
+                && maze.getMazeArray()[cellRow][cellCol] >= 0
+                && maze.getMazeArray()[cellRow][cellCol] < maze.getMazeArray()[0].length;
     }
 
     public Position getPosition(){
@@ -192,8 +316,11 @@ public class MyModel extends Observable implements IModel {
                         toServer.flush();
                         toServer.writeObject(maze);
                         toServer.flush();
-                        Solution mazeSolution = (Solution)fromServer.readObject();
-                        System.out.println(String.format("Solution steps: %s", mazeSolution));
+                        solution = (Solution)fromServer.readObject();
+
+                        if (solution == null)
+                            System.out.println("ERRORRRRRRRRRRRRRRRRR***********************");
+                        System.out.println(String.format("Solution steps: %s", solution));
                     } catch (Exception var6) {
                         var6.printStackTrace();
                     }

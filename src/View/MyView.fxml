@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--<?import View.MazeDisplayer?>-->
+<?import View.DaveDisplayer?>
+<?import View.MazeDisplayer?>
+<?import View.SolutionDisplayer?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
@@ -23,7 +25,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import View.SolutionDisplayer?>
 <BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#KeyPressedEasy" prefHeight="571.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
     <top>
         <MenuBar prefWidth="564.0" BorderPane.alignment="CENTER">
@@ -91,8 +92,8 @@
                                 <Font name="System Bold" size="14.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="heightField" layoutX="10.0" layoutY="9.0" prefHeight="25.0" prefWidth="30.0" text="5" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                        <TextField fx:id="widthField" prefHeight="25.0" prefWidth="30.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="heightField" layoutX="10.0" layoutY="9.0" prefHeight="25.0" prefWidth="30.0" text="10" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                        <TextField fx:id="widthField" prefHeight="25.0" prefWidth="30.0" text="10" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <!--GridPane.columnSpan="2" GridPane.halignment="CENTER"-->
                         <ImageView layoutX="20.0" layoutY="300.0" onMouseClicked="#generateMaze" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                             <image>
@@ -104,13 +105,13 @@
                                 <Image url="http://i63.tinypic.com/262mt7s.png" />
                             </image>
                         </ImageView>
-                        <ImageView layoutX="20.0" layoutY="300.0" onMouseClicked="#solveMaze" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                        <ImageView fx:id="solveImageButton" disable="true" layoutX="20.0" layoutY="300.0" onMouseClicked="#solveMaze" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                             <image>
                                 <Image url="http://i68.tinypic.com/1zgaudh.png" />
                             </image>
                         </ImageView>
 
-                        <ImageView layoutX="20.0" layoutY="300.0" onMouseClicked="#solveMaze" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                        <ImageView fx:id="solveMazeImageButton" disable="true" layoutX="20.0" layoutY="300.0" onMouseClicked="#solveMaze" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                             <image>
                                 <Image url="http://i63.tinypic.com/262mt7s.png" />
                             </image>
@@ -223,10 +224,12 @@
         </AnchorPane>
     </left>
     <center>
-        <Pane fx:id="mazePane" prefHeight="2865.0" prefWidth="4075.0" style="-fx-border-width: 4; -fx-background-color: black;" BorderPane.alignment="CENTER">
+        <Pane fx:id="mazePane" onMouseClicked="#mouseClicked" prefHeight="2865.0" prefWidth="4075.0" style="-fx-border-width: 4; -fx-background-color: black;" BorderPane.alignment="CENTER">
             <children>
-                <!--<MazeDisplayer fx:id="mazeDisplayer" height="600.0" imageFileDoor="resources/Images/doorImage.jpeg" imageFileNameCharacter="resources/Images/dave.png" imageFileNameWall="resources/Images/redWall.jpg" onMouseClicked="#mouseClicked" width="600.0" />-->
-                <!--<SolutionDisplayer fx:id="solDisplayer" />-->
+                <SolutionDisplayer fx:id="solDisplayer" height="600.0" width="600.0" />
+                <MazeDisplayer fx:id="mazeDisplayer" height="545.0" imageFileDoor="resources/Images/doorImage.jpeg" imageFileNameWall="resources/Images/redWall.jpg" onMouseClicked="#mouseClicked" width="603.0" />
+                <DaveDisplayer fx:id="daveDisplayer" height="600.0" width="600.0" />
+
 
                 <Text fx:id="valueError" fill="RED" layoutX="138.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong Values!" visible="false">
                     <font>
