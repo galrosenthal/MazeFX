@@ -1,6 +1,8 @@
 package View;
 
 import ViewModel.MyViewModel;
+import algorithms.mazeGenerators.Maze;
+import algorithms.search.Solution;
 import com.sun.xml.internal.bind.v2.TODO;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -22,6 +24,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -61,6 +65,14 @@ public class MyViewController implements IView, Observer {
     @FXML
     private RadioButton levelHard;
 
+    @FXML
+    private ImageView solveMazeImageButton;
+    @FXML
+    private ImageView solveImageButton;
+
+    @FXML
+    private MenuItem solveMazeButton;
+
     private MediaPlayer mediaPlayer;
 
     @FXML
@@ -68,6 +80,13 @@ public class MyViewController implements IView, Observer {
 
     @FXML
     public MazeDisplayer mazeDisplayer;
+    @FXML
+    public SolutionDisplayer solDisplayer;
+    @FXML
+    public DaveDisplayer daveDisplayer;
+
+    public GameDisplayer gameDisplayer;
+
     @FXML
     public Label lbl_characterRow;
     public Label lbl_characterColumn;
@@ -87,38 +106,113 @@ public class MyViewController implements IView, Observer {
     public StringProperty characterRow = new SimpleStringProperty();
     public StringProperty characterColumn = new SimpleStringProperty();
 
+    public BorderPane mainPane;
+    public Pane mazePane;
+    private boolean finishedAlready;
+
+
     public void initialize(MyViewModel myViewModel) {
+        finishedAlready = false;
+        gameDisplayer = new GameDisplayer();
+        gameDisplayer.setMazeDisplayer(mazeDisplayer);
+        gameDisplayer.setSolDisplayer(solDisplayer);
+        gameDisplayer.setDaveDisplayer(daveDisplayer);
         //Set Binding for Properties
         lbl_characterRow.textProperty().bind(characterRow);
         lbl_characterColumn.textProperty().bind(characterColumn);
+
+        mazePane.prefHeightProperty().bind(mainPane.heightProperty());
+        mazePane.prefWidthProperty().bind(mainPane.widthProperty());
+        mazeDisplayer.heightProperty().bind(mazePane.heightProperty());
+        mazeDisplayer.widthProperty().bind(mazePane.widthProperty());
+        mazeDisplayer.heightProperty().addListener((obs,oldVal,newVal)->{
+            redrawMazeOnZoom();
+        });
+        mazeDisplayer.widthProperty().addListener((obs,oldVal,newVal)->{
+            redrawMazeOnZoom();
+        });
+
+
+        solDisplayer.heightProperty().bind(mazeDisplayer.heightProperty());
+        solDisplayer.widthProperty().bind(mazeDisplayer.widthProperty());
+        solDisplayer.widthProperty().addListener(((observable, oldValue, newValue) -> {
+            redrawSolutionOnZoom();
+        }));
+        solDisplayer.heightProperty().addListener((obs,old,newV)->{
+            redrawSolutionOnZoom();
+        });
+
+
+        daveDisplayer.heightProperty().bind(mazeDisplayer.heightProperty());
+        daveDisplayer.widthProperty().bind(mazeDisplayer.widthProperty());
+        daveDisplayer.heightProperty().addListener((obs,oldVal,newVal)->{
+            redrawMazeOnZoom();
+        });
+        daveDisplayer.widthProperty().addListener((obs,oldVal,newVal)->{
+            redrawMazeOnZoom();
+        });
+
+        setDisableSolveButtons(true);
+
+
+
+    }
+
+    private void redrawSolutionOnZoom() {
+        gameDisplayer.drawSolution(myViewModel.getMaze());
+    }
+
+    private void setDisableSolveButtons(Boolean doDisabled)
+    {
+        solveImageButton.setDisable(doDisabled);
+        solveMazeImageButton.setDisable(doDisabled);
+        solveMazeButton.setDisable(doDisabled);
     }
 
     //    @FXML
 //    private Label valueError;
 
 
-    int[][] mazeData = { // a stub...
-//        {0, 1, 1, 1,},
-//        {0, 0, 0, 0},
-//        {0, 0, 1, 1},
-//        {1, 1, 1, 0}
-            {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-            {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1},
-            {0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1},
-            {1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1},
-            {1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1},
-            {1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1},
-            {1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1},
-            {1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1},
-            {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1},
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1}
-    };
+    int[][] mazeData;
+//            = { // a stub...
+////        {0, 1, 1, 1,},
+////        {0, 0, 0, 0},
+////        {0, 0, 1, 1},
+////        {1, 1, 1, 0}
+//            {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+//            {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1},
+//            {0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1},
+//            {1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1},
+//            {1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1},
+//            {1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1},
+//            {1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1},
+//            {1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1},
+//            {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1},
+//            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1}
+//    };
+
+    public void solveMaze()
+    {
+        gameDisplayer.solDisplayer.setVisibleMaze(true);
+        myViewModel.solveGame();
+
+        setDisableSolveButtons(true);
+
+
+    }
 
     public void generateMaze() {
         //int rows = Integer.valueOf(txtfld_rowsNum.getText());
         //int columns = Integer.valueOf(txtfld_columnsNum.getText());
         //this.mazeDisplayer.setMaze(getRandomMaze(rows,columns));
-        this.mazeDisplayer.setMaze(mazeData);
+
+        gameDisplayer.solDisplayer.setVisibleMaze(false);
+        myViewModel.generateMaze(Integer.parseInt(heightField.getText()),Integer.parseInt(widthField.getText()));
+        finishedAlready = false;
+        setDisableSolveButtons(false);
+
+
+//        this.mazeDisplayer.setMaze(mazeData);
     }
 
     public void createLevel() {
@@ -182,6 +276,8 @@ public class MyViewController implements IView, Observer {
 
     }
 
+
+
     public void backgroundMusicStatus() {
         if (BGM_checkBox.isSelected()) {
             mediaPlayer.play();
@@ -193,18 +289,17 @@ public class MyViewController implements IView, Observer {
     public void exitFromTheGame(WindowEvent event) throws InterruptedException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to exit?", ButtonType.YES, ButtonType.NO);
         alert.setTitle("EXIT");
+        mediaPlayer.stop();
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.YES) {
-            playSound("resources/Audio/goodBye.mp3");
+            myViewModel.playSound("resources/Audio/goodBye.mp3");
+            myViewModel.closeGame();
             Thread.sleep(855);
             Platform.exit();
         }
     }
-    
-    public void playSound(String fileName) {
-        AudioClip sound = new AudioClip(new File(fileName).toURI().toString());
-        sound.play();
-    }
+
+
 
     public void mouseClicked(MouseEvent mouseEvent) {
         mazeDisplayer.requestFocus();
@@ -212,119 +307,108 @@ public class MyViewController implements IView, Observer {
 
 
     public void KeyPressedEasy(KeyEvent keyEvent) {
-        int characterRowCurrentPosition = mazeDisplayer.getCharacterPositionRow();
-        int characterColumnCurrentPosition = mazeDisplayer.getCharacterPositionColumn();
-        int characterRowNewPosition = characterRowCurrentPosition;
-        int characterColumnNewPosition = characterColumnCurrentPosition;
-        boolean isLegal = false;
-
-        if (keyEvent.getCode() == KeyCode.UP) {
-            if (levelEasy.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1, "upOrDown")) {
-                characterRowNewPosition = characterRowCurrentPosition - 1;
-                isLegal = true;
-            }
-            if (levelHard.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1, "upOrDown")) {
-                characterRowNewPosition = characterRowCurrentPosition + 1;
-                isLegal = true;
-
-            }
-        } else if (keyEvent.getCode() == KeyCode.DOWN) {
-            if (levelEasy.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1, "upOrDown")) {
-                characterRowNewPosition = characterRowCurrentPosition + 1;
-                isLegal = true;
-
-            }
-            if (levelHard.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1, "upOrDown")) {
-                characterRowNewPosition = characterRowCurrentPosition - 1;
-                isLegal = true;
-            }
-        } else if (keyEvent.getCode() == KeyCode.RIGHT) {
-            if (levelEasy.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1, "leftOrRight")) {
-                characterColumnNewPosition = characterColumnCurrentPosition + 1;
-                mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + ".png");
-                isLegal = true;
-            }
-            if (levelHard.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1, "leftOrRight")) {
-                mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
-                characterColumnNewPosition = characterColumnCurrentPosition - 1;
-                isLegal = true;
-            }
-        } else if (keyEvent.getCode() == KeyCode.LEFT) {
-            if (levelEasy.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1, "leftOrRight")) {
-                characterColumnNewPosition = characterColumnCurrentPosition - 1;
-                mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
-                isLegal = true;
-            }
-            if (levelHard.isSelected() && checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1, "leftOrRight")) {
-                characterColumnNewPosition = characterColumnCurrentPosition + 1;
-                mazeDisplayer.setImageFileNameCharacter("resources/Images/" + name + ".png");
-                isLegal = true;
-            }
+        int level = 1;
+        if (!(keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.UP
+                || keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD8 || keyEvent.getCode() == KeyCode.NUMPAD2
+                || keyEvent.getCode() == KeyCode.NUMPAD4 || keyEvent.getCode() == KeyCode.NUMPAD6
+                || keyEvent.getCode() == KeyCode.NUMPAD1 || keyEvent.getCode() == KeyCode.NUMPAD3
+                || keyEvent.getCode() == KeyCode.NUMPAD7 || keyEvent.getCode() == KeyCode.NUMPAD9)) {
+            keyEvent.consume();
+            Alert alert = new Alert(Alert.AlertType.WARNING, "You pressed on illegal button.\n Please read the instructions and try again. ", ButtonType.OK);
+            alert.setTitle("WARNING");
+            alert.showAndWait();
+            return;
         }
 
-        if (!isLegal && (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.RIGHT)) {
-            playSound("resources/Audio/punchWall.mp3");
-            characterRowNewPosition = 0;
-            characterColumnNewPosition = 0;
+        if (levelEasy.isSelected()) {
+            level = 1;
+
+            if(keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD6)
+            {
+                daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + ".png");
+            }
+            else if(keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.NUMPAD4)
+            {
+                daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
+            }
+
+
+        } else if (levelHard.isSelected()){
+            level = -1;
+            if(keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD4)
+            {
+                daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
+            }
+            else if(keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.NUMPAD6)
+            {
+                daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + ".png");
+            }
         }
+        myViewModel.moveCharacter(keyEvent,level);
 
-//        else if(!isLegal){
-//            Alert alert = new Alert(Alert.AlertType.WARNING, "You pressed on illegal button.\n Please read the instructions and try again. ", ButtonType.OK);
-//            alert.setTitle("WARNING");
-//            alert.showAndWait();
-//        }
+        if(myViewModel.gameWon() && !finishedAlready)
+        {
+            mediaPlayer.stop();
+            playSpecificSound("resources/Audio/woohoo.wav");
+            Alert EndGame = new Alert(Alert.AlertType.INFORMATION,"Congratulations!!! You have Won the Game, Dave is Resuced =)");
+            EndGame.setTitle("Congratulations");
+            EndGame.showAndWait();
+            finishedAlready = true;
 
-        //Updates the MazeDisplayer
-        mazeDisplayer.setCharacterPosition(characterRowNewPosition, characterColumnNewPosition);
 
-        //Updates the labels
-        System.out.println(characterRowNewPosition + "," + characterColumnNewPosition);
-        this.characterRow.setValue(characterRowNewPosition + "");
-        this.characterColumn.setValue(characterColumnNewPosition + "");
+        }
+//        mazeDisplayer.setCharacterPosition(ch);
+
+
+//        System.out.println(characterRowNewPosition + "," + characterColumnNewPosition);
+        this.characterRow.setValue(String.valueOf(daveDisplayer.getCharacterPositionRow()));
+        this.characterColumn.setValue(String.valueOf(daveDisplayer.getCharacterPositionColumn()));
         keyEvent.consume();
+
+    }
+
+    private void playSpecificSound(String musicPath) {
+        AudioClip sound = new AudioClip(new File(musicPath).toURI().toString());
+        sound.play();
     }
 
 
-    public boolean checkIfLegalMove(int characterRowCurrentPosition, int characterColumnCurrentPosition, int num, String side) {
-        if (side.equals("upOrDown") && mazeData[characterRowCurrentPosition + num][characterColumnCurrentPosition] != 1 && mazeData[characterRowCurrentPosition + num][characterColumnCurrentPosition] >= 0 && mazeData[characterRowCurrentPosition + num][characterColumnCurrentPosition] < mazeData[0].length) {
-            return true;
-        }
-        if (side.equals("leftOrRight") && mazeData[characterRowCurrentPosition][characterColumnCurrentPosition + num] != 1 && mazeData[characterRowCurrentPosition][characterColumnCurrentPosition + num] >= 0 && mazeData[characterRowCurrentPosition][characterColumnCurrentPosition + num] < mazeData.length) {
-            return true;
-        }
-        return false;
-    }
 
-    public void changeStyleToBlue() {
+       public void changeStyleToBlue() {
         this.mazeDisplayer.setImageFileNameWall("resources/Images/blueWall.jpg");
-        mazeDisplayer.redraw();
+           gameDisplayer.redrawMaze();
     }
 
     public void changeStyleToRed() {
         this.mazeDisplayer.setImageFileNameWall("resources/Images/redWall.jpg");
-        mazeDisplayer.redraw();
+//        mazeDisplayer.redraw();
+        gameDisplayer.redrawMaze();
     }
 
     public void changeStyleTobrown() {
         this.mazeDisplayer.setImageFileNameWall("resources/Images/brownWall.jpg");
-        mazeDisplayer.redraw();
+//        mazeDisplayer.redraw();
+        gameDisplayer.redrawMaze();
     }
 
     public void changeStyleToColorful() {
         this.mazeDisplayer.setImageFileNameWall("resources/Images/ColorfulWall.jpg");
-        mazeDisplayer.redraw();
+//        mazeDisplayer.redraw();
+        gameDisplayer.redrawMaze();
     }
 
     public void changeToDave(ActionEvent actionEvent) {
         name = "dave";
-        mazeDisplayer.setImageFileNameCharacter("resources/Images/dave.png");
-        mazeDisplayer.redraw();
+        daveDisplayer.setImageFileNameCharacter("resources/Images/dave.png");
+//        mazeDisplayer.redraw();
+        gameDisplayer.redrawMaze();
     }
 
     public void changeToLily(ActionEvent actionEvent) {
         name = "lily";
-        mazeDisplayer.setImageFileNameCharacter("resources/Images/lily.png");
-        mazeDisplayer.redraw();
+        daveDisplayer.setImageFileNameCharacter("resources/Images/lily.png");
+//        mazeDisplayer.redraw();
+        gameDisplayer.redrawMaze();
     }
 
     public void saveMazeView() {
@@ -351,7 +435,30 @@ public class MyViewController implements IView, Observer {
 
     @Override
     public void update(Observable o, Object arg) {
+        if(o == myViewModel)
+        {
+            Maze testMaze = myViewModel.getMaze();
+            if(testMaze != null) {
+                mazeDisplayer.setMaze(myViewModel.getMaze());
+                gameDisplayer.setCharacterPosition(myViewModel.getPosition());
+                System.out.println("New Row=" + myViewModel.getPosition().getRowIndex() + ", New Col=" + myViewModel.getPosition().getColumnIndex());
+            }
+            Solution testSolution = myViewModel.getSolution();
 
+            if(testSolution != null)
+            {
+                solDisplayer.setSol(myViewModel.getSolution());
+                solDisplayer.drawSolution(myViewModel.getMaze());
+            }
+
+
+        }
+
+    }
+
+    public void redrawMazeOnZoom()
+    {
+        gameDisplayer.redrawMaze();
     }
 
 
