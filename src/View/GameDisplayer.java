@@ -11,7 +11,7 @@ public class GameDisplayer  {
     public MazeDisplayer mazeDisplayer;
     public SolutionDisplayer solDisplayer;
     public DaveDisplayer daveDisplayer;
-    private double zoomFactor = 1.1D;
+    private double zoomFactor = 1.0D;
 
     public double getZoomFactor() {
         return zoomFactor;
