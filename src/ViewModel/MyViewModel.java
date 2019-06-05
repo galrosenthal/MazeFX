@@ -97,6 +97,14 @@ public class MyViewModel extends Observable implements Observer {
     public void loadMazeFromDisk(String pathToFileLoaded) {
         model.loadMaze(pathToFileLoaded);
     }
+
+    public void moveChar(String s) {
+        model.moveChar(s);
+    }
+
+    public void getLevel(int levelFromControl){
+        model.getLevel(levelFromControl);
+    }
 }
 
 

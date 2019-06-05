@@ -41,5 +41,9 @@ public interface IModel {
 
     void setCharacterColumnCurrentPosition(int characterColumnCurrentPosition);
 
+    void moveChar(String s);
+
+    void getLevel(int levelFromControl);
+
 //    void generateMaze(int height, int width);
 }

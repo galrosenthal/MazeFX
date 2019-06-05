@@ -28,6 +28,8 @@ public class MyModel extends Observable implements IModel {
     private Solution solution;
     private boolean golToken;
     private boolean randomValue = false;
+    public int level;
+    private boolean isLegal = false;
 
     public Solution getSolution() {
         if (solution != null)
@@ -73,10 +75,68 @@ public class MyModel extends Observable implements IModel {
         return characterRowCurrentPosition == maze.getGoalPosition().getRowIndex() && characterColumnCurrentPosition == maze.getGoalPosition().getColumnIndex();
     }
 
+    public void moveChar(String buttonName)
+    {
+        if (buttonName.equals("Up")) {
+            if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1 * level, "upOrDown")) {
+                characterRowCurrentPosition = characterRowCurrentPosition - 1 * level;
+                isLegal = true;
+            }
+        }
+        else if (buttonName.equals("Down")){
+            if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1 * level, "upOrDown")) {
+                characterRowCurrentPosition = characterRowCurrentPosition + 1 * level;
+                isLegal = true;
+            }else if (buttonName.equals("Left")) {
+                if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1 * level, "leftOrRight")) {
+                    characterColumnCurrentPosition = characterColumnCurrentPosition - 1 * level;
+                    isLegal = true;
+                }
+            } else if (buttonName.equals("Right")) {
+                if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1 * level, "leftOrRight")) {
+                    characterColumnCurrentPosition = characterColumnCurrentPosition + 1 * level;
+                    isLegal = true;
+                }
+            }
+        } else if (buttonName.equals("Numpad 1")) {
+            if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition, level, "leftDown")) {
+                characterRowCurrentPosition = characterRowCurrentPosition + 1 * level;
+                characterColumnCurrentPosition = characterColumnCurrentPosition - 1 * level;
+                isLegal = true;
+            }
+        } else if (buttonName.equals("Numpad 3")) {
+            if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition, level, "rightDown")) {
+                characterRowCurrentPosition = characterRowCurrentPosition + 1 * level;
+                characterColumnCurrentPosition = characterColumnCurrentPosition + 1 * level;
+                isLegal = true;
+            }
+
+        } else if (buttonName.equals("Numpad 7")) {
+            if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition, level, "leftUp")) {
+                characterRowCurrentPosition = characterRowCurrentPosition - 1 * level;
+                characterColumnCurrentPosition = characterColumnCurrentPosition - 1 * level;
+                isLegal = true;
+            }
+
+        } else if (buttonName.equals("Numpad 9")) {
+            if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition, level, "rightUp")) {
+                characterRowCurrentPosition = characterRowCurrentPosition - 1 * level;
+                characterColumnCurrentPosition = characterColumnCurrentPosition + 1 * level;
+                isLegal = true;
+            }
+        }
+        setChanged();
+        notifyObservers();
+    }
+
+    public void getLevel(int levelFromControl){
+        this.level = levelFromControl;
+    }
+
     @Override
     public void MoveCharacterEasy(KeyEvent keyEvent, int level) {
 
-        boolean isLegal = false;
+        isLegal = false;
         if (isWon()) {
             keyEvent.consume();
             finishedGame = true;
@@ -135,7 +195,6 @@ public class MyModel extends Observable implements IModel {
                     characterColumnCurrentPosition = characterColumnCurrentPosition + 1 * level;
                     isLegal = true;
                 }
-
             }
 
             if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.UP

@@ -227,11 +227,11 @@
         </AnchorPane>
     </left>
     <center>
-        <Pane fx:id="mazePane" onMouseClicked="#mouseClicked" prefHeight="2865.0" prefWidth="4075.0" onScroll="#zoom" style="-fx-border-width: 4; -fx-background-color: black;" BorderPane.alignment="CENTER">
+        <Pane fx:id="mazePane" onMouseClicked="#mouseClicked" onMouseDragged="#MouseDrag" prefHeight="2865.0" prefWidth="4075.0" onScroll="#zoom" style="-fx-border-width: 4; -fx-background-color: black;" BorderPane.alignment="CENTER">
             <children>
                 <SolutionDisplayer fx:id="solDisplayer" height="600.0" width="600.0" />
-                <MazeDisplayer fx:id="mazeDisplayer" height="545.0" imageFileDoor="resources/Images/doorImage.jpeg" imageFileNameWall="resources/Images/redWall.jpg" onMouseClicked="#mouseClicked" width="604.0" />
-                <DaveDisplayer fx:id="daveDisplayer" height="600.0" onMouseDragged="#moveDaveMouse" width="600.0" />
+                <MazeDisplayer fx:id="mazeDisplayer" height="545.0" imageFileDoor="resources/Images/doorImage.jpeg" imageFileNameWall="resources/Images/redWall.jpg" onMouseClicked="#mouseClicked" onMouseDragged="#MouseDrag" width="604.0" />
+                <DaveDisplayer fx:id="daveDisplayer" height="600.0" onMouseDragged="#MouseDrag" width="600.0" />
 
 
                 <Text fx:id="valueError" fill="RED" layoutX="138.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong Values!" visible="false">

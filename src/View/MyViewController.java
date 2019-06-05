@@ -118,6 +118,13 @@ public class MyViewController implements IView, Observer {
 
     private boolean loadMaze;
 
+    double characterMinX;
+    double cellWidth;
+    double characterMinY;
+    double cellHeight;
+    double lastX = -1.0D;
+    double lastY = -1.0D;
+
 
     public void initialize(MyViewModel myViewModel) {
         finishedAlready = false;
@@ -565,8 +572,17 @@ public class MyViewController implements IView, Observer {
             if (testMaze != null) {
                 mazeDisplayer.setMaze(myViewModel.getMaze());
                 gameDisplayer.setCharacterPosition(myViewModel.getPosition());
+
+                this.cellWidth = this.mazeDisplayer.getWidth() / (double)this.mazeDisplayer.getWidth();
+                this.cellHeight = this.mazeDisplayer.getHeight() / (double)this.mazeDisplayer.getHeight();
+                this.characterMinX = (double)myViewModel.getPosition().getColumnIndex() * this.cellWidth;
+                this.characterMinY = (double)myViewModel.getPosition().getRowIndex() * this.cellHeight;
+                this.characterRow.set(myViewModel.getPosition().getRowIndex() + "");
+                this.characterColumn.set(myViewModel.getPosition().getColumnIndex() + "");
+
                 this.characterRow.setValue(String.valueOf(daveDisplayer.getCharacterPositionRow()));
                 this.characterColumn.setValue(String.valueOf(daveDisplayer.getCharacterPositionColumn()));
+
                 if (mazeDisplayer.golCol == myViewModel.getPosition().getColumnIndex() && mazeDisplayer.golRow == myViewModel.getPosition().getRowIndex()) {
                     mazeDisplayer.isGobletVisible(myViewModel.getPosition().getColumnIndex(), myViewModel.getPosition().getRowIndex());
                     if (!wasSounded) {
@@ -624,6 +640,38 @@ public class MyViewController implements IView, Observer {
        }
        gameDisplayer.drawOnZoom();
 
+    }
+
+    public void MouseDrag(MouseEvent event) {
+        if(levelEasy.isSelected()){
+            myViewModel.getLevel(1);
+        }else if(levelHard.isSelected()){
+            myViewModel.getLevel(-1);
+        }
+        if (this.mazeDisplayer.hasMaze()) {
+            if (this.lastX <= this.characterMinX + this.cellWidth && this.lastX >= this.characterMinX && this.lastY >= this.characterMinY && this.lastY <= this.characterMinY + this.cellHeight) {
+                if (event.getX() < this.characterMinX && event.getY() > this.cellHeight + this.characterMinY) {
+                    myViewModel.moveChar("Numpad 1");
+                } else if (event.getX() > this.cellWidth + this.characterMinX && event.getY() > this.cellHeight + this.characterMinY) {
+                    myViewModel.moveChar("Numpad 3");
+                } else if (event.getX() < this.characterMinX && event.getY() < this.characterMinY) {
+                    myViewModel.moveChar("Numpad 7");
+                } else if (event.getX() > this.cellWidth + this.characterMinX && event.getY() < this.characterMinY) {
+                    myViewModel.moveChar("Numpad 9");
+                } else if (event.getX() > this.cellWidth + this.characterMinX) {
+                    myViewModel.moveChar("Right");
+                } else if (event.getX() < this.characterMinX) {
+                    myViewModel.moveChar("Left");
+                } else if (event.getY() > this.cellHeight + this.characterMinY) {
+                    myViewModel.moveChar("Down");
+                } else if (event.getY() < this.characterMinY) {
+                    myViewModel.moveChar("Up");
+                }
+            }
+
+            this.lastX = event.getX();
+            this.lastY = event.getY();
+        }
     }
 
 }

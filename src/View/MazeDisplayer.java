@@ -140,6 +140,13 @@ public class MazeDisplayer extends Canvas {
         golCol = col;
     }
 
+    public boolean hasMaze() {
+        if (maze != null){
+            return true;
+        }
+        return false;
+    }
+
 
 //    public void cleanGame() {
 //        getGraphicsContext2D().clearRect(0, 0, getWidth(), getHeight()); //Clears the canvas
