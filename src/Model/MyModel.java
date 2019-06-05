@@ -9,6 +9,7 @@ import algorithms.mazeGenerators.Maze;
 import algorithms.mazeGenerators.Position;
 import algorithms.search.MazeState;
 import algorithms.search.Solution;
+import javafx.scene.control.Alert;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -20,15 +21,16 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Random;
 
 public class MyModel extends Observable implements IModel {
     private Maze maze;
     private Solution solution;
     private boolean golToken;
+    private boolean randomValue = false;
 
-    public Solution getSolution()
-    {
-        if(solution != null)
+    public Solution getSolution() {
+        if (solution != null)
             return solution;
         else
             return null;
@@ -52,16 +54,16 @@ public class MyModel extends Observable implements IModel {
         int solverInterval = Integer.parseInt(Configurations.getInstance().getProperty("SolverTypeListeningInterval"));
         solver = new Server(solverPortNum, solverInterval, new ServerStrategySolveSearchProblem());
         solver.start();
-        generator = new Server(generatePortNum,generateInterval,new ServerStrategyGenerateMaze());
+        generator = new Server(generatePortNum, generateInterval, new ServerStrategyGenerateMaze());
         generator.start();
     }
 
 
-    public boolean isWon()
-    {
-        if(characterRowCurrentPosition == maze.getGoalPosition().getRowIndex() && characterColumnCurrentPosition == maze.getGoalPosition().getColumnIndex()){
+    public boolean isWon() {
+
+        if (characterRowCurrentPosition == maze.getGoalPosition().getRowIndex() && characterColumnCurrentPosition == maze.getGoalPosition().getColumnIndex()) {
             return true;
-    }
+        }
         return false;
     }
 
@@ -69,13 +71,12 @@ public class MyModel extends Observable implements IModel {
     public void MoveCharacterEasy(KeyEvent keyEvent, int level) {
 
         boolean isLegal = false;
-        if(isWon())
-        {
+        if (isWon()) {
             keyEvent.consume();
             finishedGame = true;
         }
 
-        if(!finishedGame) {
+        if (!finishedGame) {
             if (keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.NUMPAD8) {
                 if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1 * level, "upOrDown")) {
                     characterRowCurrentPosition = characterRowCurrentPosition - 1 * level;
@@ -102,28 +103,28 @@ public class MyModel extends Observable implements IModel {
                 }
 
             } else if (keyEvent.getCode() == KeyCode.NUMPAD1) {
-                if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition,  level, "leftDown")) {
+                if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition, level, "leftDown")) {
                     characterRowCurrentPosition = characterRowCurrentPosition + 1 * level;
                     characterColumnCurrentPosition = characterColumnCurrentPosition - 1 * level;
                     isLegal = true;
                 }
 
-            }else if (keyEvent.getCode() == KeyCode.NUMPAD3) {
-                if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition,  level, "rightDown")) {
+            } else if (keyEvent.getCode() == KeyCode.NUMPAD3) {
+                if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition, level, "rightDown")) {
                     characterRowCurrentPosition = characterRowCurrentPosition + 1 * level;
                     characterColumnCurrentPosition = characterColumnCurrentPosition + 1 * level;
                     isLegal = true;
                 }
 
-            }else if (keyEvent.getCode() == KeyCode.NUMPAD7) {
-                if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition,  level, "leftUp")) {
+            } else if (keyEvent.getCode() == KeyCode.NUMPAD7) {
+                if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition, level, "leftUp")) {
                     characterRowCurrentPosition = characterRowCurrentPosition - 1 * level;
                     characterColumnCurrentPosition = characterColumnCurrentPosition - 1 * level;
                     isLegal = true;
                 }
 
-            }else if (keyEvent.getCode() == KeyCode.NUMPAD9) {
-                if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition,  level, "rightUp")) {
+            } else if (keyEvent.getCode() == KeyCode.NUMPAD9) {
+                if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition, level, "rightUp")) {
                     characterRowCurrentPosition = characterRowCurrentPosition - 1 * level;
                     characterColumnCurrentPosition = characterColumnCurrentPosition + 1 * level;
                     isLegal = true;
@@ -140,6 +141,7 @@ public class MyModel extends Observable implements IModel {
                     playSound("resources/Audio/punchWall.mp3");
                     characterRowCurrentPosition = maze.getStartPosition().getRowIndex();
                     characterColumnCurrentPosition = maze.getStartPosition().getColumnIndex();
+                    golToken = false;
                 }
             }
 
@@ -155,23 +157,19 @@ public class MyModel extends Observable implements IModel {
     }
 
     private boolean checkIfLegalDiagonalMove(int characterRowCurrentPosition, int characterColumnCurrentPosition, int level, String diagSide) {
-        if((characterRowCurrentPosition + 1*level > 0 || characterRowCurrentPosition + 1*level <= maze.getMazeArray().length
-                || characterRowCurrentPosition + 2*level > 0 || characterRowCurrentPosition + 2 *level > maze.getMazeArray().length
-                || characterRowCurrentPosition + 1*level > 0 || characterRowCurrentPosition + 1*level <= maze.getMazeArray().length
-                || characterRowCurrentPosition + 2*level > 0 || characterRowCurrentPosition + 2*level > maze.getMazeArray().length))
-        {
+        if ((characterRowCurrentPosition + 1 * level > 0 || characterRowCurrentPosition + 1 * level <= maze.getMazeArray().length
+                || characterRowCurrentPosition + 2 * level > 0 || characterRowCurrentPosition + 2 * level > maze.getMazeArray().length
+                || characterRowCurrentPosition + 1 * level > 0 || characterRowCurrentPosition + 1 * level <= maze.getMazeArray().length
+                || characterRowCurrentPosition + 2 * level > 0 || characterRowCurrentPosition + 2 * level > maze.getMazeArray().length)) {
             int[][] mazeArray = maze.getMazeArray();
-            int diagCellRow,diagCellCol,nextCellRow,nextCellCol,scndCellRow,scndCellCol;
-            if(diagSide.toLowerCase().equals("leftdown"))
-            {
-                diagCellRow = characterRowCurrentPosition + 1*level;
-                diagCellCol = characterColumnCurrentPosition - 1*level;
-                if(checkLegalCell(diagCellRow,diagCellCol))
-                {
+            int diagCellRow, diagCellCol, nextCellRow, nextCellCol, scndCellRow, scndCellCol;
+            if (diagSide.toLowerCase().equals("leftdown")) {
+                diagCellRow = characterRowCurrentPosition + 1 * level;
+                diagCellCol = characterColumnCurrentPosition - 1 * level;
+                if (checkLegalCell(diagCellRow, diagCellCol)) {
 
                     if (checkLegalCell(characterRowCurrentPosition, diagCellCol) ||
-                            checkLegalCell(diagCellRow, characterColumnCurrentPosition))
-                    {
+                            checkLegalCell(diagCellRow, characterColumnCurrentPosition)) {
 
                         return true;
                     }
@@ -180,17 +178,13 @@ public class MyModel extends Observable implements IModel {
                 }
 
 
-            }
-            else if(diagSide.toLowerCase().equals("rightdown"))
-            {
-                diagCellRow = characterRowCurrentPosition + 1*level;
-                diagCellCol = characterColumnCurrentPosition + 1*level;
-                if(checkLegalCell(diagCellRow,diagCellCol))
-                {
+            } else if (diagSide.toLowerCase().equals("rightdown")) {
+                diagCellRow = characterRowCurrentPosition + 1 * level;
+                diagCellCol = characterColumnCurrentPosition + 1 * level;
+                if (checkLegalCell(diagCellRow, diagCellCol)) {
 
                     if (checkLegalCell(characterRowCurrentPosition, diagCellCol) ||
-                            checkLegalCell(diagCellRow, characterColumnCurrentPosition))
-                    {
+                            checkLegalCell(diagCellRow, characterColumnCurrentPosition)) {
 
                         return true;
                     }
@@ -198,17 +192,13 @@ public class MyModel extends Observable implements IModel {
 
                 }
 
-            }
-            else if(diagSide.toLowerCase().equals("leftup") )
-            {
-                diagCellRow = characterRowCurrentPosition - 1*level;
-                diagCellCol = characterColumnCurrentPosition - 1*level;
-                if(checkLegalCell(diagCellRow,diagCellCol))
-                {
+            } else if (diagSide.toLowerCase().equals("leftup")) {
+                diagCellRow = characterRowCurrentPosition - 1 * level;
+                diagCellCol = characterColumnCurrentPosition - 1 * level;
+                if (checkLegalCell(diagCellRow, diagCellCol)) {
 
                     if (checkLegalCell(characterRowCurrentPosition, diagCellCol) ||
-                            checkLegalCell(diagCellRow, characterColumnCurrentPosition))
-                    {
+                            checkLegalCell(diagCellRow, characterColumnCurrentPosition)) {
 
                         return true;
                     }
@@ -216,29 +206,20 @@ public class MyModel extends Observable implements IModel {
 
                 }
 
-            }
-            else if(diagSide.toLowerCase().equals("rightup"))
-            {
-                diagCellRow = characterRowCurrentPosition - 1*level;
-                diagCellCol = characterColumnCurrentPosition + 1*level;
-                if(checkLegalCell(diagCellRow,diagCellCol))
-                {
+            } else if (diagSide.toLowerCase().equals("rightup")) {
+                diagCellRow = characterRowCurrentPosition - 1 * level;
+                diagCellCol = characterColumnCurrentPosition + 1 * level;
+                if (checkLegalCell(diagCellRow, diagCellCol)) {
 
                     if (checkLegalCell(characterRowCurrentPosition, diagCellCol) ||
-                            checkLegalCell(diagCellRow, characterColumnCurrentPosition))
-                    {
+                            checkLegalCell(diagCellRow, characterColumnCurrentPosition)) {
 
                         return true;
                     }
-
-
                 }
-            }
-            else
-            {
+            } else {
                 return false;
             }
-
 
 
         }
@@ -248,36 +229,34 @@ public class MyModel extends Observable implements IModel {
 
     }
 
-    private boolean checkLegalCell(int cellRow,int cellCol) {
+    private boolean checkLegalCell(int cellRow, int cellCol) {
         return maze.getMazeArray()[cellRow][cellCol] != 1
                 && maze.getMazeArray()[cellRow][cellCol] >= 0
                 && maze.getMazeArray()[cellRow][cellCol] < maze.getMazeArray()[0].length;
     }
 
-    public Position getPosition(){
-        Position curr = new Position(characterRowCurrentPosition,characterColumnCurrentPosition);
+    public Position getPosition() {
+        Position curr = new Position(characterRowCurrentPosition, characterColumnCurrentPosition);
         return curr;
     }
-
 
 
     public boolean checkIfLegalMove(int characterRowCurrentPosition, int characterColumnCurrentPosition, int num, String side) {
         System.out.println("Row=" + characterRowCurrentPosition + ", Col=" + characterColumnCurrentPosition + ", num=" + num);
 
 
-        if(!(characterRowCurrentPosition + num >= maze.getMazeArray().length || characterRowCurrentPosition + num < 0))
-        {
+        if (!(characterRowCurrentPosition + num >= maze.getMazeArray().length || characterRowCurrentPosition + num < 0)) {
             if (side.equals("upOrDown") && maze.getMazeArray()[characterRowCurrentPosition + num][characterColumnCurrentPosition] != 1
                     && maze.getMazeArray()[characterRowCurrentPosition + num][characterColumnCurrentPosition] >= 0
                     && maze.getMazeArray()[characterRowCurrentPosition + num][characterColumnCurrentPosition] < maze.getMazeArray()[0].length) {
                 return true;
             }
         }
-        if( !(characterColumnCurrentPosition + num >= maze.getMazeArray()[0].length || characterColumnCurrentPosition + num < 0)) {
+        if (!(characterColumnCurrentPosition + num >= maze.getMazeArray()[0].length || characterColumnCurrentPosition + num < 0)) {
             if (side.equals("leftOrRight") && maze.getMazeArray()[characterRowCurrentPosition][characterColumnCurrentPosition + num] != 1
                     && maze.getMazeArray()[characterRowCurrentPosition][characterColumnCurrentPosition + num] >= 0
                     && maze.getMazeArray()[characterRowCurrentPosition][characterColumnCurrentPosition + num] < maze.getMazeArray().length
-                    ) {
+            ) {
                 return true;
             }
         }
@@ -291,20 +270,15 @@ public class MyModel extends Observable implements IModel {
 
     @Override
     public void generateMaze(int height, int width) {
-        callClientGenerateMaze(height,width);
+        callClientGenerateMaze(height, width);
         finishedGame = false;
         characterRowCurrentPosition = maze.getStartPosition().getRowIndex();
         characterColumnCurrentPosition = maze.getStartPosition().getColumnIndex();
         setChanged();
         notifyObservers();
-
-
     }
 
-
-
-    public void solveGame()
-    {
+    public void solveGame() {
         callClientSolveMaze();
         setChanged();
         notifyObservers();
@@ -320,7 +294,7 @@ public class MyModel extends Observable implements IModel {
                         toServer.flush();
                         toServer.writeObject(maze);
                         toServer.flush();
-                        solution = (Solution)fromServer.readObject();
+                        solution = (Solution) fromServer.readObject();
 
                         if (solution == null)
                             System.out.println("ERRORRRRRRRRRRRRRRRRR***********************");
@@ -348,7 +322,7 @@ public class MyModel extends Observable implements IModel {
                         int[] mazeDimensions = new int[]{row, col};
                         toServer.writeObject(mazeDimensions);
                         toServer.flush();
-                        byte[] compressedMaze = (byte[])((byte[])fromServer.readObject());
+                        byte[] compressedMaze = (byte[]) ((byte[]) fromServer.readObject());
                         InputStream is = new MyDecompressorInputStream(new ByteArrayInputStream(compressedMaze));
                         byte[] decompressedMaze = new byte[row * col + 12];
                         is.read(decompressedMaze);
@@ -366,7 +340,7 @@ public class MyModel extends Observable implements IModel {
 
     }
 
-    public void modelSaveMazeToDisk(String fileName){
+    public void modelSaveMazeToDisk(String fileName) {
         MyCompressorOutputStream out = null;
         try {
             out = new MyCompressorOutputStream(new FileOutputStream(fileName + ".maze"));
@@ -388,10 +362,26 @@ public class MyModel extends Observable implements IModel {
         solver.stop();
     }
 
-    public boolean isGobletToken() {
-        golToken = true;
-        playSound("resources/Audio/yes-2.wav");
-        return true;
+    public Position getrandomPos() {
+        Random randomGenerator = new Random();
+        int indexRow = randomGenerator.nextInt(maze.getHeight());
+        int indexCol = randomGenerator.nextInt(maze.getWidth());
+        boolean found = false;
+        while (!found) {
+            if ((indexCol != maze.getGoalPosition().getColumnIndex() && indexRow != maze.getGoalPosition().getRowIndex()) && (indexCol != maze.getStartPosition().getColumnIndex() && indexRow != maze.getStartPosition().getRowIndex())) {
+                if (maze.getMazeArray()[indexRow][indexCol] == 0) {
+                    Position gobletPosition = new Position(indexRow, indexCol);
+                    return gobletPosition;
+                }
+            }
+            indexRow = randomGenerator.nextInt(maze.getHeight());
+            indexCol = randomGenerator.nextInt(maze.getWidth());
+        }
+        return null;
+    }
+
+    public boolean getGolToken(){
+        return golToken;
     }
 
 }

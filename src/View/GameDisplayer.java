@@ -81,4 +81,5 @@ public class GameDisplayer  {
 //        redrawMaze();
         solDisplayer.drawSolution(mz);
     }
+
 }

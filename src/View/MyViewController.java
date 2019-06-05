@@ -50,7 +50,6 @@ public class MyViewController implements IView, Observer {
     public MenuItem daveboy;
     public MenuItem davegirl;
 
-
     @FXML
     private TextField heightField;
 
@@ -108,7 +107,7 @@ public class MyViewController implements IView, Observer {
     public BorderPane mainPane;
     public Pane mazePane;
     private boolean finishedAlready;
-
+    private boolean wasSounded = false;
 
 
     public void initialize(MyViewModel myViewModel) {
@@ -121,6 +120,7 @@ public class MyViewController implements IView, Observer {
         //Set Binding for Properties
         lbl_characterRow.textProperty().bind(characterRow);
         lbl_characterColumn.textProperty().bind(characterColumn);
+
         mazePane.prefHeightProperty().bind(mainPane.heightProperty());
         mazePane.prefWidthProperty().bind(mainPane.widthProperty());
         mazeDisplayer.heightProperty().bind(mazePane.heightProperty());
@@ -153,12 +153,12 @@ public class MyViewController implements IView, Observer {
         });
 
         setDisableSolveButtons(true);
-
-
-
     }
 
 
+    public Position getRandomPos(){
+        return myViewModel.getrandomPos();
+    }
 
 
     private void redrawSolutionOnZoom() {
@@ -175,48 +175,30 @@ public class MyViewController implements IView, Observer {
     //    @FXML
 //    private Label valueError;
 
-
-    int[][] mazeData;
-//            = { // a stub...
-////        {0, 1, 1, 1,},
-////        {0, 0, 0, 0},
-////        {0, 0, 1, 1},
-////        {1, 1, 1, 0}
-//            {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-//            {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1},
-//            {0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1},
-//            {1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1},
-//            {1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1},
-//            {1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1},
-//            {1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1},
-//            {1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1},
-//            {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1},
-//            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1}
-//    };
-
     public void solveMaze()
     {
         gameDisplayer.solDisplayer.setVisibleMaze(true);
         myViewModel.solveGame();
-
         setDisableSolveButtons(true);
-
-
     }
 
     public void generateMaze() {
         //int rows = Integer.valueOf(txtfld_rowsNum.getText());
         //int columns = Integer.valueOf(txtfld_columnsNum.getText());
         //this.mazeDisplayer.setMaze(getRandomMaze(rows,columns));
-
+        mazeDisplayer.golToken = false;
         gameDisplayer.solDisplayer.setVisibleMaze(false);
-        myViewModel.generateMaze(Integer.parseInt(heightField.getText()),Integer.parseInt(widthField.getText()));
+        myViewModel.generateMaze(Integer.parseInt(heightField.getText()), Integer.parseInt(widthField.getText()));
+        setPositonGoblet(mazeDisplayer.getRandomPost(myViewModel.getrandomPos()));
+        mazeDisplayer.redraw(myViewModel.getrandomPos().getRowIndex(),myViewModel.getrandomPos().getColumnIndex());
+//            mazeDisplayer.redraw(daveDisplayer.getCharacterPositionRow(),daveDisplayer.getCharacterPositionColumn());
+        wasSounded = false;
         finishedAlready = false;
         setDisableSolveButtons(false);
-
-
 //        this.mazeDisplayer.setMaze(mazeData);
     }
+
+
 
     public void createLevel() {
         toggleLevel = new ToggleGroup();
@@ -278,7 +260,6 @@ public class MyViewController implements IView, Observer {
         mediaPlayer.setOnEndOfMedia(this::playMusic);
 
     }
-
 
 
     public void backgroundMusicStatus() {
@@ -348,8 +329,7 @@ public class MyViewController implements IView, Observer {
             }
         }
         myViewModel.moveCharacter(keyEvent,level);
-
-        if(myViewModel.gameWon() && !finishedAlready)
+        if(myViewModel.gameWon() && !finishedAlready )
         {
             mediaPlayer.stop();
             playSpecificSound("resources/Audio/woohoo.wav");
@@ -357,25 +337,26 @@ public class MyViewController implements IView, Observer {
             EndGame.setTitle("Congratulations");
             EndGame.showAndWait();
             finishedAlready = true;
-
-
+//        }else if(myViewModel.gameWon() && mazeDisplayer.golToken == false){
+//            Alert cantEnd = new Alert(Alert.AlertType.ERROR, "Please take the goblet!");
+//            cantEnd.showAndWait();
         }
 //        mazeDisplayer.setCharacterPosition(ch);
-
-
 //        System.out.println(characterRowNewPosition + "," + characterColumnNewPosition);
         this.characterRow.setValue(String.valueOf(daveDisplayer.getCharacterPositionRow()));
         this.characterColumn.setValue(String.valueOf(daveDisplayer.getCharacterPositionColumn()));
         keyEvent.consume();
+    }
 
+    public void setPositonGoblet(Position p){
+        mazeDisplayer.setGolRow(p.getRowIndex());
+        mazeDisplayer.setGolCol(p.getColumnIndex());
     }
 
     private void playSpecificSound(String musicPath) {
         AudioClip sound = new AudioClip(new File(musicPath).toURI().toString());
         sound.play();
     }
-
-
 
        public void changeStyleToBlue() {
         this.mazeDisplayer.setImageFileNameWall("resources/Images/blueWall.jpg");
@@ -444,11 +425,14 @@ public class MyViewController implements IView, Observer {
             if(testMaze != null) {
                 mazeDisplayer.setMaze(myViewModel.getMaze());
                 gameDisplayer.setCharacterPosition(myViewModel.getPosition());
-                if(mazeDisplayer.golCol == myViewModel.getPosition().getColumnIndex() && mazeDisplayer.golRow == myViewModel.getPosition().getRowIndex()){
-                    mazeDisplayer.isGobletVisible();
-                    myViewModel.isGobletToken();
+                if(mazeDisplayer.golCol == myViewModel.getPosition().getColumnIndex() && mazeDisplayer.golRow == myViewModel.getPosition().getRowIndex()) {
+                    mazeDisplayer.isGobletVisible(myViewModel.getPosition().getColumnIndex(), myViewModel.getPosition().getRowIndex());
+                    if(!wasSounded) {
+                        myViewModel.playSound("resources/Audio/yes-2.wav");
+                        wasSounded = true;
+                    }
                 }
-                System.out.println("New Row=" + myViewModel.getPosition().getRowIndex() + ", New Col=" + myViewModel.getPosition().getColumnIndex());
+
             }
             Solution testSolution = myViewModel.getSolution();
 
@@ -457,10 +441,7 @@ public class MyViewController implements IView, Observer {
                 solDisplayer.setSol(myViewModel.getSolution());
                 solDisplayer.drawSolution(myViewModel.getMaze());
             }
-
-
         }
-
     }
 
     public void redrawMazeOnZoom()

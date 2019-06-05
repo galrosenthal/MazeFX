@@ -6,6 +6,7 @@ import javax.swing.*;
 
 import algorithms.mazeGenerators.Position;
 import algorithms.search.Solution;
+import javafx.geometry.Pos;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -30,7 +31,9 @@ public interface IModel {
 
     Solution getSolution();
 
-    boolean isGobletToken();
+    Position getrandomPos();
+
+    boolean getGolToken();
 
 //    void generateMaze(int height, int width);
 }

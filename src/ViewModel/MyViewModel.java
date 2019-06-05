@@ -77,7 +77,15 @@ public class MyViewModel extends Observable implements Observer {
         return model.getSolution();
     }
 
-    public boolean isGobletToken() {
-        return model.isGobletToken();
+    public boolean getGolToken(){
+        return model.getGolToken();
+    }
+
+
+    public Position getrandomPos(){
+       return model.getrandomPos();
     }
 }
+
+
+
