@@ -18,6 +18,8 @@ public class DaveDisplayer extends Canvas {
     private int characterPositionRow = 0;
     private int characterPositionColumn = 0;
 
+
+
     public int getCharacterPositionRow() {
         return characterPositionRow;
     }
@@ -44,12 +46,12 @@ public class DaveDisplayer extends Canvas {
         this.ImageFileNameCharacter.set(imageFileNameCharacter);
     }
 
-    public void drawDave(Maze maze)
+    public void drawDave(Maze maze , double zoomFactor)
     {
         if(maze != null)
         {
-            double canvasHeight = getHeight();
-            double canvasWidth = getWidth();
+            double canvasHeight = getHeight() * zoomFactor;
+            double canvasWidth = getWidth() * zoomFactor;
             double cellHeight = canvasHeight / maze.getMazeArray().length;
             double cellWidth = canvasWidth / maze.getMazeArray()[0].length;
 

@@ -19,19 +19,18 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
+import javafx.geometry.Bounds;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseDragEvent;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -111,8 +110,9 @@ public class MyViewController implements IView, Observer {
     public Pane mazePane;
     private boolean finishedAlready;
     private boolean wasSounded = false;
+    private boolean isCtrlPressed = false;
 
-    private double origDaveX,origDaveY, orgSceneX,orgSceneY;
+    private double origDaveX, origDaveY, orgSceneX, orgSceneY;
 
     private boolean loadMaze;
 
@@ -133,10 +133,10 @@ public class MyViewController implements IView, Observer {
         mazePane.prefWidthProperty().bind(mainPane.widthProperty());
         mazeDisplayer.heightProperty().bind(mazePane.heightProperty());
         mazeDisplayer.widthProperty().bind(mazePane.widthProperty());
-        mazeDisplayer.heightProperty().addListener((obs,oldVal,newVal)->{
+        mazeDisplayer.heightProperty().addListener((obs, oldVal, newVal) -> {
             redrawMazeOnZoom();
         });
-        mazeDisplayer.widthProperty().addListener((obs,oldVal,newVal)->{
+        mazeDisplayer.widthProperty().addListener((obs, oldVal, newVal) -> {
             redrawMazeOnZoom();
         });
 
@@ -146,26 +146,27 @@ public class MyViewController implements IView, Observer {
         solDisplayer.widthProperty().addListener(((observable, oldValue, newValue) -> {
             redrawSolutionOnZoom();
         }));
-        solDisplayer.heightProperty().addListener((obs,old,newV)->{
+        solDisplayer.heightProperty().addListener((obs, old, newV) -> {
             redrawSolutionOnZoom();
         });
 
 
         daveDisplayer.heightProperty().bind(mazeDisplayer.heightProperty());
         daveDisplayer.widthProperty().bind(mazeDisplayer.widthProperty());
-        daveDisplayer.heightProperty().addListener((obs,oldVal,newVal)->{
+        daveDisplayer.heightProperty().addListener((obs, oldVal, newVal) -> {
             redrawMazeOnZoom();
         });
-        daveDisplayer.widthProperty().addListener((obs,oldVal,newVal)->{
+        daveDisplayer.widthProperty().addListener((obs, oldVal, newVal) -> {
             redrawMazeOnZoom();
         });
 
         setDisableSolveButtons(true);
-//        characterRow.bind()
+
+
     }
 
 
-    public Position getRandomPos(){
+    public Position getRandomPos() {
         return myViewModel.getrandomPos();
     }
 
@@ -174,8 +175,7 @@ public class MyViewController implements IView, Observer {
         gameDisplayer.drawSolution(myViewModel.getMaze());
     }
 
-    private void setDisableSolveButtons(Boolean doDisabled)
-    {
+    private void setDisableSolveButtons(Boolean doDisabled) {
         solveImageButton.setDisable(doDisabled);
         solveMazeImageButton.setDisable(doDisabled);
         solveMazeButton.setDisable(doDisabled);
@@ -184,8 +184,7 @@ public class MyViewController implements IView, Observer {
     //    @FXML
 //    private Label valueError;
 
-    public void solveMaze()
-    {
+    public void solveMaze() {
         gameDisplayer.solDisplayer.setVisibleMaze(true);
         myViewModel.solveGame();
         setDisableSolveButtons(true);
@@ -199,14 +198,13 @@ public class MyViewController implements IView, Observer {
         gameDisplayer.solDisplayer.setVisibleMaze(false);
         myViewModel.generateMaze(Integer.parseInt(heightField.getText()), Integer.parseInt(widthField.getText()));
         setPositonGoblet(mazeDisplayer.getRandomPost(myViewModel.getrandomPos()));
-        mazeDisplayer.redraw(myViewModel.getrandomPos().getRowIndex(),myViewModel.getrandomPos().getColumnIndex());
+        mazeDisplayer.redraw(gameDisplayer.getZoomFactor());
 //            mazeDisplayer.redraw(daveDisplayer.getCharacterPositionRow(),daveDisplayer.getCharacterPositionColumn());
         wasSounded = false;
         finishedAlready = false;
         setDisableSolveButtons(false);
 //        this.mazeDisplayer.setMaze(mazeData);
     }
-
 
 
     public void createLevel() {
@@ -292,10 +290,11 @@ public class MyViewController implements IView, Observer {
         }
     }
 
-    public void exitWithXButton(WindowEvent event){
+    public void exitWithXButton(WindowEvent event) {
         try {
             exitWithExitButton();
-        }catch (InterruptedException e){}
+        } catch (InterruptedException e) {
+        }
     }
 
 
@@ -307,15 +306,12 @@ public class MyViewController implements IView, Observer {
     }
 
 
-    public void moveDaveMouse(MouseEvent mEvent)
-    {
-        if(mEvent.isDragDetect()) {
+    public void moveDaveMouse(MouseEvent mEvent) {
+        if (mEvent.isDragDetect()) {
             System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Entered Drag Event");
-            if (gameDisplayer.getMazeDisplayer().getMaze() != null)
-            {
+            if (gameDisplayer.getMazeDisplayer().getMaze() != null) {
                 double offsetX = mEvent.getSceneX() - orgSceneX;
                 double offsetY = mEvent.getSceneY() - orgSceneY;
-
 
 
 //                while()
@@ -354,7 +350,7 @@ public class MyViewController implements IView, Observer {
                 || keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD8 || keyEvent.getCode() == KeyCode.NUMPAD2
                 || keyEvent.getCode() == KeyCode.NUMPAD4 || keyEvent.getCode() == KeyCode.NUMPAD6
                 || keyEvent.getCode() == KeyCode.NUMPAD1 || keyEvent.getCode() == KeyCode.NUMPAD3
-                || keyEvent.getCode() == KeyCode.NUMPAD7 || keyEvent.getCode() == KeyCode.NUMPAD9)) {
+                || keyEvent.getCode() == KeyCode.NUMPAD7 || keyEvent.getCode() == KeyCode.NUMPAD9 || keyEvent.getCode().getName().toLowerCase().equals("ctrl"))) {
             keyEvent.consume();
             Alert alert = new Alert(Alert.AlertType.WARNING, "You pressed on illegal button.\n Please read the instructions and try again. ", ButtonType.OK);
             alert.setTitle("WARNING");
@@ -364,41 +360,40 @@ public class MyViewController implements IView, Observer {
             return;
         }
 
+        if(keyEvent.getCode().getName().toLowerCase().equals("ctrl"))
+        {
+            isCtrlPressed = true;
+            keyEvent.consume();
+            return;
+        }
         if (levelEasy.isSelected()) {
             level = 1;
 
-            if(keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD6)
-            {
+            if (keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD6) {
                 daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + ".png");
-            }
-            else if(keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.NUMPAD4)
-            {
+            } else if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.NUMPAD4) {
                 daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
             }
 
 
-        } else if (levelHard.isSelected()){
+        } else if (levelHard.isSelected()) {
             level = -1;
-            if(keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD4)
-            {
+            if (keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD4) {
                 daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
-            }
-            else if(keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.NUMPAD6)
-            {
+            } else if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.NUMPAD6) {
                 daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + ".png");
             }
         }
-        myViewModel.moveCharacter(keyEvent,level);
-        if(myViewModel.gameWon() && !finishedAlready && mazeDisplayer.golToken)
-        {
+        myViewModel.moveCharacter(keyEvent, level);
+        if (myViewModel.gameWon() && !finishedAlready && mazeDisplayer.golToken) {
             mediaPlayer.stop();
             playSpecificSound("resources/Audio/woohoo.wav");
-            Alert EndGame = new Alert(Alert.AlertType.INFORMATION,"Congratulations!!! You have Won the Game, Dave is Resuced =)");
+            Alert EndGame = new Alert(Alert.AlertType.INFORMATION, "Congratulations!!! You have Won the Game, Dave is Resuced =)");
             EndGame.setTitle("Congratulations");
             EndGame.showAndWait();
             mediaPlayer.play();
             finishedAlready = true;
-        }else if(myViewModel.gameWon() && !mazeDisplayer.golToken){
+        } else if (myViewModel.gameWon() && !mazeDisplayer.golToken) {
             Alert cantEnd = new Alert(Alert.AlertType.ERROR, "Please take the goblet!");
             cantEnd.showAndWait();
             myViewModel.setCharacterRowCurrentPosition(myViewModel.getMaze().getStartPosition().getRowIndex());
@@ -412,7 +407,7 @@ public class MyViewController implements IView, Observer {
         keyEvent.consume();
     }
 
-    public void setPositonGoblet(Position p){
+    public void setPositonGoblet(Position p) {
         mazeDisplayer.setGolRow(p.getRowIndex());
         mazeDisplayer.setGolCol(p.getColumnIndex());
     }
@@ -422,7 +417,7 @@ public class MyViewController implements IView, Observer {
         sound.play();
     }
 
-       public void changeStyleToBlue() {
+    public void changeStyleToBlue() {
         this.mazeDisplayer.setImageFileNameWall("resources/Images/blueWall.jpg");
         gameDisplayer.redrawMaze();
     }
@@ -459,8 +454,7 @@ public class MyViewController implements IView, Observer {
         gameDisplayer.redrawMaze();
     }
 
-    public void saveMazeView()
-    {
+    public void saveMazeView() {
         Stage saveWindow = new Stage();
         FileChooser fileChooser = new FileChooser();
 
@@ -472,21 +466,18 @@ public class MyViewController implements IView, Observer {
         File file = fileChooser.showSaveDialog(saveWindow);
 
 
-        if (file != null ) {
+        if (file != null) {
             try {
                 finishToSave(file.toString());
 
-            }
-            catch (FileNotFoundException fileNfound)
-            {
+            } catch (FileNotFoundException fileNfound) {
                 fileNfound.printStackTrace();
             }
         }
 
     }
 
-    public void LoadMaze()
-    {
+    public void LoadMaze() {
         finishedAlready = false;
 
         Stage loadWindow = new Stage();
@@ -500,7 +491,7 @@ public class MyViewController implements IView, Observer {
         File file = fileChooser.showOpenDialog(loadWindow);
 
 
-        if(file != null)
+        if (file != null)
             myViewModel.loadMazeFromDisk(file.toString());
 
 
@@ -516,25 +507,22 @@ public class MyViewController implements IView, Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        if(o == myViewModel)
-        {
+        if (o == myViewModel) {
             Maze testMaze = myViewModel.getMaze();
-            if(testMaze != null) {
+            if (testMaze != null) {
                 mazeDisplayer.setMaze(myViewModel.getMaze());
                 gameDisplayer.setCharacterPosition(myViewModel.getPosition());
                 this.characterRow.setValue(String.valueOf(daveDisplayer.getCharacterPositionRow()));
                 this.characterColumn.setValue(String.valueOf(daveDisplayer.getCharacterPositionColumn()));
-                if(mazeDisplayer.golCol == myViewModel.getPosition().getColumnIndex() && mazeDisplayer.golRow == myViewModel.getPosition().getRowIndex()) {
+                if (mazeDisplayer.golCol == myViewModel.getPosition().getColumnIndex() && mazeDisplayer.golRow == myViewModel.getPosition().getRowIndex()) {
                     mazeDisplayer.isGobletVisible(myViewModel.getPosition().getColumnIndex(), myViewModel.getPosition().getRowIndex());
-                    if(!wasSounded) {
+                    if (!wasSounded) {
                         myViewModel.playSound("resources/Audio/yes-2.wav");
                         wasSounded = true;
                     }
                 }
 
-            }
-            else
-            {
+            } else {
                 Alert mazeNotFoundAlert = new Alert(Alert.AlertType.ERROR);
                 mazeNotFoundAlert.setTitle("Maze Not Found!");
                 mazeNotFoundAlert.setContentText("Please Try Reloading or Regenerating your maze!");
@@ -544,10 +532,9 @@ public class MyViewController implements IView, Observer {
 
             Solution testSolution = myViewModel.getSolution();
 
-            if(testSolution != null)
-            {
+            if (testSolution != null) {
                 solDisplayer.setSol(myViewModel.getSolution());
-                solDisplayer.drawSolution(myViewModel.getMaze());
+                solDisplayer.drawSolution(myViewModel.getMaze(),gameDisplayer.getZoomFactor());
             }
 
 
@@ -555,11 +542,36 @@ public class MyViewController implements IView, Observer {
 
     }
 
-    public void redrawMazeOnZoom()
+    public void keyReleased(KeyEvent kyRlsd)
     {
+        if(kyRlsd.getCode().getName().toLowerCase().equals("ctrl"))
+            isCtrlPressed = false;
+    }
+
+
+    public void redrawMazeOnZoom() {
         gameDisplayer.redrawMaze();
     }
 
+    public void zoom(ScrollEvent scEvent) {
+       if(isCtrlPressed && mazeDisplayer.getMaze() != null)
+       {
+           double zoomDelta = 1.1D;
+           double deltaY = scEvent.getDeltaY();
+           if(deltaY > 0.0D)
+           {
+                gameDisplayer.setZoomFactor(gameDisplayer.getZoomFactor()*1.1D);
+           }
+           else if(deltaY < 0.0D)
+           {
+                gameDisplayer.setZoomFactor(gameDisplayer.getZoomFactor()/1.1D);
+
+           }
+
+       }
+       gameDisplayer.drawOnZoom();
+
+    }
 
 }
 

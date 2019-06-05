@@ -15,6 +15,7 @@ import java.util.Random;
 public class SolutionDisplayer extends Canvas {
 
 
+
     public boolean isVisibleMaze() {
         return visibleMaze;
     }
@@ -44,6 +45,8 @@ public class SolutionDisplayer extends Canvas {
 //        this.sol = sol;
 //    }
 
+
+
     public Solution getSol() {
         return sol;
     }
@@ -52,13 +55,13 @@ public class SolutionDisplayer extends Canvas {
         this.sol = sol;
     }
 
-    public void drawSolution(Maze maze)
+    public void drawSolution(Maze maze, double zoomFactor)
     {
         if(maze != null && visibleMaze)
         {
 
-            double canvasHeight = getHeight();
-            double canvasWidth = getWidth();
+            double canvasHeight = getHeight() * zoomFactor;
+            double canvasWidth = getWidth() * zoomFactor;
             double cellHeight = canvasHeight / maze.getMazeArray().length;
             double cellWidth = canvasWidth / maze.getMazeArray()[0].length;
             try {
