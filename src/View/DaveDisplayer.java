@@ -59,7 +59,6 @@ public class DaveDisplayer extends Canvas {
                 clearDave();
                 Image characterImage = new Image(new FileInputStream(ImageFileNameCharacter.get()));
                 getGraphicsContext2D().drawImage(characterImage,  characterPositionColumn * cellWidth, characterPositionRow * cellHeight, cellWidth , cellHeight );
-
             }
             catch (Exception e)
             {

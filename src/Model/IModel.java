@@ -45,5 +45,7 @@ public interface IModel {
 
     void getLevel(int levelFromControl);
 
+    String getConfigFile();
+
 //    void generateMaze(int height, int width);
 }

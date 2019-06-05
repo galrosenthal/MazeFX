@@ -105,6 +105,12 @@ public class MyViewModel extends Observable implements Observer {
     public void getLevel(int levelFromControl){
         model.getLevel(levelFromControl);
     }
+
+    public String getConfigFile() {
+        return model.getConfigFile();
+    }
+
+
 }
 
 

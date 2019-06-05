@@ -24,7 +24,8 @@ public class MazeDisplayer extends Canvas {
     public int golCol;
     public double zoomFactor = 1.0D;
 
-
+    public int mh;
+    public int mw;
 
     public boolean randomValue = true;
 
@@ -63,8 +64,12 @@ public class MazeDisplayer extends Canvas {
         return maze;
     }
 
+
+
     public void setMaze(Maze maze) {
         this.maze = maze;
+        this.mh = maze.getHeight();
+        this.mw = maze.getWidth();
 //        redraw(characterPositionRow,characterPositionColumn);
     }
 
@@ -73,8 +78,8 @@ public class MazeDisplayer extends Canvas {
             zoomFactor = zoomDelta;
             double canvasHeight = getHeight() * zoomDelta;
             double canvasWidth = getWidth() * zoomDelta;
-            double cellHeight = canvasHeight / maze.getMazeArray().length;
-            double cellWidth = canvasWidth / maze.getMazeArray()[0].length;
+            double cellHeight = canvasHeight / maze.getHeight();
+            double cellWidth = canvasWidth / maze.getWidth();
 
             try {
                 clearMaze();
@@ -85,7 +90,7 @@ public class MazeDisplayer extends Canvas {
                     for (int j = 0; j < maze.getMazeArray()[i].length; j++) {
                         if (maze.getMazeArray()[i][j] == 1) {
                             //graphicsContext2D.fillRect(i * cellHeight, j * cellWidth, cellHeight, cellWidth);
-                            getGraphicsContext2D().drawImage(wallImage,  j * cellWidth, i * cellHeight, cellWidth, cellHeight);
+                            getGraphicsContext2D().drawImage(wallImage,  (double) j * cellWidth, (double) i * cellHeight, cellWidth, cellHeight);
                         }
                     }
                 }

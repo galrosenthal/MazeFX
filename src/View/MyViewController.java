@@ -326,8 +326,8 @@ public class MyViewController implements IView, Observer {
     public void mouseClicked(MouseEvent mouseEvent) {
 
         mazeDisplayer.requestFocus();
-        orgSceneX = mouseEvent.getSceneX();
-        orgSceneY = mouseEvent.getSceneY();
+//        orgSceneX = mouseEvent.getSceneX();
+//        orgSceneY = mouseEvent.getSceneY();
     }
 
 
@@ -573,15 +573,15 @@ public class MyViewController implements IView, Observer {
                 mazeDisplayer.setMaze(myViewModel.getMaze());
                 gameDisplayer.setCharacterPosition(myViewModel.getPosition());
 
-                this.cellWidth = this.mazeDisplayer.getWidth() / (double)this.mazeDisplayer.getWidth();
-                this.cellHeight = this.mazeDisplayer.getHeight() / (double)this.mazeDisplayer.getHeight();
+                this.cellWidth = this.mazeDisplayer.getWidth() / (double)this.mazeDisplayer.mw;
+                this.cellHeight = this.mazeDisplayer.getHeight() / (double)this.mazeDisplayer.mh;
                 this.characterMinX = (double)myViewModel.getPosition().getColumnIndex() * this.cellWidth;
                 this.characterMinY = (double)myViewModel.getPosition().getRowIndex() * this.cellHeight;
                 this.characterRow.set(myViewModel.getPosition().getRowIndex() + "");
                 this.characterColumn.set(myViewModel.getPosition().getColumnIndex() + "");
 
-                this.characterRow.setValue(String.valueOf(daveDisplayer.getCharacterPositionRow()));
-                this.characterColumn.setValue(String.valueOf(daveDisplayer.getCharacterPositionColumn()));
+//                this.characterRow.setValue(String.valueOf(daveDisplayer.getCharacterPositionRow()));
+//                this.characterColumn.setValue(String.valueOf(daveDisplayer.getCharacterPositionColumn()));
 
                 if (mazeDisplayer.golCol == myViewModel.getPosition().getColumnIndex() && mazeDisplayer.golRow == myViewModel.getPosition().getRowIndex()) {
                     mazeDisplayer.isGobletVisible(myViewModel.getPosition().getColumnIndex(), myViewModel.getPosition().getRowIndex());
@@ -648,10 +648,13 @@ public class MyViewController implements IView, Observer {
         }else if(levelHard.isSelected()){
             myViewModel.getLevel(-1);
         }
+
+
         if (this.mazeDisplayer.hasMaze()) {
             if (this.lastX <= this.characterMinX + this.cellWidth && this.lastX >= this.characterMinX && this.lastY >= this.characterMinY && this.lastY <= this.characterMinY + this.cellHeight) {
                 if (event.getX() < this.characterMinX && event.getY() > this.cellHeight + this.characterMinY) {
                     myViewModel.moveChar("Numpad 1");
+
                 } else if (event.getX() > this.cellWidth + this.characterMinX && event.getY() > this.cellHeight + this.characterMinY) {
                     myViewModel.moveChar("Numpad 3");
                 } else if (event.getX() < this.characterMinX && event.getY() < this.characterMinY) {
@@ -671,9 +674,19 @@ public class MyViewController implements IView, Observer {
 
             this.lastX = event.getX();
             this.lastY = event.getY();
+            this.characterMinX = (double)this.myViewModel.getPosition().getColumnIndex() * this.cellWidth;
+            this.characterMinY = (double)this.myViewModel.getPosition().getRowIndex() * this.cellHeight;
         }
     }
 
+    public void getConfigProperties() {
+        String info = this.myViewModel.getConfigFile();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("CONFIGURATIONS");
+        alert.setHeaderText("YOUR PROPERTIES");
+        alert.setContentText(info);
+        alert.show();
+    }
 }
 
 
