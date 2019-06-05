@@ -51,6 +51,8 @@ public class MyViewController implements IView, Observer {
     public MenuItem daveboy;
     public MenuItem davegirl;
 
+    private Thread winningThread;
+
 
     @FXML
     private TextField heightField;
@@ -194,6 +196,7 @@ public class MyViewController implements IView, Observer {
         //int rows = Integer.valueOf(txtfld_rowsNum.getText());
         //int columns = Integer.valueOf(txtfld_columnsNum.getText());
         //this.mazeDisplayer.setMaze(getRandomMaze(rows,columns));
+
         mazeDisplayer.golToken = false;
         gameDisplayer.solDisplayer.setVisibleMaze(false);
         myViewModel.generateMaze(Integer.parseInt(heightField.getText()), Integer.parseInt(widthField.getText()));
@@ -202,6 +205,7 @@ public class MyViewController implements IView, Observer {
 //            mazeDisplayer.redraw(daveDisplayer.getCharacterPositionRow(),daveDisplayer.getCharacterPositionColumn());
         wasSounded = false;
         finishedAlready = false;
+        stopWiningThread();
         setDisableSolveButtons(false);
 //        this.mazeDisplayer.setMaze(mazeData);
     }
@@ -283,10 +287,24 @@ public class MyViewController implements IView, Observer {
         mediaPlayer.stop();
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.YES) {
+            finishedAlready = false;
+            stopWiningThread();
             myViewModel.playSound("resources/Audio/goodBye.mp3");
             myViewModel.closeGame();
             Thread.sleep(855);
             Platform.exit();
+        }
+    }
+
+    private void stopWiningThread() {
+        if (winningThread != null) {
+            try {
+                winningThread.join();
+                winningThread = null;
+
+            } catch (Exception e) {
+
+            }
         }
     }
 
@@ -388,11 +406,17 @@ public class MyViewController implements IView, Observer {
         if (myViewModel.gameWon() && !finishedAlready && mazeDisplayer.golToken) {
             mediaPlayer.stop();
             playSpecificSound("resources/Audio/woohoo.wav");
+            finishedAlready = true;
+            winningThread = new Thread(() -> {
+                characterZoomInAndOut();
+            });
+            winningThread.start();
+
+
             Alert EndGame = new Alert(Alert.AlertType.INFORMATION, "Congratulations!!! You have Won the Game, Dave is Resuced =)");
             EndGame.setTitle("Congratulations");
             EndGame.showAndWait();
             mediaPlayer.play();
-            finishedAlready = true;
         } else if (myViewModel.gameWon() && !mazeDisplayer.golToken) {
             Alert cantEnd = new Alert(Alert.AlertType.ERROR, "Please take the goblet!");
             cantEnd.showAndWait();
@@ -400,11 +424,40 @@ public class MyViewController implements IView, Observer {
             myViewModel.setCharacterColumnCurrentPosition(myViewModel.getMaze().getStartPosition().getColumnIndex());
             gameDisplayer.setCharacterPosition(myViewModel.getMaze().getStartPosition());
             daveDisplayer.setCharacterPosition(myViewModel.getMaze().getStartPosition());
+            solDisplayer.drawSolution(mazeDisplayer.getMaze(),gameDisplayer.getZoomFactor());
         }
 //        mazeDisplayer.setCharacterPosition(ch);
 //        System.out.println(characterRowNewPosition + "," + characterColumnNewPosition);
 
         keyEvent.consume();
+    }
+
+    private void characterZoomInAndOut() {
+        double zoomDaveOnWin = gameDisplayer.getZoomFactor();
+        int dir = 1;
+
+        while(finishedAlready)
+        {
+            gameDisplayer.getDaveDisplayer().drawDave(gameDisplayer.getMazeDisplayer().getMaze(),zoomDaveOnWin);
+            if(zoomDaveOnWin >= 3D)
+            {
+                dir = -1;
+            }
+            else if(zoomDaveOnWin <= 1D)
+            {
+                dir = 1;
+            }
+            zoomDaveOnWin += 0.1D * dir;
+            try
+            {
+                Thread.sleep(100);
+
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
     }
 
     public void setPositonGoblet(Position p) {
