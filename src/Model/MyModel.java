@@ -42,6 +42,15 @@ public class MyModel extends Observable implements IModel {
 
     private Server generator;
     private Server solver;
+
+    public void setCharacterRowCurrentPosition(int characterRowCurrentPosition) {
+        this.characterRowCurrentPosition = characterRowCurrentPosition;
+    }
+
+    public void setCharacterColumnCurrentPosition(int characterColumnCurrentPosition) {
+        this.characterColumnCurrentPosition = characterColumnCurrentPosition;
+    }
+
     private int characterRowCurrentPosition;
     private int characterColumnCurrentPosition;
     private boolean finishedGame = false;
@@ -61,8 +70,8 @@ public class MyModel extends Observable implements IModel {
 
     public boolean isWon() {
 
-        if (characterRowCurrentPosition == maze.getGoalPosition().getRowIndex() && characterColumnCurrentPosition == maze.getGoalPosition().getColumnIndex()) {
-            return true;
+            if (characterRowCurrentPosition == maze.getGoalPosition().getRowIndex() && characterColumnCurrentPosition == maze.getGoalPosition().getColumnIndex()) {
+                    return true;
         }
         return false;
     }

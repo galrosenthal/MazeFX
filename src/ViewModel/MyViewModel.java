@@ -85,6 +85,14 @@ public class MyViewModel extends Observable implements Observer {
     public Position getrandomPos(){
        return model.getrandomPos();
     }
+
+    public void setCharacterRowCurrentPosition(int characterRowCurrentPosition) {
+        model.setCharacterRowCurrentPosition(characterRowCurrentPosition);
+    }
+
+    public void setCharacterColumnCurrentPosition(int characterColumnCurrentPosition) {
+        model.setCharacterColumnCurrentPosition(characterColumnCurrentPosition);
+    }
 }
 
 

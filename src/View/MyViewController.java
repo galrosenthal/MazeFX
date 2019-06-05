@@ -270,7 +270,7 @@ public class MyViewController implements IView, Observer {
         }
     }
 
-    public void exitFromTheGame(WindowEvent event) throws InterruptedException {
+    public void exitWithExitButton() throws InterruptedException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to exit?", ButtonType.YES, ButtonType.NO);
         alert.setTitle("EXIT");
         mediaPlayer.stop();
@@ -283,6 +283,11 @@ public class MyViewController implements IView, Observer {
         }
     }
 
+    public void exitWithXButton(WindowEvent event){
+        try {
+            exitWithExitButton();
+        }catch (InterruptedException e){}
+    }
 
 
     public void mouseClicked(MouseEvent mouseEvent) {
@@ -300,7 +305,9 @@ public class MyViewController implements IView, Observer {
             keyEvent.consume();
             Alert alert = new Alert(Alert.AlertType.WARNING, "You pressed on illegal button.\n Please read the instructions and try again. ", ButtonType.OK);
             alert.setTitle("WARNING");
-            alert.showAndWait();
+
+            alert.showAndWait()
+            ;
             return;
         }
 
@@ -329,17 +336,22 @@ public class MyViewController implements IView, Observer {
             }
         }
         myViewModel.moveCharacter(keyEvent,level);
-        if(myViewModel.gameWon() && !finishedAlready )
+        if(myViewModel.gameWon() && !finishedAlready && mazeDisplayer.golToken)
         {
             mediaPlayer.stop();
             playSpecificSound("resources/Audio/woohoo.wav");
             Alert EndGame = new Alert(Alert.AlertType.INFORMATION,"Congratulations!!! You have Won the Game, Dave is Resuced =)");
             EndGame.setTitle("Congratulations");
             EndGame.showAndWait();
+            mediaPlayer.play();
             finishedAlready = true;
-//        }else if(myViewModel.gameWon() && mazeDisplayer.golToken == false){
-//            Alert cantEnd = new Alert(Alert.AlertType.ERROR, "Please take the goblet!");
-//            cantEnd.showAndWait();
+        }else if(myViewModel.gameWon() && !mazeDisplayer.golToken){
+            Alert cantEnd = new Alert(Alert.AlertType.ERROR, "Please take the goblet!");
+            cantEnd.showAndWait();
+            myViewModel.setCharacterRowCurrentPosition(myViewModel.getMaze().getStartPosition().getRowIndex());
+            myViewModel.setCharacterColumnCurrentPosition(myViewModel.getMaze().getStartPosition().getColumnIndex());
+            gameDisplayer.setCharacterPosition(myViewModel.getMaze().getStartPosition());
+            daveDisplayer.setCharacterPosition(myViewModel.getMaze().getStartPosition());
         }
 //        mazeDisplayer.setCharacterPosition(ch);
 //        System.out.println(characterRowNewPosition + "," + characterColumnNewPosition);

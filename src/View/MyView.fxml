@@ -36,7 +36,7 @@
                         <MenuItem mnemonicParsing="false" text="Load    Ctr+L" />
                         <MenuItem mnemonicParsing="false" onAction="#saveMazeView" text="Save    Ctr+S" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem fx:id="exitButton" mnemonicParsing="false" onAction="#exitFromTheGame" text="EXIT" />
+                        <MenuItem fx:id="exitButton" mnemonicParsing="false" onAction="#exitWithExitButton" text="EXIT" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Info">

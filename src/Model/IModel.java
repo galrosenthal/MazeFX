@@ -35,5 +35,9 @@ public interface IModel {
 
     boolean getGolToken();
 
+    void setCharacterRowCurrentPosition(int characterRowCurrentPosition);
+
+    void setCharacterColumnCurrentPosition(int characterColumnCurrentPosition);
+
 //    void generateMaze(int height, int width);
 }
