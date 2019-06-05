@@ -25,12 +25,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
@@ -49,6 +51,7 @@ public class MyViewController implements IView, Observer {
     public MenuButton menuCharacter;
     public MenuItem daveboy;
     public MenuItem davegirl;
+
 
     @FXML
     private TextField heightField;
@@ -109,9 +112,14 @@ public class MyViewController implements IView, Observer {
     private boolean finishedAlready;
     private boolean wasSounded = false;
 
+    private double origDaveX,origDaveY, orgSceneX,orgSceneY;
+
+    private boolean loadMaze;
+
 
     public void initialize(MyViewModel myViewModel) {
         finishedAlready = false;
+        loadMaze = false;
         gameDisplayer = new GameDisplayer();
         gameDisplayer.setMazeDisplayer(mazeDisplayer);
         gameDisplayer.setSolDisplayer(solDisplayer);
@@ -291,7 +299,51 @@ public class MyViewController implements IView, Observer {
 
 
     public void mouseClicked(MouseEvent mouseEvent) {
+
         mazeDisplayer.requestFocus();
+        orgSceneX = mouseEvent.getSceneX();
+        orgSceneY = mouseEvent.getSceneY();
+    }
+
+
+    public void moveDaveMouse(MouseEvent mEvent)
+    {
+        if(mEvent.isDragDetect()) {
+            System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Entered Drag Event");
+            if (gameDisplayer.getMazeDisplayer().getMaze() != null)
+            {
+                double offsetX = mEvent.getSceneX() - orgSceneX;
+                double offsetY = mEvent.getSceneY() - orgSceneY;
+
+
+
+//                while()
+                System.out.println(offsetX + "," + offsetY);
+            }
+//            EventHandler<MouseEvent> circleOnMousePressedEventHandler = new EventHandler<MouseEvent>() {
+//                public void handle(MouseEvent t) {
+//                    double orgSceneX = t.getSceneX();
+//                    double orgSceneY = t.getSceneY();
+//                    Object orgTranslateX = (t.getSource());
+//                    Object orgTranslateY = (t.getSource());
+//                }
+//            };
+//
+//            EventHandler<MouseEvent> circleOnMouseDraggedEventHandler = new EventHandler<MouseEvent>() {
+//
+//                public void handle(MouseEvent t) {
+//                    double offsetX = t.getSceneX() - orgSceneX;
+//                    double offsetY = t.getSceneY() - orgSceneY;
+//                    double newTranslateX = orgTranslateX + offsetX;
+//                    double newTranslateY = orgTranslateY + offsetY;
+//
+//                    ((t.getSource())).setTranslateX(newTranslateX);
+//                    ((t.getSource())).setTranslateY(newTranslateY);
+//                }
+//            };
+//        }
+        }
+        mEvent.consume();
     }
 
 
@@ -372,7 +424,7 @@ public class MyViewController implements IView, Observer {
 
        public void changeStyleToBlue() {
         this.mazeDisplayer.setImageFileNameWall("resources/Images/blueWall.jpg");
-           gameDisplayer.redrawMaze();
+        gameDisplayer.redrawMaze();
     }
 
     public void changeStyleToRed() {
@@ -407,18 +459,51 @@ public class MyViewController implements IView, Observer {
         gameDisplayer.redrawMaze();
     }
 
-    public void saveMazeView() {
-        TextInputDialog saveDialog = new TextInputDialog("");
-        saveDialog.setTitle("Save");
-        saveDialog.setHeaderText("Please enter Maze name:");
-        Optional<String> result = saveDialog.showAndWait();
-        result.ifPresent((name) -> {
+    public void saveMazeView()
+    {
+        Stage saveWindow = new Stage();
+        FileChooser fileChooser = new FileChooser();
+
+        //Set extension filter for text files
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Maze files (*.maze)", "*.maze");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        //Show save file dialog
+        File file = fileChooser.showSaveDialog(saveWindow);
+
+
+        if (file != null ) {
             try {
-                finishToSave(name);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+                finishToSave(file.toString());
+
             }
-        });
+            catch (FileNotFoundException fileNfound)
+            {
+                fileNfound.printStackTrace();
+            }
+        }
+
+    }
+
+    public void LoadMaze()
+    {
+        finishedAlready = false;
+
+        Stage loadWindow = new Stage();
+        FileChooser fileChooser = new FileChooser();
+
+        //Set extension filter for text files
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Maze files (*.maze)", "*.maze");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        //Show save file dialog
+        File file = fileChooser.showOpenDialog(loadWindow);
+
+
+        if(file != null)
+            myViewModel.loadMazeFromDisk(file.toString());
+
+
     }
 
     private void finishToSave(String name) throws FileNotFoundException {
@@ -446,6 +531,15 @@ public class MyViewController implements IView, Observer {
                 }
 
             }
+            else
+            {
+                Alert mazeNotFoundAlert = new Alert(Alert.AlertType.ERROR);
+                mazeNotFoundAlert.setTitle("Maze Not Found!");
+                mazeNotFoundAlert.setContentText("Please Try Reloading or Regenerating your maze!");
+                mazeNotFoundAlert.show();
+
+            }
+
             Solution testSolution = myViewModel.getSolution();
 
             if(testSolution != null)
@@ -453,7 +547,10 @@ public class MyViewController implements IView, Observer {
                 solDisplayer.setSol(myViewModel.getSolution());
                 solDisplayer.drawSolution(myViewModel.getMaze());
             }
+
+
         }
+
     }
 
     public void redrawMazeOnZoom()

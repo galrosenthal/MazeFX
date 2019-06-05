@@ -31,6 +31,8 @@ public interface IModel {
 
     Solution getSolution();
 
+    void loadMaze(String Path);
+
     Position getrandomPos();
 
     boolean getGolToken();

@@ -68,12 +68,9 @@ public class MyModel extends Observable implements IModel {
     }
 
 
-    public boolean isWon() {
-
-            if (characterRowCurrentPosition == maze.getGoalPosition().getRowIndex() && characterColumnCurrentPosition == maze.getGoalPosition().getColumnIndex()) {
-                    return true;
-        }
-        return false;
+    public boolean isWon()
+    {
+        return characterRowCurrentPosition == maze.getGoalPosition().getRowIndex() && characterColumnCurrentPosition == maze.getGoalPosition().getColumnIndex();
     }
 
     @Override
@@ -349,14 +346,47 @@ public class MyModel extends Observable implements IModel {
 
     }
 
-    public void modelSaveMazeToDisk(String fileName) {
-        MyCompressorOutputStream out = null;
+    public void modelSaveMazeToDisk(String fileName){
+        ObjectOutputStream out = null;
         try {
-            out = new MyCompressorOutputStream(new FileOutputStream(fileName + ".maze"));
+            if(!fileName.toLowerCase().contains(".maze"))
+                fileName = fileName + ".maze";
+            out = new ObjectOutputStream(new FileOutputStream(fileName));
+            if(maze != null)
+            {
+                out.writeObject(maze);
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        out.write(maze.toByteArray());
+    }
+
+
+    public void loadMaze(String pathToFile)
+    {
+        ObjectInputStream inputStream;
+        try {
+            inputStream = new ObjectInputStream(new FileInputStream(pathToFile));
+            Object loadedMaze = inputStream.readObject();
+
+            if(loadedMaze == null)
+                maze = null;
+            else if(loadedMaze instanceof Maze)
+            {
+                maze = (Maze)loadedMaze;
+                characterRowCurrentPosition = maze.getStartPosition().getRowIndex();
+                characterColumnCurrentPosition = maze.getStartPosition().getColumnIndex();
+
+            }
+            setChanged();
+            notifyObservers();
+        } catch (IOException ioExcp) {
+            ioExcp.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void playSound(String fileName) {

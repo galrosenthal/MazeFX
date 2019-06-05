@@ -93,6 +93,10 @@ public class MyViewModel extends Observable implements Observer {
     public void setCharacterColumnCurrentPosition(int characterColumnCurrentPosition) {
         model.setCharacterColumnCurrentPosition(characterColumnCurrentPosition);
     }
+
+    public void loadMazeFromDisk(String pathToFileLoaded) {
+        model.loadMaze(pathToFileLoaded);
+    }
 }
 
 
