@@ -81,7 +81,7 @@ public class SolutionDisplayer extends Canvas {
 
     public void clearSolution()
     {
-        getGraphicsContext2D().clearRect(0,0,getHeight(),getWidth());
+        getGraphicsContext2D().clearRect(0,0,getWidth(),getHeight());
         getGraphicsContext2D().beginPath();
 //        sol = null;
     }

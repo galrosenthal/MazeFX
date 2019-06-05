@@ -161,6 +161,7 @@ public class MyViewController implements IView, Observer {
         });
 
         setDisableSolveButtons(true);
+//        characterRow.bind()
     }
 
 
@@ -407,8 +408,7 @@ public class MyViewController implements IView, Observer {
         }
 //        mazeDisplayer.setCharacterPosition(ch);
 //        System.out.println(characterRowNewPosition + "," + characterColumnNewPosition);
-        this.characterRow.setValue(String.valueOf(daveDisplayer.getCharacterPositionRow()));
-        this.characterColumn.setValue(String.valueOf(daveDisplayer.getCharacterPositionColumn()));
+
         keyEvent.consume();
     }
 
@@ -522,6 +522,8 @@ public class MyViewController implements IView, Observer {
             if(testMaze != null) {
                 mazeDisplayer.setMaze(myViewModel.getMaze());
                 gameDisplayer.setCharacterPosition(myViewModel.getPosition());
+                this.characterRow.setValue(String.valueOf(daveDisplayer.getCharacterPositionRow()));
+                this.characterColumn.setValue(String.valueOf(daveDisplayer.getCharacterPositionColumn()));
                 if(mazeDisplayer.golCol == myViewModel.getPosition().getColumnIndex() && mazeDisplayer.golRow == myViewModel.getPosition().getRowIndex()) {
                     mazeDisplayer.isGobletVisible(myViewModel.getPosition().getColumnIndex(), myViewModel.getPosition().getRowIndex());
                     if(!wasSounded) {
