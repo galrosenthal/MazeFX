@@ -25,7 +25,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity"  onKeyReleased="#keyReleased" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#KeyPressedEasy" prefHeight="571.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#KeyPressedEasy" onKeyReleased="#keyReleased" prefHeight="571.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
     <top>
         <MenuBar prefWidth="564.0" BorderPane.alignment="CENTER">
             <menus>
@@ -41,7 +41,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Info">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#getConfigProperties" text="Properties">
+                        <MenuItem fx:id="propMenu" mnemonicParsing="false" text="Properties" onAction="#openProp">
                         </MenuItem>
                         <SeparatorMenuItem mnemonicParsing="false" />
                     </items>
@@ -227,7 +227,7 @@
         </AnchorPane>
     </left>
     <center>
-        <Pane fx:id="mazePane" onMouseClicked="#mouseClicked" onMouseDragged="#MouseDrag" prefHeight="2865.0" prefWidth="4075.0" onScroll="#zoom" style="-fx-border-width: 4; -fx-background-color: black;" BorderPane.alignment="CENTER">
+        <Pane fx:id="mazePane" onMouseClicked="#mouseClicked" onMouseDragged="#MouseDrag" onScroll="#zoom" prefHeight="2865.0" prefWidth="4075.0" style="-fx-border-width: 4; -fx-background-color: black;" BorderPane.alignment="CENTER">
             <children>
                 <SolutionDisplayer fx:id="solDisplayer" height="600.0" width="600.0" />
                 <MazeDisplayer fx:id="mazeDisplayer" height="545.0" imageFileDoor="resources/Images/doorImage.jpeg" imageFileNameWall="resources/Images/redWall.jpg" onMouseClicked="#mouseClicked" onMouseDragged="#MouseDrag" width="604.0" />
