@@ -213,7 +213,7 @@ public class MyViewController implements IView, Observer {
         wasSounded = false;
         finishedAlready = false;
         stopWiningThread();
-        setDisableSolveButtons(false);
+        setDisableAllButtons(false);
 //        this.mazeDisplayer.setMaze(mazeData);
     }
 
@@ -426,7 +426,7 @@ public class MyViewController implements IView, Observer {
                 characterZoomInAndOut();
             });
             winningThread.start();
-            setDisableSolveButtons(true);
+            setDisableAllButtons(true);
 
 
             Alert EndGame = new Alert(Alert.AlertType.INFORMATION, "Congratulations!!! You have Won the Game, Dave is Resuced =)");
@@ -447,6 +447,30 @@ public class MyViewController implements IView, Observer {
 
         }
     }
+
+    private void setDisableAllButtons(boolean isDisabled) {
+
+        setDisableSolveButtons(isDisabled);
+        setDisableRadioButtons(isDisabled);
+        setDisableStyleButton(isDisabled);
+        setDisableCharacterChooser(isDisabled);
+
+
+    }
+
+    private void setDisableCharacterChooser(boolean isDisabled) {
+        menuCharacter.setDisable(isDisabled);
+    }
+
+    private void setDisableStyleButton(boolean isDisabled) {
+        menuStyle.setDisable(isDisabled);
+    }
+
+    private void setDisableRadioButtons(boolean isDisabled) {
+        levelEasy.setDisable(isDisabled);
+        levelHard.setDisable(isDisabled);
+    }
+
 
     private void characterZoomInAndOut() {
         double zoomDaveOnWin = gameDisplayer.getZoomFactor();
