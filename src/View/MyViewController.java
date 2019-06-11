@@ -432,7 +432,8 @@ public class MyViewController implements IView, Observer {
             Alert EndGame = new Alert(Alert.AlertType.INFORMATION, "Congratulations!!! You have Won the Game, Dave is Resuced =)");
             EndGame.setTitle("Congratulations");
             EndGame.showAndWait();
-            mediaPlayer.play();
+            if(BGM_checkBox.isSelected())
+                mediaPlayer.play();
         } else if (myViewModel.gameWon() && !mazeDisplayer.golToken) {
             Alert cantEnd = new Alert(Alert.AlertType.ERROR, "Please take the goblet!");
             cantEnd.showAndWait();
@@ -660,7 +661,6 @@ public class MyViewController implements IView, Observer {
             if (this.lastX <= this.characterMinX + this.cellWidth && this.lastX >= this.characterMinX && this.lastY >= this.characterMinY && this.lastY <= this.characterMinY + this.cellHeight) {
                 if (event.getX() < this.characterMinX && event.getY() > this.cellHeight + this.characterMinY) {
                     myViewModel.moveChar("Numpad 1");
-
                 } else if (event.getX() > this.cellWidth + this.characterMinX && event.getY() > this.cellHeight + this.characterMinY) {
                     myViewModel.moveChar("Numpad 3");
                 } else if (event.getX() < this.characterMinX && event.getY() < this.characterMinY) {
