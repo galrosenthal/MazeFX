@@ -423,7 +423,8 @@ public class MyViewController implements IView, Observer {
             Alert EndGame = new Alert(Alert.AlertType.INFORMATION, "Congratulations!!! You have Won the Game, Dave is Resuced =)");
             EndGame.setTitle("Congratulations");
             EndGame.showAndWait();
-            mediaPlayer.play();
+            if(BGM_checkBox.isSelected())
+                mediaPlayer.play();
         } else if (myViewModel.gameWon() && !mazeDisplayer.golToken) {
             Alert cantEnd = new Alert(Alert.AlertType.ERROR, "Please take the goblet!");
             cantEnd.showAndWait();
