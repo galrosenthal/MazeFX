@@ -2,16 +2,14 @@ package View;
 
 import algorithms.mazeGenerators.Maze;
 import algorithms.mazeGenerators.Position;
-import algorithms.search.MazeState;
-import javafx.scene.canvas.GraphicsContext;
-
-import java.awt.*;
 
 public class GameDisplayer  {
     public MazeDisplayer mazeDisplayer;
     public SolutionDisplayer solDisplayer;
     public DaveDisplayer daveDisplayer;
     private double zoomFactor = 1.0D;
+    private double offSetWidth;
+    private double offSetHeight;
 
     public double getZoomFactor() {
         return zoomFactor;
@@ -79,7 +77,7 @@ public class GameDisplayer  {
     {
         getMazeDisplayer().getGraphicsContext2D().clearRect(0, 0, getMazeDisplayer().getWidth(), getMazeDisplayer().getHeight());
         solDisplayer.clearSolution();
-        mazeDisplayer.redraw(zoomFactor);
+        mazeDisplayer.redraw(zoomFactor, characterPositionColumn, characterPositionRow);
         daveDisplayer.drawDave(mazeDisplayer.getMaze(),zoomFactor);
     }
 
@@ -89,9 +87,10 @@ public class GameDisplayer  {
         daveDisplayer.clearDave();
         solDisplayer.clearSolution();
 
-        mazeDisplayer.redraw(zoomFactor);
+
+        mazeDisplayer.redraw(zoomFactor, characterPositionColumn, characterPositionRow);
         daveDisplayer.drawDave(mazeDisplayer.getMaze(),zoomFactor);
-        solDisplayer.drawSolution(mazeDisplayer.getMaze(),zoomFactor);
+        solDisplayer.drawSolution(mazeDisplayer.getMaze(),zoomFactor, characterPositionColumn, characterPositionRow);
     }
 
 
@@ -99,7 +98,7 @@ public class GameDisplayer  {
     {
 //        solDisplayer.setVisible(true);
 //        redrawMaze();
-        solDisplayer.drawSolution(mz,zoomFactor);
+        solDisplayer.drawSolution(mz,zoomFactor, characterPositionColumn, characterPositionRow);
     }
 
 }

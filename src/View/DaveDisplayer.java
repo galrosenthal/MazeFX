@@ -20,7 +20,8 @@ public class DaveDisplayer extends Canvas {
 
     private int characterPositionRow = 0;
     private int characterPositionColumn = 0;
-
+    private double offSetWidth;
+    private double offSetHeight;
 
 
     public int getCharacterPositionRow() {
@@ -58,10 +59,18 @@ public class DaveDisplayer extends Canvas {
             double cellHeight = canvasHeight / maze.getMazeArray().length;
             double cellWidth = canvasWidth / maze.getMazeArray()[0].length;
 
+            if (zoomFactor <= 1.0D) {
+                offSetWidth = 0.0D;
+                offSetHeight = 0.0D;
+            } else {
+                offSetWidth = (double)(-1 * characterPositionColumn) * cellWidth * (zoomFactor-1.0D);
+                offSetHeight = (double)(-1 * characterPositionRow) * cellHeight * (zoomFactor-1.0D);
+            }
+
             try {
                 clearDave();
                 Image characterImage = new Image(new FileInputStream(ImageFileNameCharacter.get()));
-                getGraphicsContext2D().drawImage(characterImage,  characterPositionColumn * cellWidth, characterPositionRow * cellHeight, cellWidth , cellHeight );
+                getGraphicsContext2D().drawImage(characterImage,  characterPositionColumn * cellWidth + offSetWidth, characterPositionRow * cellHeight + offSetHeight, cellWidth , cellHeight );
             }
             catch (Exception e)
             {

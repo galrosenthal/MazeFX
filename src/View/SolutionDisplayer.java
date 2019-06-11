@@ -1,7 +1,6 @@
 package View;
 
 import algorithms.mazeGenerators.Maze;
-import algorithms.mazeGenerators.Position;
 import algorithms.search.*;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -10,11 +9,12 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
 
 import java.io.FileInputStream;
-import java.util.Random;
 
 public class SolutionDisplayer extends Canvas {
 
 
+    private double offSetWidth;
+    private double offSetHeight;
 
     public boolean isVisibleMaze() {
         return visibleMaze;
@@ -55,7 +55,7 @@ public class SolutionDisplayer extends Canvas {
         this.sol = sol;
     }
 
-    public void drawSolution(Maze maze, double zoomFactor)
+    public void drawSolution(Maze maze, double zoomFactor, int characterPositionColumn, int characterPositionRow)
     {
         if(maze != null && visibleMaze)
         {
@@ -64,6 +64,15 @@ public class SolutionDisplayer extends Canvas {
             double canvasWidth = getWidth() * zoomFactor;
             double cellHeight = canvasHeight / maze.getMazeArray().length;
             double cellWidth = canvasWidth / maze.getMazeArray()[0].length;
+
+            if (zoomFactor <= 1.0D) {
+                offSetWidth = 0.0D;
+                offSetHeight = 0.0D;
+            } else {
+                offSetWidth = (double)(-1 * characterPositionColumn) * cellWidth * (zoomFactor - 1.0D);
+                offSetHeight = (double)(-1 * characterPositionRow) * cellHeight * (zoomFactor - 1.0D);
+            }
+
             try {
                 Image solImage = new Image(new FileInputStream(solutionImageName.get()));
 //                clearSolution();
