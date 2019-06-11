@@ -14,7 +14,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
-
+import Server.Configurations;
 import java.awt.image.renderable.RenderableImage;
 import java.io.*;
 import java.net.InetAddress;
@@ -482,4 +482,11 @@ public class MyModel extends Observable implements IModel {
         return golToken;
     }
 
+    public String getConfigFile() {
+        String string = "";
+        string = string + "Maze Generator in use: " + Configurations.getInstance().getProperty("GeneratorType") + "\n";
+        string = string + "Solution algorithm in use: " + Configurations.getInstance().getProperty("SolverType") + "\n";
+        string = string + "number of Threads in Server ThreadPool: " + Configurations.getInstance().getProperty("ThreadPoolNum")+ "\n";
+        return string;
+    }
 }

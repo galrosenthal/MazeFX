@@ -39,7 +39,8 @@ import javafx.stage.WindowEvent;
 
 import javax.swing.event.MenuEvent;
 import javax.xml.crypto.dsig.keyinfo.KeyValue;
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.*;
 
@@ -204,7 +205,6 @@ public class MyViewController implements IView, Observer {
         //this.mazeDisplayer.setMaze(getRandomMaze(rows,columns));
 
         mazeDisplayer.golToken = false;
-        gameDisplayer.setZoomFactor(1.0D);
         gameDisplayer.solDisplayer.setVisibleMaze(false);
         myViewModel.generateMaze(Integer.parseInt(heightField.getText()), Integer.parseInt(widthField.getText()));
         setPositonGoblet(mazeDisplayer.getRandomPost(myViewModel.getrandomPos()));
@@ -326,8 +326,8 @@ public class MyViewController implements IView, Observer {
     public void mouseClicked(MouseEvent mouseEvent) {
 
         mazeDisplayer.requestFocus();
-        orgSceneX = mouseEvent.getSceneX();
-        orgSceneY = mouseEvent.getSceneY();
+//        orgSceneX = mouseEvent.getSceneX();
+//        orgSceneY = mouseEvent.getSceneY();
     }
 
 
@@ -418,7 +418,6 @@ public class MyViewController implements IView, Observer {
                 characterZoomInAndOut();
             });
             winningThread.start();
-            setDisableSolveButtons(true);
 
 
             Alert EndGame = new Alert(Alert.AlertType.INFORMATION, "Congratulations!!! You have Won the Game, Dave is Resuced =)");
@@ -574,15 +573,15 @@ public class MyViewController implements IView, Observer {
                 mazeDisplayer.setMaze(myViewModel.getMaze());
                 gameDisplayer.setCharacterPosition(myViewModel.getPosition());
 
-                this.cellWidth = this.mazeDisplayer.getWidth() / (double)this.mazeDisplayer.getWidth();
-                this.cellHeight = this.mazeDisplayer.getHeight() / (double)this.mazeDisplayer.getHeight();
+                this.cellWidth = this.mazeDisplayer.getWidth() / (double)this.mazeDisplayer.mw;
+                this.cellHeight = this.mazeDisplayer.getHeight() / (double)this.mazeDisplayer.mh;
                 this.characterMinX = (double)myViewModel.getPosition().getColumnIndex() * this.cellWidth;
                 this.characterMinY = (double)myViewModel.getPosition().getRowIndex() * this.cellHeight;
                 this.characterRow.set(myViewModel.getPosition().getRowIndex() + "");
                 this.characterColumn.set(myViewModel.getPosition().getColumnIndex() + "");
 
-                this.characterRow.setValue(String.valueOf(daveDisplayer.getCharacterPositionRow()));
-                this.characterColumn.setValue(String.valueOf(daveDisplayer.getCharacterPositionColumn()));
+//                this.characterRow.setValue(String.valueOf(daveDisplayer.getCharacterPositionRow()));
+//                this.characterColumn.setValue(String.valueOf(daveDisplayer.getCharacterPositionColumn()));
 
                 if (mazeDisplayer.golCol == myViewModel.getPosition().getColumnIndex() && mazeDisplayer.golRow == myViewModel.getPosition().getRowIndex()) {
                     mazeDisplayer.isGobletVisible(myViewModel.getPosition().getColumnIndex(), myViewModel.getPosition().getRowIndex());
@@ -672,51 +671,18 @@ public class MyViewController implements IView, Observer {
 
             this.lastX = event.getX();
             this.lastY = event.getY();
+            this.characterMinX = (double)this.myViewModel.getPosition().getColumnIndex() * this.cellWidth;
+            this.characterMinY = (double)this.myViewModel.getPosition().getRowIndex() * this.cellHeight;
         }
     }
 
-    public void openProp(ActionEvent actionEvent) {
-        Properties properties = new Properties();
-        try{
-            InputStream propFile = new FileInputStream("resources/config.properties");
-            properties.load(propFile);
-
-            FileReader propReader = new FileReader("resources/config.properties");
-            BufferedReader bufferedReader = new BufferedReader(propReader);
-
-            StringBuilder textProp = new StringBuilder();
-            String line = bufferedReader.readLine();
-            while (line != null)
-            {
-                if (!line.contains("#"))
-                {
-                    String[] myLine = line.split("=");
-                    textProp.append(myLine[0]);
-                    textProp.append(" = ");
-                    textProp.append(myLine[1]);
-                    textProp.append("\n");
-
-                }
-                line = bufferedReader.readLine();
-            }
-            textProp.append("\n\n");
-            bufferedReader.close();
-            propReader.close();
-            Alert propAlert = new Alert(Alert.AlertType.INFORMATION);
-            propAlert.setContentText(textProp.toString());
-            propAlert.setTitle("Properties Of The Game");
-            propAlert.setHeaderText("PROPERTIES");
-
-//            propAlert.setOnCloseRequest(e -> {
-//                e.consume();
-//            });
-            propAlert.showAndWait();
-
-        }
-        catch (Exception e)
-        {
-
-        }
+    public void getConfigProperties() {
+        String info = this.myViewModel.getConfigFile();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("CONFIGURATIONS");
+        alert.setHeaderText("YOUR PROPERTIES");
+        alert.setContentText(info);
+        alert.show();
     }
 }
 
