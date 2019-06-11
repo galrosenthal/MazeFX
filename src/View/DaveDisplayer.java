@@ -4,11 +4,14 @@ import algorithms.mazeGenerators.Maze;
 import algorithms.mazeGenerators.Position;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.canvas.Canvas;
 
 import java.awt.*;
 import java.io.FileInputStream;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class DaveDisplayer extends Canvas {
 

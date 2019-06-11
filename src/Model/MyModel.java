@@ -77,28 +77,32 @@ public class MyModel extends Observable implements IModel {
 
     public void moveChar(String buttonName)
     {
-        if (buttonName.equals("Up")) {
+        if (isWon()) {
+            finishedGame = true;
+        }
+        if (buttonName.toLowerCase().equals("up")) {
             if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1 * level, "upOrDown")) {
                 characterRowCurrentPosition = characterRowCurrentPosition - 1 * level;
                 isLegal = true;
             }
         }
-        else if (buttonName.equals("Down")){
+        else if (buttonName.toLowerCase().equals("down")){
             if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1 * level, "upOrDown")) {
                 characterRowCurrentPosition = characterRowCurrentPosition + 1 * level;
                 isLegal = true;
-            }else if (buttonName.equals("Left")) {
+            }
+        }else if (buttonName.toLowerCase().equals("left")) {
                 if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, -1 * level, "leftOrRight")) {
                     characterColumnCurrentPosition = characterColumnCurrentPosition - 1 * level;
                     isLegal = true;
                 }
-            } else if (buttonName.equals("Right")) {
+            } else if (buttonName.toLowerCase().equals("right")) {
                 if (checkIfLegalMove(characterRowCurrentPosition, characterColumnCurrentPosition, 1 * level, "leftOrRight")) {
                     characterColumnCurrentPosition = characterColumnCurrentPosition + 1 * level;
                     isLegal = true;
                 }
             }
-        } else if (buttonName.equals("Numpad 1")) {
+         else if (buttonName.equals("Numpad 1")) {
             if (checkIfLegalDiagonalMove(characterRowCurrentPosition, characterColumnCurrentPosition, level, "leftDown")) {
                 characterRowCurrentPosition = characterRowCurrentPosition + 1 * level;
                 characterColumnCurrentPosition = characterColumnCurrentPosition - 1 * level;
@@ -125,6 +129,7 @@ public class MyModel extends Observable implements IModel {
                 isLegal = true;
             }
         }
+
         setChanged();
         notifyObservers();
     }
@@ -295,6 +300,8 @@ public class MyModel extends Observable implements IModel {
     }
 
     private boolean checkLegalCell(int cellRow, int cellCol) {
+        if(cellRow < 0 || cellRow >= maze.getHeight() || cellCol < 0 || cellCol >= maze.getWidth())
+            return false;
         return maze.getMazeArray()[cellRow][cellCol] != 1
                 && maze.getMazeArray()[cellRow][cellCol] >= 0
                 && maze.getMazeArray()[cellRow][cellCol] < maze.getMazeArray()[0].length;
@@ -459,6 +466,17 @@ public class MyModel extends Observable implements IModel {
         generator.stop();
         solver.stop();
     }
+
+//    public Position getrandomPos() {
+//        callClientSolveMaze();
+//        Random randomGenerator = new Random();
+//        int index = randomGenerator.nextInt(solution.getSolutionPath().size());
+//        Object o = solution.getSolutionPath().get(index);
+//        MazeState myMazeState = (MazeState) o ;
+//        return myMazeState.getPosition();
+//    }
+
+
 
     public Position getrandomPos() {
         Random randomGenerator = new Random();

@@ -371,19 +371,19 @@ public class MyViewController implements IView, Observer {
 
     public void KeyPressedEasy(KeyEvent keyEvent) {
         int level = 1;
-        if (!(keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.UP
-                || keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD8 || keyEvent.getCode() == KeyCode.NUMPAD2
-                || keyEvent.getCode() == KeyCode.NUMPAD4 || keyEvent.getCode() == KeyCode.NUMPAD6
-                || keyEvent.getCode() == KeyCode.NUMPAD1 || keyEvent.getCode() == KeyCode.NUMPAD3
-                || keyEvent.getCode() == KeyCode.NUMPAD7 || keyEvent.getCode() == KeyCode.NUMPAD9 || keyEvent.getCode().getName().toLowerCase().equals("ctrl"))) {
-            keyEvent.consume();
-            Alert alert = new Alert(Alert.AlertType.WARNING, "You pressed on illegal button.\n Please read the instructions and try again. ", ButtonType.OK);
-            alert.setTitle("WARNING");
-
-            alert.showAndWait()
-            ;
-            return;
-        }
+//        if (!(keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.UP
+//                || keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD8 || keyEvent.getCode() == KeyCode.NUMPAD2
+//                || keyEvent.getCode() == KeyCode.NUMPAD4 || keyEvent.getCode() == KeyCode.NUMPAD6
+//                || keyEvent.getCode() == KeyCode.NUMPAD1 || keyEvent.getCode() == KeyCode.NUMPAD3
+//                || keyEvent.getCode() == KeyCode.NUMPAD7 || keyEvent.getCode() == KeyCode.NUMPAD9 || keyEvent.getCode().getName().toLowerCase().equals("ctrl"))) {
+//            keyEvent.consume();
+//            Alert alert = new Alert(Alert.AlertType.WARNING, "You pressed on illegal button.\n Please read the instructions and try again. ", ButtonType.OK);
+//            alert.setTitle("WARNING");
+//
+//            alert.showAndWait()
+//            ;
+//            return;
+//        }
 
         if(keyEvent.getCode().getName().toLowerCase().equals("ctrl"))
         {
@@ -410,6 +410,14 @@ public class MyViewController implements IView, Observer {
             }
         }
         myViewModel.moveCharacter(keyEvent, level);
+        reachedTheDoor();
+//        mazeDisplayer.setCharacterPosition(ch);
+//        System.out.println(characterRowNewPosition + "," + characterColumnNewPosition);
+
+        keyEvent.consume();
+    }
+
+    private void reachedTheDoor() {
         if (myViewModel.gameWon() && !finishedAlready && mazeDisplayer.golToken) {
             mediaPlayer.stop();
             playSpecificSound("resources/Audio/woohoo.wav");
@@ -433,11 +441,10 @@ public class MyViewController implements IView, Observer {
             gameDisplayer.setCharacterPosition(myViewModel.getMaze().getStartPosition());
             daveDisplayer.setCharacterPosition(myViewModel.getMaze().getStartPosition());
             solDisplayer.drawSolution(mazeDisplayer.getMaze(),gameDisplayer.getZoomFactor());
-        }
-//        mazeDisplayer.setCharacterPosition(ch);
-//        System.out.println(characterRowNewPosition + "," + characterColumnNewPosition);
+            this.characterRow.set(myViewModel.getMaze().getStartPosition().getRowIndex() + "");
+            this.characterColumn.set(myViewModel.getMaze().getStartPosition().getColumnIndex() + "");
 
-        keyEvent.consume();
+        }
     }
 
     private void characterZoomInAndOut() {
@@ -649,8 +656,6 @@ public class MyViewController implements IView, Observer {
         }else if(levelHard.isSelected()){
             myViewModel.getLevel(-1);
         }
-
-
         if (this.mazeDisplayer.hasMaze()) {
             if (this.lastX <= this.characterMinX + this.cellWidth && this.lastX >= this.characterMinX && this.lastY >= this.characterMinY && this.lastY <= this.characterMinY + this.cellHeight) {
                 if (event.getX() < this.characterMinX && event.getY() > this.cellHeight + this.characterMinY) {
@@ -675,8 +680,11 @@ public class MyViewController implements IView, Observer {
 
             this.lastX = event.getX();
             this.lastY = event.getY();
-            this.characterMinX = (double)this.myViewModel.getPosition().getColumnIndex() * this.cellWidth;
-            this.characterMinY = (double)this.myViewModel.getPosition().getRowIndex() * this.cellHeight;
+
+            reachedTheDoor();
+            event.consume();
+//            this.characterMinX = (double)this.myViewModel.getPosition().getColumnIndex() * this.cellWidth;
+//            this.characterMinY = (double)this.myViewModel.getPosition().getRowIndex() * this.cellHeight;
         }
     }
 
@@ -732,6 +740,8 @@ public class MyViewController implements IView, Observer {
 
         }
     }
+
+
 }
 
 
