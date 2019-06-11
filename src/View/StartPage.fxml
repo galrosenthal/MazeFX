@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.StartPage">
+   <children>
+      <ImageView fitHeight="214.0" fitWidth="275.0" layoutX="250.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/Images/mazeCover.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="288.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/Images/start.gif" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="startButton" fitHeight="150.0" fitWidth="200.0" layoutX="294.0" layoutY="388.0" onMouseDragged="#startOnClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/Images/StartIcon.png" />
+         </image>
+      </ImageView>
+       <Pane layoutY="200.0" prefHeight="211.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="mediumIV" fitHeight="50.0" fitWidth="130.0" layoutX="35.0" layoutY="55.0" onMouseClicked="#mediumOnClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/Images/Medium-crop.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="smallIV" fitHeight="50.0" fitWidth="103.0" layoutX="49.0" layoutY="14.0" onMouseClicked="#smallOnClick" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: grey;">
+               <image>
+                  <Image url="@/Images/small-crop.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="largeIV" fitHeight="50.0" fitWidth="103.0" layoutX="50.0" layoutY="106.0" onMouseClicked="#largeOnClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/Images/Large-crop.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</Pane>

@@ -12,7 +12,6 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.SepiaTone?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -25,23 +24,25 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity"  onKeyReleased="#keyReleased" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#KeyPressedEasy" prefHeight="571.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#KeyPressedEasy" onKeyReleased="#keyReleased" prefHeight="571.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
     <top>
         <MenuBar prefWidth="564.0" BorderPane.alignment="CENTER">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#generateMaze" text="New    Ctr+G" />
+                        <MenuItem mnemonicParsing="false" onAction="#changeScene" text="Choose Level" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" onAction="#saveMazeView" text="Save    Ctr+S" />
-                        <MenuItem mnemonicParsing="false" onAction="#LoadMaze" text="Load    Ctr+L" />
+                  <MenuItem mnemonicParsing="false" onAction="#generateMaze" text="New Game" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveMazeView" text="Save Game" />
+                        <MenuItem mnemonicParsing="false" onAction="#LoadMaze" text="Load Game" />
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem fx:id="exitButton" mnemonicParsing="false" onAction="#exitWithExitButton" text="EXIT" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Info">
                     <items>
-                        <MenuItem fx:id="propMenu" mnemonicParsing="false" text="Properties" onAction="#openProp">
+                        <MenuItem fx:id="propMenu" mnemonicParsing="false" onAction="#openProp" text="Properties">
                         </MenuItem>
                         <SeparatorMenuItem mnemonicParsing="false" />
                     </items>
@@ -79,41 +80,26 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Label prefHeight="17.0" prefWidth="309.0" text="        height" textAlignment="CENTER" textOverrun="CLIP" GridPane.hgrow="SOMETIMES">
-                            <font>
-                                <Font name="System Bold" size="14.0" />
-                            </font>
-                            <GridPane.margin>
-                                <Insets />
-                            </GridPane.margin>
-                        </Label>
-                        <Label layoutX="10.0" layoutY="13.0" prefHeight="17.0" prefWidth="309.0" text="        width" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1">
-                            <font>
-                                <Font name="System Bold" size="14.0" />
-                            </font>
-                        </Label>
-                        <TextField fx:id="heightField" layoutX="10.0" layoutY="9.0" prefHeight="25.0" prefWidth="30.0" text="10" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                        <TextField fx:id="widthField" prefHeight="25.0" prefWidth="30.0" text="10" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <!--GridPane.columnSpan="2" GridPane.halignment="CENTER"-->
-                        <ImageView layoutX="20.0" layoutY="300.0" onMouseClicked="#generateMaze" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                        <ImageView fitWidth="80.0" layoutX="20.0" layoutY="300.0" onMouseClicked="#generateMaze" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                             <image>
-                                <Image url="http://i66.tinypic.com/351wtqe.jpg" />
+                                <Image url="@/Images/New.png" />
                             </image>
                         </ImageView>
-                        <ImageView layoutX="20.0" layoutY="300.0" onMouseClicked="#generateMaze" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                        <ImageView fitWidth="95.0" layoutX="20.0" layoutY="300.0" onMouseClicked="#generateMaze" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                             <image>
-                                <Image url="http://i63.tinypic.com/262mt7s.png" />
+                                <Image url="@/Images/Maze.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="solveImageButton" disable="true" layoutX="20.0" layoutY="300.0" onMouseClicked="#solveMaze" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                        <ImageView fx:id="solveImageButton" disable="true" fitWidth="80.0" layoutX="20.0" layoutY="300.0" onMouseClicked="#solveMaze" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                             <image>
-                                <Image url="http://i68.tinypic.com/1zgaudh.png" />
+                                <Image url="@/Images/Solve.png" />
                             </image>
                         </ImageView>
 
-                        <ImageView fx:id="solveMazeImageButton" disable="true" layoutX="20.0" layoutY="300.0" onMouseClicked="#solveMaze" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                        <ImageView fx:id="solveMazeImageButton" disable="true" fitWidth="95.0" layoutX="20.0" layoutY="300.0" onMouseClicked="#solveMaze" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                             <image>
-                                <Image url="http://i63.tinypic.com/262mt7s.png" />
+                                <Image url="@/Images/Maze.png" />
                             </image>
                         </ImageView>
                         <!--<Button id="geneButton" mnemonicParsing="false" onAction="#generateMaze" prefHeight="25.0" prefWidth="170.0" text="Generate Maze" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />-->

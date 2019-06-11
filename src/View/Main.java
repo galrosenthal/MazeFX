@@ -31,7 +31,7 @@ public class Main extends Application {
 
     @FXML
     private ChoiceBox<String> levelBox;
-    Scene scene1, scene2;
+    Scene scene1, scene2,scene3;
     public static void main(String[] args) {
         launch(args);
     }
@@ -49,17 +49,22 @@ public class Main extends Application {
         Button button1 = new Button("Start");
         button1.setOnAction(e -> primaryStage.setScene(scene2));
 
+//        Button button2 = new Button("Small");
+//        button2.setOnAction(e -> System.out.println("Small Was Chosen"));
+
         //Layout 1 - children laid out in vertical column
         VBox layout1 = new VBox(0);
         Image imageStart = new Image(new FileInputStream("resources/Images/start.gif"));
         ImageView sImage = new ImageView(imageStart);
+        Image imageSmall = new Image(new FileInputStream("resources/Images/small.gif"),300,250,true,true);
+        ImageView smallImage = new ImageView(imageSmall);
         Image imageLoad = new Image(new FileInputStream("resources/Images/StartIcon.png"));
         ImageView lImage = new ImageView(imageLoad);
         Image imageMaze = new Image(new FileInputStream("resources/Images/mazeCover.png"));
         ImageView mImage = new ImageView(imageMaze);
         lImage.setOnMouseClicked(e -> primaryStage.setScene(scene2));
 
-        layout1.getChildren().addAll(sImage,mImage,lImage);
+        layout1.getChildren().addAll(sImage,mImage,lImage,smallImage);
         layout1.setAlignment(Pos.CENTER);
 
         // create a background image
@@ -74,17 +79,30 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader();
         Parent root = (Parent)fxmlLoader.load(this.getClass().getResource("MyView.fxml").openStream());
 
+
+        FXMLLoader startFxl = new FXMLLoader();
+        Parent startRoot = (Parent)startFxl.load(this.getClass().getResource("StartPage.fxml").openStream());
+        StartPage startController = startFxl.getController();
+        scene3 =  new Scene(startRoot,800D,600D);
+
+        Stage startStage = new Stage();
+
+        startStage.setScene(scene3);
+//        startStage.showAndWait();
+
+
 //        scene.getStylesheets().clear();
 
         MyViewController controller = fxmlLoader.getController();
-        controller.initialize(viewModel);
+        controller.initialize(viewModel,primaryStage,scene3);
         controller.setViewModel(viewModel);
         viewModel.addObserver(controller);
         controller.createLevel();
         scene2 = new Scene(root,800.0D, 600.0D);
         primaryStage.setMinWidth(800);
         primaryStage.setMinHeight(650);
-        primaryStage.setScene(scene1);
+        startController.Initialize(primaryStage,scene2,controller);
+        primaryStage.setScene(scene3);
         scene2.getStylesheets().add(getClass().getResource("ViewStyle.css").toExternalForm());
 
 //        levelBox.getItems().add("gal");

@@ -52,6 +52,15 @@ public class MyViewController implements IView, Observer {
 
     private Thread winningThread;
 
+    private int row,col;
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public void setCol(int col) {
+        this.col = col;
+    }
 
     @FXML
     private TextField heightField;
@@ -117,21 +126,27 @@ public class MyViewController implements IView, Observer {
 
     private boolean loadMaze;
 
-    double characterMinX;
-    double cellWidth;
-    double characterMinY;
-    double cellHeight;
-    double lastX = -1.0D;
-    double lastY = -1.0D;
+    private double characterMinX;
+    private double cellWidth;
+    private double characterMinY;
+    private double cellHeight;
+    private double lastX = -1.0D;
+    private double lastY = -1.0D;
 
+    private Stage primStage;
+    private Scene strtScene;
 
-    public void initialize(MyViewModel myViewModel) {
+    public void initialize(MyViewModel myViewModel, Stage primaryStage, Scene startScene) {
         finishedAlready = false;
+        primStage = primaryStage;
+        strtScene = startScene;
         loadMaze = false;
         gameDisplayer = new GameDisplayer();
         gameDisplayer.setMazeDisplayer(mazeDisplayer);
         gameDisplayer.setSolDisplayer(solDisplayer);
         gameDisplayer.setDaveDisplayer(daveDisplayer);
+
+
 
         //Set Binding for Properties
         lbl_characterRow.textProperty().bind(characterRow);
@@ -173,6 +188,13 @@ public class MyViewController implements IView, Observer {
 
     }
 
+    public void changeScene()
+    {
+        mazeDisplayer.clearMaze();
+        daveDisplayer.clearDave();
+        solDisplayer.clearSolution();
+        primStage.setScene(strtScene);
+    }
 
     public Position getRandomPos() {
         return myViewModel.getrandomPos();
@@ -206,7 +228,7 @@ public class MyViewController implements IView, Observer {
         mazeDisplayer.golToken = false;
         gameDisplayer.setZoomFactor(1.0D);
         gameDisplayer.solDisplayer.setVisibleMaze(false);
-        myViewModel.generateMaze(Integer.parseInt(heightField.getText()), Integer.parseInt(widthField.getText()));
+        myViewModel.generateMaze(row, col);
         setPositonGoblet(mazeDisplayer.getRandomPost(myViewModel.getrandomPos()));
         mazeDisplayer.redraw(gameDisplayer.getZoomFactor());
 //            mazeDisplayer.redraw(daveDisplayer.getCharacterPositionRow(),daveDisplayer.getCharacterPositionColumn());
