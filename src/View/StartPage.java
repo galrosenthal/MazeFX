@@ -37,20 +37,12 @@ public class StartPage {
         primary = prmStg;
         nextScene = scene;
         primCntrl = primControl;
+        smallOnClick();
     }
 
 
     public void startOnClick()
     {
-        if(buttonClicked == 0 )
-        {
-            Alert chooseLevel = new Alert(Alert.AlertType.ERROR,"Please Choose The Level you wish to Play,\n " +
-                    "I just want to Inform you that X-Large is very hard,\n" +
-                    "Good Luck to you my friend");
-            chooseLevel.setTitle("Please Choose a Level");
-            chooseLevel.setHeaderText("No Level Was Chosen");
-            chooseLevel.showAndWait();
-        }
         if(buttonClicked == 1)
         {
             primCntrl.setRow(10);
