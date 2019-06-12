@@ -51,8 +51,8 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
-                        <MenuItem mnemonicParsing="false" onAction="#openInstructions" text="Instructions" />
+                        <MenuItem fx:id="about" mnemonicParsing="false" text="About" />
+                        <MenuItem fx:id="instructions" mnemonicParsing="false" text="Instructions" />
                   <MenuItem fx:id="solveMazeButton" disable="true" mnemonicParsing="false" onAction="#solveMaze" text="Solve Maze" />
                     </items>
                 </Menu>
@@ -184,7 +184,7 @@
                                                   <Image url="@/Images/Solve.png" />
                                               </image>
                                           </ImageView>
-                  
+
                                           <ImageView disable="true" fitWidth="95.0">
                                               <image>
                                                   <Image url="@/Images/Maze.png" />

@@ -75,10 +75,46 @@ public class MazeDisplayer extends Canvas {
     public void redraw(double zoomDelta, int characterPositionColumn, int characterPositionRow) {
         if (maze != null) {
             zoomFactor = zoomDelta;
-            double canvasHeight = getHeight() * zoomDelta;
-            double canvasWidth = getWidth() * zoomDelta;
-            double cellHeight = canvasHeight / maze.getHeight();
-            double cellWidth = canvasWidth / maze.getWidth();
+            double canvasHeight = getHeight();
+            double canvasWidth = getWidth() ;
+            double cellHeight = canvasHeight / maze.getHeight() * zoomDelta;
+            double cellWidth = canvasWidth / maze.getWidth() * zoomDelta;
+            System.out.println("CanvasH=" + canvasHeight);
+            System.out.println("CanvasW=" + canvasWidth);
+            System.out.println("MazeH=" + maze.getHeight());
+            System.out.println("MazeW=" + maze.getWidth());
+
+            int numOfRows = (int)((canvasHeight/maze.getHeight())/zoomFactor);
+            int numOfCols = (int)((canvasWidth/maze.getWidth()) /zoomFactor);
+            System.out.println("NumOfRows=" + numOfRows);
+            System.out.println("NumOfCols=" + numOfCols);
+
+            if(numOfRows < 0)
+                numOfRows = 1;
+            if(numOfCols < 0)
+                numOfCols = 1;
+
+            int startRowToDisplay = characterPositionRow - (numOfRows / 2);
+            int startColToDisplay = characterPositionColumn - (numOfCols / 2);
+            System.out.println("StartRow=" + startRowToDisplay);
+            System.out.println("StartCols=" + startColToDisplay);
+            int endRowToDisplay = numOfRows - startRowToDisplay ;
+            int endColToDisplay = numOfCols - startColToDisplay ;
+
+            if(startRowToDisplay <= 0)
+                startRowToDisplay = 0;
+            if(startColToDisplay <= 0)
+                startColToDisplay = 0;
+            if(endRowToDisplay >= maze.getHeight())
+                endRowToDisplay = maze.getHeight();
+            if(endColToDisplay > maze.getWidth())
+                endColToDisplay = maze.getWidth();
+
+
+            System.out.println("Start Row To Display = " + startRowToDisplay + "| End Row To Display = " + endRowToDisplay);
+            System.out.println("Start Col To Display = " + startColToDisplay + "| End Col To Display = " + endColToDisplay);
+
+
 
             if (zoomFactor <= 1.0D) {
                 offSetWidth = 0.0D;
