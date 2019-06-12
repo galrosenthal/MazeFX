@@ -70,7 +70,7 @@ public class DaveDisplayer extends Canvas {
             try {
                 clearDave();
                 Image characterImage = new Image(new FileInputStream(ImageFileNameCharacter.get()));
-                getGraphicsContext2D().drawImage(characterImage,  characterPositionColumn * cellWidth + offSetWidth, characterPositionRow * cellHeight + offSetHeight, cellWidth , cellHeight );
+                getGraphicsContext2D().drawImage(characterImage,  characterPositionColumn * cellWidth + offSetWidth/zoomFactor, characterPositionRow * cellHeight + offSetHeight/zoomFactor, cellWidth , cellHeight );
             }
             catch (Exception e)
             {

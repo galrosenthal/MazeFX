@@ -219,11 +219,12 @@ public class MyViewController implements IView, Observer {
     public void generateMaze() {
 
         mazeDisplayer.golToken = false;
+        gameDisplayer.cleanGameBoard();
         gameDisplayer.setZoomFactor(1.0D);
         gameDisplayer.solDisplayer.setVisibleMaze(false);
         myViewModel.generateMaze(row, col);
         setPositonGoblet(mazeDisplayer.getRandomPost(myViewModel.getrandomPos()));
-        mazeDisplayer.redraw(gameDisplayer.getZoomFactor(), daveDisplayer.getCharacterPositionColumn(), daveDisplayer.getCharacterPositionRow());
+        gameDisplayer.drawOnZoom();
         wasSounded = false;
         finishedAlready = false;
         stopWiningThread();
@@ -411,12 +412,12 @@ public class MyViewController implements IView, Observer {
 
         while (finishedAlready) {
             gameDisplayer.getDaveDisplayer().drawDave(gameDisplayer.getMazeDisplayer().getMaze(), zoomDaveOnWin);
-            if (zoomDaveOnWin >= 3D) {
+            if (zoomDaveOnWin >= 6D) {
                 dir = -1;
             } else if (zoomDaveOnWin <= 1D) {
                 dir = 1;
             }
-            zoomDaveOnWin += 0.1D * dir;
+            zoomDaveOnWin += 0.5D * dir;
             try {
                 Thread.sleep(100);
 
@@ -574,9 +575,9 @@ public class MyViewController implements IView, Observer {
             double zoomDelta = 1.1D;
             double deltaY = scEvent.getDeltaY();
             if (deltaY > 0.0D) {
-                gameDisplayer.setZoomFactor(gameDisplayer.getZoomFactor() * 1.1D);
+                gameDisplayer.setZoomFactor(gameDisplayer.getZoomFactor() * zoomDelta);
             } else if (deltaY < 0.0D) {
-                gameDisplayer.setZoomFactor(gameDisplayer.getZoomFactor() / 1.1D);
+                gameDisplayer.setZoomFactor(gameDisplayer.getZoomFactor() / zoomDelta);
 
             }
 

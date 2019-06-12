@@ -77,8 +77,8 @@ public class MazeDisplayer extends Canvas {
             zoomFactor = zoomDelta;
             double canvasHeight = getHeight();
             double canvasWidth = getWidth() ;
-            double cellHeight = canvasHeight / maze.getHeight() * zoomDelta;
-            double cellWidth = canvasWidth / maze.getWidth() * zoomDelta;
+            double cellHeight = (canvasHeight / maze.getHeight()) * zoomDelta;
+            double cellWidth = (canvasWidth / maze.getWidth()) * zoomDelta;
             System.out.println("CanvasH=" + canvasHeight);
             System.out.println("CanvasW=" + canvasWidth);
             System.out.println("MazeH=" + maze.getHeight());
@@ -139,7 +139,7 @@ public class MazeDisplayer extends Canvas {
                     for (int j = 0; j < maze.getMazeArray()[i].length; j++) {
                         if (maze.getMazeArray()[i][j] == 1) {
                             //graphicsContext2D.fillRect(i * cellHeight, j * cellWidth, cellHeight, cellWidth);
-                            getGraphicsContext2D().drawImage(wallImage,  (double) j * cellWidth + offSetWidth, (double) i * cellHeight + offSetHeight, cellWidth, cellHeight);
+                            getGraphicsContext2D().drawImage(wallImage,  (double) j * cellWidth + offSetWidth/zoomFactor, (double) i * cellHeight + offSetHeight/zoomFactor, cellWidth, cellHeight);
                         }
                     }
                 }
@@ -147,10 +147,10 @@ public class MazeDisplayer extends Canvas {
                 //gc.setFill(Color.RED);
                 //gc.fillOval(characterPositionColumn * cellHeight, characterPositionRow * cellWidth, cellHeight, cellWidth);
                 Image doorImage = new Image(new FileInputStream(ImageFileDoor.get()));
-                getGraphicsContext2D().drawImage(doorImage, maze.getGoalPosition().getColumnIndex() * cellWidth + offSetWidth, maze.getGoalPosition().getRowIndex() * cellHeight + offSetHeight, cellWidth , cellHeight);
+                getGraphicsContext2D().drawImage(doorImage, maze.getGoalPosition().getColumnIndex() * cellWidth + offSetWidth/zoomFactor, maze.getGoalPosition().getRowIndex() * cellHeight + offSetHeight/zoomFactor, cellWidth , cellHeight);
                 if(!golToken) {
                     Image goblet = new Image(new FileInputStream(ImageFileGolblet.get()));
-                    getGraphicsContext2D().drawImage(goblet, golCol * cellWidth + offSetWidth, golRow * cellHeight + offSetHeight, cellWidth, cellHeight);
+                    getGraphicsContext2D().drawImage(goblet, golCol * cellWidth + offSetWidth/zoomFactor, golRow * cellHeight + offSetHeight/zoomFactor, cellWidth, cellHeight);
                 }
 
 
