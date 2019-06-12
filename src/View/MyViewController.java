@@ -3,26 +3,15 @@ package View;
 import ViewModel.MyViewModel;
 import algorithms.mazeGenerators.Maze;
 import algorithms.mazeGenerators.Position;
-import algorithms.search.MazeState;
 import algorithms.search.Solution;
-import com.sun.xml.internal.bind.v2.TODO;
-import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.beans.property.ReadOnlyBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
-import javafx.geometry.Bounds;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 import javafx.scene.layout.BorderPane;
@@ -30,17 +19,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 
 
-import javax.swing.event.MenuEvent;
-import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.io.*;
-import java.net.URL;
 import java.util.*;
 
 
@@ -231,7 +215,7 @@ public class MyViewController implements IView, Observer {
         gameDisplayer.solDisplayer.setVisibleMaze(false);
         myViewModel.generateMaze(row, col);
         setPositonGoblet(mazeDisplayer.getRandomPost(myViewModel.getrandomPos()));
-        mazeDisplayer.redraw(gameDisplayer.getZoomFactor());
+        mazeDisplayer.redraw(gameDisplayer.getZoomFactor(), daveDisplayer.getCharacterPositionColumn(), daveDisplayer.getCharacterPositionRow());
 //            mazeDisplayer.redraw(daveDisplayer.getCharacterPositionRow(),daveDisplayer.getCharacterPositionColumn());
         wasSounded = false;
         finishedAlready = false;
@@ -464,7 +448,7 @@ public class MyViewController implements IView, Observer {
             myViewModel.setCharacterColumnCurrentPosition(myViewModel.getMaze().getStartPosition().getColumnIndex());
             gameDisplayer.setCharacterPosition(myViewModel.getMaze().getStartPosition());
             daveDisplayer.setCharacterPosition(myViewModel.getMaze().getStartPosition());
-            solDisplayer.drawSolution(mazeDisplayer.getMaze(),gameDisplayer.getZoomFactor());
+            solDisplayer.drawSolution(mazeDisplayer.getMaze(),gameDisplayer.getZoomFactor(), daveDisplayer.getCharacterPositionColumn(), daveDisplayer.getCharacterPositionRow());
             this.characterRow.set(myViewModel.getMaze().getStartPosition().getRowIndex() + "");
             this.characterColumn.set(myViewModel.getMaze().getStartPosition().getColumnIndex() + "");
 
@@ -659,7 +643,7 @@ public class MyViewController implements IView, Observer {
 
             if (testSolution != null) {
                 solDisplayer.setSol(myViewModel.getSolution());
-                solDisplayer.drawSolution(myViewModel.getMaze(),gameDisplayer.getZoomFactor());
+                solDisplayer.drawSolution(myViewModel.getMaze(),gameDisplayer.getZoomFactor(), daveDisplayer.getCharacterPositionColumn(), daveDisplayer.getCharacterPositionRow());
             }
 
 

@@ -2,7 +2,6 @@ package View;
 
 import algorithms.mazeGenerators.Maze;
 import algorithms.mazeGenerators.Position;
-import algorithms.search.MazeState;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
@@ -13,8 +12,6 @@ import javafx.scene.image.Image;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.lang.ref.PhantomReference;
-import java.util.Random;
 
 public class MazeDisplayer extends Canvas {
 
@@ -35,6 +32,8 @@ public class MazeDisplayer extends Canvas {
     private StringProperty ImageFileGolblet = new SimpleStringProperty("resources/Images/gobletMaze.png");
     private StringProperty ImageFileNameWall = new SimpleStringProperty("resources/Images/redWall.jpg");
     public boolean golToken = false;
+    private double offSetWidth;
+    private double offSetHeight;
 
     public String getImageFileDoor() {
         return ImageFileDoor.get();
@@ -73,13 +72,27 @@ public class MazeDisplayer extends Canvas {
 //        redraw(characterPositionRow,characterPositionColumn);
     }
 
-    public void redraw(double zoomDelta) {
+    public void redraw(double zoomDelta, int characterPositionColumn, int characterPositionRow) {
         if (maze != null) {
             zoomFactor = zoomDelta;
             double canvasHeight = getHeight() * zoomDelta;
             double canvasWidth = getWidth() * zoomDelta;
             double cellHeight = canvasHeight / maze.getHeight();
             double cellWidth = canvasWidth / maze.getWidth();
+
+            if (zoomFactor <= 1.0D) {
+                offSetWidth = 0.0D;
+                offSetHeight = 0.0D;
+            }
+            else
+            {
+                offSetWidth = (double)(-1 * characterPositionColumn) * cellWidth * (zoomFactor - 1.0D);
+                offSetHeight = (double)(-1 * characterPositionRow) * cellHeight * (zoomFactor - 1.0D);
+            }
+
+            System.out.println("OffsetW = " + offSetWidth);
+            System.out.println("OffsetH = " + offSetHeight);
+
 
             try {
                 clearMaze();
@@ -90,7 +103,7 @@ public class MazeDisplayer extends Canvas {
                     for (int j = 0; j < maze.getMazeArray()[i].length; j++) {
                         if (maze.getMazeArray()[i][j] == 1) {
                             //graphicsContext2D.fillRect(i * cellHeight, j * cellWidth, cellHeight, cellWidth);
-                            getGraphicsContext2D().drawImage(wallImage,  (double) j * cellWidth, (double) i * cellHeight, cellWidth, cellHeight);
+                            getGraphicsContext2D().drawImage(wallImage,  (double) j * cellWidth + offSetWidth, (double) i * cellHeight + offSetHeight, cellWidth, cellHeight);
                         }
                     }
                 }
@@ -98,10 +111,10 @@ public class MazeDisplayer extends Canvas {
                 //gc.setFill(Color.RED);
                 //gc.fillOval(characterPositionColumn * cellHeight, characterPositionRow * cellWidth, cellHeight, cellWidth);
                 Image doorImage = new Image(new FileInputStream(ImageFileDoor.get()));
-                getGraphicsContext2D().drawImage(doorImage, maze.getGoalPosition().getColumnIndex() * cellWidth, maze.getGoalPosition().getRowIndex() * cellHeight, cellWidth , cellHeight);
+                getGraphicsContext2D().drawImage(doorImage, maze.getGoalPosition().getColumnIndex() * cellWidth + offSetWidth, maze.getGoalPosition().getRowIndex() * cellHeight + offSetHeight, cellWidth , cellHeight);
                 if(!golToken) {
                     Image goblet = new Image(new FileInputStream(ImageFileGolblet.get()));
-                    getGraphicsContext2D().drawImage(goblet, golCol * cellWidth, golRow * cellHeight, cellWidth, cellHeight);
+                    getGraphicsContext2D().drawImage(goblet, golCol * cellWidth + offSetWidth, golRow * cellHeight + offSetHeight, cellWidth, cellHeight);
                 }
 
 
@@ -129,7 +142,7 @@ public class MazeDisplayer extends Canvas {
 
     public void isGobletVisible(int col, int row) {
         golToken = true;
-        redraw(zoomFactor);
+        redraw(zoomFactor, col, row);
     }
 
     public Position getRandomPost(Position p) {
