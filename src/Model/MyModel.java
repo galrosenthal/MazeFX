@@ -467,34 +467,34 @@ public class MyModel extends Observable implements IModel {
         solver.stop();
     }
 
-//    public Position getrandomPos() {
-//        callClientSolveMaze();
-//        Random randomGenerator = new Random();
-//        int index = randomGenerator.nextInt(solution.getSolutionPath().size());
-//        Object o = solution.getSolutionPath().get(index);
-//        MazeState myMazeState = (MazeState) o ;
-//        return myMazeState.getPosition();
-//    }
-
-
-
     public Position getrandomPos() {
+        callClientSolveMaze();
         Random randomGenerator = new Random();
-        int indexRow = randomGenerator.nextInt(maze.getHeight());
-        int indexCol = randomGenerator.nextInt(maze.getWidth());
-        boolean found = false;
-        while (!found) {
-            if ((indexCol != maze.getGoalPosition().getColumnIndex() && indexRow != maze.getGoalPosition().getRowIndex()) && (indexCol != maze.getStartPosition().getColumnIndex() && indexRow != maze.getStartPosition().getRowIndex())) {
-                if (maze.getMazeArray()[indexRow][indexCol] == 0) {
-                    Position gobletPosition = new Position(indexRow, indexCol);
-                    return gobletPosition;
-                }
-            }
-            indexRow = randomGenerator.nextInt(maze.getHeight());
-            indexCol = randomGenerator.nextInt(maze.getWidth());
-        }
-        return null;
+        int index = randomGenerator.nextInt(solution.getSolutionPath().size());
+        Object o = solution.getSolutionPath().get(index);
+        MazeState myMazeState = (MazeState) o ;
+        return myMazeState.getPosition();
     }
+
+
+
+//    public Position getrandomPos() {
+//        Random randomGenerator = new Random();
+//        int indexRow = randomGenerator.nextInt(maze.getHeight());
+//        int indexCol = randomGenerator.nextInt(maze.getWidth());
+//        boolean found = false;
+//        while (!found) {
+//            if ((indexCol != maze.getGoalPosition().getColumnIndex() && indexRow != maze.getGoalPosition().getRowIndex()) && (indexCol != maze.getStartPosition().getColumnIndex() && indexRow != maze.getStartPosition().getRowIndex())) {
+//                if (maze.getMazeArray()[indexRow][indexCol] == 0) {
+//                    Position gobletPosition = new Position(indexRow, indexCol);
+//                    return gobletPosition;
+//                }
+//            }
+//            indexRow = randomGenerator.nextInt(maze.getHeight());
+//            indexCol = randomGenerator.nextInt(maze.getWidth());
+//        }
+//        return null;
+//    }
 
     public boolean getGolToken(){
         return golToken;

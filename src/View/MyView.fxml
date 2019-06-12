@@ -31,10 +31,10 @@
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#generateMaze" text="New    Ctr+G" />
+                        <MenuItem mnemonicParsing="false" onAction="#generateMaze" text="New" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" onAction="#saveMazeView" text="Save    Ctr+S" />
-                        <MenuItem mnemonicParsing="false" onAction="#LoadMaze" text="Load    Ctr+L" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveMazeView" text="Save" />
+                        <MenuItem mnemonicParsing="false" onAction="#LoadMaze" text="Load" />
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem fx:id="exitButton" mnemonicParsing="false" onAction="#exitWithExitButton" text="EXIT" />
                     </items>
@@ -48,8 +48,8 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
-                        <MenuItem mnemonicParsing="false" onAction="#openInstructions" text="Instructions" />
+                        <MenuItem fx:id="about" mnemonicParsing="false" text="About" />
+                        <MenuItem fx:id="instructions" mnemonicParsing="false" text="Instructions" />
                   <MenuItem fx:id="solveMazeButton" disable="true" mnemonicParsing="false" onAction="#solveMaze" text="Solve Maze" />
                     </items>
                 </Menu>

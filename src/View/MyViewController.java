@@ -12,13 +12,17 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
+import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.shape.Box;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -33,7 +37,9 @@ public class MyViewController implements IView, Observer {
     public MenuButton menuCharacter;
     public MenuItem daveboy;
     public MenuItem davegirl;
-
+    @FXML
+    public MenuItem instructions;
+    public MenuItem about;
     private Thread winningThread;
 
 
@@ -178,7 +184,9 @@ public class MyViewController implements IView, Observer {
 
     public void solveMaze() {
         gameDisplayer.solDisplayer.setVisibleMaze(true);
-        myViewModel.solveGame();
+//        myViewModel.solveGame();
+        solDisplayer.setSol(myViewModel.getSolution());
+        solDisplayer.drawSolution(myViewModel.getMaze(), gameDisplayer.getZoomFactor(), daveDisplayer.getCharacterPositionColumn(), daveDisplayer.getCharacterPositionRow());
         setDisableSolveButtons(true);
     }
 
@@ -223,14 +231,14 @@ public class MyViewController implements IView, Observer {
     }
 
 
-    public void openInstructions() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Instructions");
-        alert.setHeaderText("HOW TO PLAY?");
-        alert.setContentText("דייב המסוכן גירסת המבוך\n מטרת המשחק: עיזרו לדייב להגיע לדלת הסתרים \n אופן יצירת מבוך: כדי ליצור מבוך עליך להכניס את מידות המבוך הרצוי עליך.\n נא בחר מספר שלם וחיובי עבור הגובה(height)ורוחב(width) המבוך.\n" +
-                "נא ללחוץ על כפתור Generate Maze (או Ctrl + G לקיצור).\nבמידה ואתם נתקעים או סתם עצלנים, ניתן לקבל את מסלול המבוך על ידי לחיצה על Solve Maze (או Ctrl + F לקיצור) והפתרון יוצג על גבי המסך.\n\nתוכלו לשמור ולטעון מבוכים שמורים ע\"י לחיצה על File ובחירת Save Maze או Load Maze בהתאמה. (Ctrl + S לשמירה, Ctrl + L לטעינה)\n\nעל מנת לזוז יש להשתמש במקשי החיצים, או לחילופין בלחצני המספרים ב-NumPad (2,4,6,8 בהתאמה). במידה ונתקעתם בקיר, תיפסלו ותחזרו לתחילת המשחק!\nניתן לזוז באלכסון כדי לקצר (1,3,7,9 בהתאמה), אם הדרך חסומה משני הצדדים בקירות תיפסלו ותחזרו להתחלה.\n");
-        alert.show();
-    }
+//    public void openInstructions() {
+//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//        alert.setTitle("Instructions");
+//        alert.setGraphic(imageV);
+//        alert.setContentText("דייב המסוכן גירסת המבוך\n מטרת המשחק: עיזרו לדייב להגיע לדלת הסתרים \n אופן יצירת מבוך: כדי ליצור מבוך עליך להכניס את מידות המבוך הרצוי עליך.\n נא בחר מספר שלם וחיובי עבור הגובה(height)ורוחב(width) המבוך.\n" +
+//                "נא ללחוץ על כפתור Generate Maze (או Ctrl + G לקיצור).\nבמידה ואתם נתקעים או סתם עצלנים, ניתן לקבל את מסלול המבוך על ידי לחיצה על Solve Maze (או Ctrl + F לקיצור) והפתרון יוצג על גבי המסך.\n\nתוכלו לשמור ולטעון מבוכים שמורים ע\"י לחיצה על File ובחירת Save Maze או Load Maze בהתאמה. (Ctrl + S לשמירה, Ctrl + L לטעינה)\n\nעל מנת לזוז יש להשתמש במקשי החיצים, או לחילופין בלחצני המספרים ב-NumPad (2,4,6,8 בהתאמה). במידה ונתקעתם בקיר, תיפסלו ותחזרו לתחילת המשחק!\nניתן לזוז באלכסון כדי לקצר (1,3,7,9 בהתאמה), אם הדרך חסומה משני הצדדים בקירות תיפסלו ותחזרו להתחלה.\n");
+//        alert.show();
+//    }
 
 
     private int[] getValues() {
@@ -369,8 +377,7 @@ public class MyViewController implements IView, Observer {
 //            return;
 //        }
 
-        if(keyEvent.getCode().getName().toLowerCase().equals("ctrl"))
-        {
+        if (keyEvent.getCode().getName().toLowerCase().equals("ctrl")) {
             isCtrlPressed = true;
             keyEvent.consume();
             return;
@@ -416,7 +423,7 @@ public class MyViewController implements IView, Observer {
             Alert EndGame = new Alert(Alert.AlertType.INFORMATION, "Congratulations!!! You have Won the Game, Dave is Resuced =)");
             EndGame.setTitle("Congratulations");
             EndGame.showAndWait();
-            if(BGM_checkBox.isSelected())
+            if (BGM_checkBox.isSelected())
                 mediaPlayer.play();
         } else if (myViewModel.gameWon() && !mazeDisplayer.golToken) {
             Alert cantEnd = new Alert(Alert.AlertType.ERROR, "Please take the goblet!");
@@ -425,7 +432,7 @@ public class MyViewController implements IView, Observer {
             myViewModel.setCharacterColumnCurrentPosition(myViewModel.getMaze().getStartPosition().getColumnIndex());
             gameDisplayer.setCharacterPosition(myViewModel.getMaze().getStartPosition());
             daveDisplayer.setCharacterPosition(myViewModel.getMaze().getStartPosition());
-            solDisplayer.drawSolution(mazeDisplayer.getMaze(),gameDisplayer.getZoomFactor(), daveDisplayer.getCharacterPositionColumn(), daveDisplayer.getCharacterPositionRow());
+            solDisplayer.drawSolution(mazeDisplayer.getMaze(), gameDisplayer.getZoomFactor(), daveDisplayer.getCharacterPositionColumn(), daveDisplayer.getCharacterPositionRow());
             this.characterRow.set(myViewModel.getMaze().getStartPosition().getRowIndex() + "");
             this.characterColumn.set(myViewModel.getMaze().getStartPosition().getColumnIndex() + "");
 
@@ -436,25 +443,18 @@ public class MyViewController implements IView, Observer {
         double zoomDaveOnWin = gameDisplayer.getZoomFactor();
         int dir = 1;
 
-        while(finishedAlready)
-        {
-            gameDisplayer.getDaveDisplayer().drawDave(gameDisplayer.getMazeDisplayer().getMaze(),zoomDaveOnWin);
-            if(zoomDaveOnWin >= 3D)
-            {
+        while (finishedAlready) {
+            gameDisplayer.getDaveDisplayer().drawDave(gameDisplayer.getMazeDisplayer().getMaze(), zoomDaveOnWin);
+            if (zoomDaveOnWin >= 3D) {
                 dir = -1;
-            }
-            else if(zoomDaveOnWin <= 1D)
-            {
+            } else if (zoomDaveOnWin <= 1D) {
                 dir = 1;
             }
             zoomDaveOnWin += 0.1D * dir;
-            try
-            {
+            try {
                 Thread.sleep(100);
 
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
 
             }
         }
@@ -566,10 +566,10 @@ public class MyViewController implements IView, Observer {
                 mazeDisplayer.setMaze(myViewModel.getMaze());
                 gameDisplayer.setCharacterPosition(myViewModel.getPosition());
 
-                this.cellWidth = this.mazeDisplayer.getWidth() / (double)this.mazeDisplayer.mw;
-                this.cellHeight = this.mazeDisplayer.getHeight() / (double)this.mazeDisplayer.mh;
-                this.characterMinX = (double)myViewModel.getPosition().getColumnIndex() * this.cellWidth;
-                this.characterMinY = (double)myViewModel.getPosition().getRowIndex() * this.cellHeight;
+                this.cellWidth = this.mazeDisplayer.getWidth() / (double) this.mazeDisplayer.mw;
+                this.cellHeight = this.mazeDisplayer.getHeight() / (double) this.mazeDisplayer.mh;
+                this.characterMinX = (double) myViewModel.getPosition().getColumnIndex() * this.cellWidth;
+                this.characterMinY = (double) myViewModel.getPosition().getRowIndex() * this.cellHeight;
                 this.characterRow.set(myViewModel.getPosition().getRowIndex() + "");
                 this.characterColumn.set(myViewModel.getPosition().getColumnIndex() + "");
 
@@ -596,7 +596,7 @@ public class MyViewController implements IView, Observer {
 
             if (testSolution != null) {
                 solDisplayer.setSol(myViewModel.getSolution());
-                solDisplayer.drawSolution(myViewModel.getMaze(),gameDisplayer.getZoomFactor(), daveDisplayer.getCharacterPositionColumn(), daveDisplayer.getCharacterPositionRow());
+                solDisplayer.drawSolution(myViewModel.getMaze(), gameDisplayer.getZoomFactor(), daveDisplayer.getCharacterPositionColumn(), daveDisplayer.getCharacterPositionRow());
             }
 
 
@@ -604,9 +604,8 @@ public class MyViewController implements IView, Observer {
 
     }
 
-    public void keyReleased(KeyEvent kyRlsd)
-    {
-        if(kyRlsd.getCode().getName().toLowerCase().equals("ctrl"))
+    public void keyReleased(KeyEvent kyRlsd) {
+        if (kyRlsd.getCode().getName().toLowerCase().equals("ctrl"))
             isCtrlPressed = false;
     }
 
@@ -616,29 +615,25 @@ public class MyViewController implements IView, Observer {
     }
 
     public void zoom(ScrollEvent scEvent) {
-       if(isCtrlPressed && mazeDisplayer.getMaze() != null)
-       {
-           double zoomDelta = 1.1D;
-           double deltaY = scEvent.getDeltaY();
-           if(deltaY > 0.0D)
-           {
-                gameDisplayer.setZoomFactor(gameDisplayer.getZoomFactor()*1.1D);
-           }
-           else if(deltaY < 0.0D)
-           {
-                gameDisplayer.setZoomFactor(gameDisplayer.getZoomFactor()/1.1D);
+        if (isCtrlPressed && mazeDisplayer.getMaze() != null) {
+            double zoomDelta = 1.1D;
+            double deltaY = scEvent.getDeltaY();
+            if (deltaY > 0.0D) {
+                gameDisplayer.setZoomFactor(gameDisplayer.getZoomFactor() * 1.1D);
+            } else if (deltaY < 0.0D) {
+                gameDisplayer.setZoomFactor(gameDisplayer.getZoomFactor() / 1.1D);
 
-           }
+            }
 
-       }
-       gameDisplayer.drawOnZoom();
+        }
+        gameDisplayer.drawOnZoom();
 
     }
 
     public void MouseDrag(MouseEvent event) {
-        if(levelEasy.isSelected()){
+        if (levelEasy.isSelected()) {
             myViewModel.getLevel(1);
-        }else if(levelHard.isSelected()){
+        } else if (levelHard.isSelected()) {
             myViewModel.getLevel(-1);
         }
         if (this.mazeDisplayer.hasMaze()) {
@@ -683,7 +678,7 @@ public class MyViewController implements IView, Observer {
 
     public void openProp(ActionEvent actionEvent) {
         Properties properties = new Properties();
-        try{
+        try {
             InputStream propFile = new FileInputStream("resources/config.properties");
             properties.load(propFile);
 
@@ -692,10 +687,8 @@ public class MyViewController implements IView, Observer {
 
             StringBuilder textProp = new StringBuilder();
             String line = bufferedReader.readLine();
-            while (line != null)
-            {
-                if (!line.contains("#"))
-                {
+            while (line != null) {
+                if (!line.contains("#")) {
                     String[] myLine = line.split("=");
                     textProp.append(myLine[0]);
                     textProp.append(" = ");
@@ -718,14 +711,10 @@ public class MyViewController implements IView, Observer {
 //            });
             propAlert.showAndWait();
 
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
 
         }
     }
-
-
 }
 
 
