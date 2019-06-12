@@ -180,6 +180,8 @@ public class MyViewController implements IView, Observer {
         mazeDisplayer.clearMaze();
         daveDisplayer.clearDave();
         solDisplayer.clearSolution();
+        gameDisplayer.setZoomFactor(1.0D);
+        finishedAlready = false;
         primStage.setScene(strtScene);
     }
 
