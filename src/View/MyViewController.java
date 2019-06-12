@@ -10,6 +10,9 @@ import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.Scene;
@@ -41,6 +44,9 @@ public class MyViewController implements IView, Observer {
     public MenuItem instructions;
     public MenuItem about;
     private Thread winningThread;
+
+    @FXML
+    private Menu levelChange;
 
     private int row,col;
 
@@ -182,6 +188,7 @@ public class MyViewController implements IView, Observer {
 
     public void changeScene()
     {
+        System.out.println("Changing Scene");
         mazeDisplayer.clearMaze();
         daveDisplayer.clearDave();
         solDisplayer.clearSolution();
@@ -350,9 +357,7 @@ public class MyViewController implements IView, Observer {
             mediaPlayer.stop();
             playSpecificSound("resources/Audio/woohoo.wav");
             finishedAlready = true;
-            winningThread = new Thread(() -> {
-                characterZoomInAndOut();
-            });
+            winningThread = new Thread(this::characterZoomInAndOut);
             winningThread.start();
             setDisableAllButtons(true);
 

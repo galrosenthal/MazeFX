@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.StartPage">
+<Pane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.StartPage">
    <children>
       <ImageView fitHeight="214.0" fitWidth="275.0" layoutX="250.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@/Images/mazeCover.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="288.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="288.0" layoutY="111.0" onMouseClicked="#EasterEgg" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@/Images/start.gif" />
          </image>
