@@ -2,6 +2,7 @@ package View;
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 
@@ -29,7 +30,7 @@ public class StartPage {
 
     private Scene nextScene;
     private MyViewController primCntrl;
-    int buttonClicked = 0;
+    private int buttonClicked = 0;
 
     public void Initialize(Stage prmStg, Scene scene, MyViewController primControl)
     {
@@ -41,6 +42,15 @@ public class StartPage {
 
     public void startOnClick()
     {
+        if(buttonClicked == 0 )
+        {
+            Alert chooseLevel = new Alert(Alert.AlertType.ERROR,"Please Choose The Level you wish to Play,\n " +
+                    "I just want to Inform you that X-Large is very hard,\n" +
+                    "Good Luck to you my friend");
+            chooseLevel.setTitle("Please Choose a Level");
+            chooseLevel.setHeaderText("No Level Was Chosen");
+            chooseLevel.showAndWait();
+        }
         if(buttonClicked == 1)
         {
             primCntrl.setRow(10);
