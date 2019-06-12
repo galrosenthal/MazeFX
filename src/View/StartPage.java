@@ -21,6 +21,8 @@ public class StartPage {
     @FXML
     private ImageView largeIV;
     @FXML
+    private ImageView xlargeIV;
+    @FXML
     private ImageView startButton;
 
     private Stage primary;
@@ -60,6 +62,12 @@ public class StartPage {
             primary.setScene(nextScene);
         }
 
+        if(buttonClicked == 4)
+        {
+            primCntrl.setRow(100);
+            primCntrl.setCol(100);
+            primary.setScene(nextScene);
+        }
 
 
     }
@@ -92,18 +100,31 @@ public class StartPage {
         largeIV.setFitHeight(35);
         buttonClicked = 3;
     }
+    public void xlargeOnClick()
+    {
+        restoreFirstImages();
+        xlargeIV.setImage(new Image("Images/xLarge-crop-wave.gif"));
+        xlargeIV.setFitHeight(35);
+        buttonClicked = 4;
+    }
 
     private void restoreFirstImages()
     {
         smallIV.setImage(new Image("Images/small-crop.gif"));
-        smallIV.setFitWidth(130);
+        smallIV.setFitWidth(103);
         smallIV.setFitHeight(50);
+
         mediumIV.setImage(new Image("Images/Medium-crop.gif"));
         mediumIV.setFitWidth(130);
         mediumIV.setFitHeight(50);
+
         largeIV.setImage(new Image("Images/Large-crop.gif"));
-        largeIV.setFitWidth(130);
+        largeIV.setFitWidth(95);
         largeIV.setFitHeight(50);
+
+        xlargeIV.setImage(new Image("Images/xLarge-crop.gif"));
+        xlargeIV.setFitWidth(115);
+        xlargeIV.setFitHeight(50);
 
         buttonClicked = 0;
     }

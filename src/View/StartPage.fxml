@@ -16,11 +16,6 @@
             <Image url="@/Images/start.gif" />
          </image>
       </ImageView>
-      <ImageView fx:id="startButton" fitHeight="150.0" fitWidth="200.0" layoutX="294.0" layoutY="388.0" onMouseDragged="#startOnClick" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@/Images/StartIcon.png" />
-         </image>
-      </ImageView>
        <Pane layoutY="200.0" prefHeight="211.0" prefWidth="200.0">
          <children>
             <ImageView fx:id="mediumIV" fitHeight="50.0" fitWidth="130.0" layoutX="35.0" layoutY="55.0" onMouseClicked="#mediumOnClick" pickOnBounds="true" preserveRatio="true">
@@ -33,9 +28,23 @@
                   <Image url="@/Images/small-crop.gif" />
                </image>
             </ImageView>
-            <ImageView fx:id="largeIV" fitHeight="50.0" fitWidth="103.0" layoutX="50.0" layoutY="106.0" onMouseClicked="#largeOnClick" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="largeIV" fitHeight="50.0" fitWidth="95.0" layoutX="50.0" layoutY="106.0" onMouseClicked="#largeOnClick" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/Images/Large-crop.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="115.0" layoutX="41.0" layoutY="145.0" onMouseClicked="#xlargeOnClick" pickOnBounds="true" preserveRatio="true" fx:id="xlargeIV">
+               <image>
+                  <Image url="@/Images/xLarge-crop.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="280.0" layoutY="376.0" onMouseClicked="#startOnClick" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="startButton" fitHeight="150.0" fitWidth="200.0" layoutX="1.0" layoutY="13.0" onMouseClicked="#startOnClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/Images/StartIcon.png" />
                </image>
             </ImageView>
          </children>

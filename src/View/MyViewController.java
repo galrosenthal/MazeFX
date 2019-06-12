@@ -75,10 +75,12 @@ public class MyViewController implements IView, Observer {
     @FXML
     private RadioButton levelHard;
 
+
     @FXML
-    private ImageView solveMazeImageButton;
+    private Pane solveMazePane;
     @FXML
-    private ImageView solveImageButton;
+    private Pane generateMazePane;
+
 
     @FXML
     private MenuItem solveMazeButton;
@@ -95,7 +97,7 @@ public class MyViewController implements IView, Observer {
     @FXML
     public DaveDisplayer daveDisplayer;
 
-    public GameDisplayer gameDisplayer;
+    private GameDisplayer gameDisplayer;
 
     @FXML
     public Label lbl_characterRow;
@@ -111,10 +113,10 @@ public class MyViewController implements IView, Observer {
 
     private MyViewModel myViewModel;
 
-    public String name = "Dave";
+    private String name = "Dave";
 
-    public StringProperty characterRow = new SimpleStringProperty();
-    public StringProperty characterColumn = new SimpleStringProperty();
+    private StringProperty characterRow = new SimpleStringProperty();
+    private StringProperty characterColumn = new SimpleStringProperty();
 
     public BorderPane mainPane;
     public Pane mazePane;
@@ -135,7 +137,7 @@ public class MyViewController implements IView, Observer {
 
     private Stage primStage;
     private Scene strtScene;
-
+//<!--style="-fx-background-color: linear-gradient(#FF512F, #DD2476); -fx-background-radius: 10; -fx-border-image-width: 5;">-->
     public void initialize(MyViewModel myViewModel, Stage primaryStage, Scene startScene) {
         finishedAlready = false;
         primStage = primaryStage;
@@ -206,9 +208,8 @@ public class MyViewController implements IView, Observer {
     }
 
     private void setDisableSolveButtons(Boolean doDisabled) {
-        solveImageButton.setDisable(doDisabled);
-        solveMazeImageButton.setDisable(doDisabled);
         solveMazeButton.setDisable(doDisabled);
+        solveMazePane.setDisable(doDisabled);
     }
 
     //    @FXML

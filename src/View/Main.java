@@ -56,15 +56,15 @@ public class Main extends Application {
         VBox layout1 = new VBox(0);
         Image imageStart = new Image(new FileInputStream("resources/Images/start.gif"));
         ImageView sImage = new ImageView(imageStart);
-        Image imageSmall = new Image(new FileInputStream("resources/Images/small.gif"),300,250,true,true);
-        ImageView smallImage = new ImageView(imageSmall);
+//        Image imageSmall = new Image(new FileInputStream("resources/Images/small.gif"),300,250,true,true);
+//        ImageView smallImage = new ImageView(imageSmall);
         Image imageLoad = new Image(new FileInputStream("resources/Images/StartIcon.png"));
         ImageView lImage = new ImageView(imageLoad);
         Image imageMaze = new Image(new FileInputStream("resources/Images/mazeCover.png"));
         ImageView mImage = new ImageView(imageMaze);
         lImage.setOnMouseClicked(e -> primaryStage.setScene(scene2));
 
-        layout1.getChildren().addAll(sImage,mImage,lImage,smallImage);
+        layout1.getChildren().addAll(sImage,mImage,lImage);
         layout1.setAlignment(Pos.CENTER);
 
         // create a background image
