@@ -128,7 +128,7 @@ public class Main extends Application {
         });
 
         VBox layout3 = new VBox(0);
-        Image imageAbout= new Image(new FileInputStream("resources/Images/dave_inst (1).jpg"));
+        Image imageAbout= new Image(new FileInputStream("resources/Images/about.jpg"));
         ImageView abouttImage = new ImageView(imageAbout);
         layout3.getChildren().addAll(abouttImage);
         scene4 = new Scene(layout3,600.0D, 600.0D);
