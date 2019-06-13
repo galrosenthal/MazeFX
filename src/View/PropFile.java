@@ -67,15 +67,7 @@ public class PropFile {
 
 
 
-        poolNum.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
-                                String newValue) {
-                if (!newValue.matches("\\d*")) {
-                    poolNum.setText(newValue.replaceAll("[^\\d]", ""));
-                }
-            }
-        });
+
     }
 
     private void setPropValues() {
