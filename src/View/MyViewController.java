@@ -358,6 +358,8 @@ public class MyViewController implements IView, Observer {
             mediaPlayer.stop();
             playSpecificSound("resources/Audio/woohoo.wav");
             finishedAlready = true;
+
+            gameDisplayer.setCharacterPosition(new Position(0,0));
             winningThread = new Thread(this::characterZoomInAndOut);
             winningThread.start();
             setDisableAllButtons(true);
@@ -412,7 +414,7 @@ public class MyViewController implements IView, Observer {
 
         while (finishedAlready) {
             gameDisplayer.getDaveDisplayer().drawDave(gameDisplayer.getMazeDisplayer().getMaze(), zoomDaveOnWin);
-            if (zoomDaveOnWin >= 6D) {
+            if (zoomDaveOnWin >= 10D) {
                 dir = -1;
             } else if (zoomDaveOnWin <= 1D) {
                 dir = 1;
