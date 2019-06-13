@@ -8,8 +8,7 @@ public class GameDisplayer  {
     public SolutionDisplayer solDisplayer;
     public DaveDisplayer daveDisplayer;
     private double zoomFactor = 1.0D;
-    private double offSetWidth;
-    private double offSetHeight;
+
 
     public double getZoomFactor() {
         return zoomFactor;
@@ -39,7 +38,9 @@ public class GameDisplayer  {
         daveDisplayer.setCharacterPosition(currPos);
         characterPositionColumn = currPos.getColumnIndex();
         characterPositionRow = currPos.getRowIndex();
+        daveDisplayer.clearDave();
         redrawMaze();
+//        daveDisplayer.drawDave(mazeDisplayer.getMaze(),zoomFactor);
     }
     public int getCharacterPositionRow() {
         return characterPositionRow;
@@ -65,19 +66,13 @@ public class GameDisplayer  {
         this.solDisplayer = solDisplayer;
     }
 
-    public void drawGame()
-    {
-        solDisplayer.setVisible(false);
-        solDisplayer.clearSolution();
-        daveDisplayer.clearDave();
-        redrawMaze();
-        drawSolution(mazeDisplayer.getMaze());
-    }
+
 
     public void redrawMaze()
     {
-        getMazeDisplayer().getGraphicsContext2D().clearRect(0, 0, getMazeDisplayer().getWidth(), getMazeDisplayer().getHeight());
+        mazeDisplayer.clearMaze();
         solDisplayer.clearSolution();
+
         mazeDisplayer.redraw(zoomFactor, characterPositionColumn, characterPositionRow);
         daveDisplayer.drawDave(mazeDisplayer.getMaze(),zoomFactor);
         drawSolution(mazeDisplayer.getMaze());
@@ -104,4 +99,9 @@ public class GameDisplayer  {
             solDisplayer.drawSolution(mz,zoomFactor, characterPositionColumn, characterPositionRow);
     }
 
+    public void cleanGameBoard() {
+        mazeDisplayer.clearMaze();
+        daveDisplayer.clearDave();
+        solDisplayer.clearSolution();
+    }
 }

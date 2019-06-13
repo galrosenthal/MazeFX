@@ -10,6 +10,9 @@ import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.Scene;
@@ -41,6 +44,9 @@ public class MyViewController implements IView, Observer {
     public MenuItem instructions;
     public MenuItem about;
     private Thread winningThread;
+
+    @FXML
+    private Menu levelChange;
 
     private int row,col;
 
@@ -182,6 +188,7 @@ public class MyViewController implements IView, Observer {
 
     public void changeScene()
     {
+        System.out.println("Changing Scene");
         mazeDisplayer.clearMaze();
         daveDisplayer.clearDave();
         solDisplayer.clearSolution();
@@ -212,11 +219,12 @@ public class MyViewController implements IView, Observer {
     public void generateMaze() {
 
         mazeDisplayer.golToken = false;
+        gameDisplayer.cleanGameBoard();
         gameDisplayer.setZoomFactor(1.0D);
         gameDisplayer.solDisplayer.setVisibleMaze(false);
         myViewModel.generateMaze(row, col);
         setPositonGoblet(mazeDisplayer.getRandomPost(myViewModel.getrandomPos()));
-        mazeDisplayer.redraw(gameDisplayer.getZoomFactor(), daveDisplayer.getCharacterPositionColumn(), daveDisplayer.getCharacterPositionRow());
+        gameDisplayer.drawOnZoom();
         wasSounded = false;
         finishedAlready = false;
         stopWiningThread();
@@ -350,9 +358,9 @@ public class MyViewController implements IView, Observer {
             mediaPlayer.stop();
             playSpecificSound("resources/Audio/woohoo.wav");
             finishedAlready = true;
-            winningThread = new Thread(() -> {
-                characterZoomInAndOut();
-            });
+
+            gameDisplayer.setCharacterPosition(new Position(0,0));
+            winningThread = new Thread(this::characterZoomInAndOut);
             winningThread.start();
             setDisableAllButtons(true);
 
@@ -406,12 +414,12 @@ public class MyViewController implements IView, Observer {
 
         while (finishedAlready) {
             gameDisplayer.getDaveDisplayer().drawDave(gameDisplayer.getMazeDisplayer().getMaze(), zoomDaveOnWin);
-            if (zoomDaveOnWin >= 3D) {
+            if (zoomDaveOnWin >= 10D) {
                 dir = -1;
             } else if (zoomDaveOnWin <= 1D) {
                 dir = 1;
             }
-            zoomDaveOnWin += 0.1D * dir;
+            zoomDaveOnWin += 0.5D * dir;
             try {
                 Thread.sleep(100);
 
@@ -569,9 +577,9 @@ public class MyViewController implements IView, Observer {
             double zoomDelta = 1.1D;
             double deltaY = scEvent.getDeltaY();
             if (deltaY > 0.0D) {
-                gameDisplayer.setZoomFactor(gameDisplayer.getZoomFactor() * 1.1D);
+                gameDisplayer.setZoomFactor(gameDisplayer.getZoomFactor() * zoomDelta);
             } else if (deltaY < 0.0D) {
-                gameDisplayer.setZoomFactor(gameDisplayer.getZoomFactor() / 1.1D);
+                gameDisplayer.setZoomFactor(gameDisplayer.getZoomFactor() / zoomDelta);
 
             }
 

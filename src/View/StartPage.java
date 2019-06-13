@@ -7,7 +7,10 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import java.io.FileInputStream;
 
 public class StartPage {
 
@@ -129,5 +132,24 @@ public class StartPage {
         xlargeIV.setFitHeight(50);
 
         buttonClicked = 0;
+    }
+
+    public void EasterEgg()
+    {
+        Stage easterEgg = new Stage();
+        Pane easterPane = new Pane();
+        try {
+            System.out.println("Easter Egg Was Found");
+            Image imageInst = new Image("Images/easterEgg.gif");
+            ImageView instImage = new ImageView(imageInst);
+            easterPane.getChildren().addAll(instImage);
+            Scene easterScene = new Scene(easterPane);
+            easterEgg.setScene(easterScene);
+            easterEgg.showAndWait();
+        }
+        catch (Exception e)
+        {
+
+        }
     }
 }
