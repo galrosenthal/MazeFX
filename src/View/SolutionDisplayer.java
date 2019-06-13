@@ -80,7 +80,7 @@ public class SolutionDisplayer extends Canvas {
                         sol.getSolutionPath()) {
 
                     MazeState myState = (MazeState)state;
-                    getGraphicsContext2D().drawImage(solImage, myState.getPosition().getColumnIndex() * cellWidth + offSetWidth, myState.getPosition().getRowIndex() * cellHeight + offSetHeight, cellWidth , cellHeight);
+                    getGraphicsContext2D().drawImage(solImage, myState.getPosition().getColumnIndex() * cellWidth + offSetWidth/zoomFactor, myState.getPosition().getRowIndex() * cellHeight + offSetHeight/zoomFactor, cellWidth , cellHeight);
                 }
 
             }

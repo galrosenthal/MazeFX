@@ -38,9 +38,9 @@ public class GameDisplayer  {
         daveDisplayer.setCharacterPosition(currPos);
         characterPositionColumn = currPos.getColumnIndex();
         characterPositionRow = currPos.getRowIndex();
-//        redrawMaze();
         daveDisplayer.clearDave();
-        daveDisplayer.drawDave(mazeDisplayer.getMaze(),zoomFactor);
+        redrawMaze();
+//        daveDisplayer.drawDave(mazeDisplayer.getMaze(),zoomFactor);
     }
     public int getCharacterPositionRow() {
         return characterPositionRow;
@@ -74,7 +74,7 @@ public class GameDisplayer  {
         solDisplayer.clearSolution();
 
         mazeDisplayer.redraw(zoomFactor, characterPositionColumn, characterPositionRow);
-//        daveDisplayer.drawDave(mazeDisplayer.getMaze(),zoomFactor);
+        daveDisplayer.drawDave(mazeDisplayer.getMaze(),zoomFactor);
         drawSolution(mazeDisplayer.getMaze());
     }
 
