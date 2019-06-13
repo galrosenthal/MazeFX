@@ -14,6 +14,8 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
@@ -335,14 +337,14 @@ public class MyViewController implements IView, Observer {
             if (keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD6) {
                 daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + ".png");
             } else if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.NUMPAD4) {
-                daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
+                daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.png");
             }
 
 
         } else if (levelHard.isSelected()) {
             level = -1;
             if (keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.NUMPAD4) {
-                daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.jpg");
+                daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + "Left.png");
             } else if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.NUMPAD6) {
                 daveDisplayer.setImageFileNameCharacter("resources/Images/" + name + ".png");
             }
@@ -358,7 +360,6 @@ public class MyViewController implements IView, Observer {
             mediaPlayer.stop();
             playSpecificSound("resources/Audio/woohoo.wav");
             finishedAlready = true;
-
             gameDisplayer.setCharacterPosition(new Position(0,0));
             winningThread = new Thread(this::characterZoomInAndOut);
             winningThread.start();
@@ -414,14 +415,14 @@ public class MyViewController implements IView, Observer {
 
         while (finishedAlready) {
             gameDisplayer.getDaveDisplayer().drawDave(gameDisplayer.getMazeDisplayer().getMaze(), zoomDaveOnWin);
-            if (zoomDaveOnWin >= 10D) {
+            if (zoomDaveOnWin >= 10D * gameDisplayer.getZoomFactor()) {
                 dir = -1;
             } else if (zoomDaveOnWin <= 1D) {
                 dir = 1;
             }
             zoomDaveOnWin += 0.5D * dir;
             try {
-                Thread.sleep(100);
+                Thread.sleep(50);
 
             } catch (Exception e) {
 
@@ -589,10 +590,10 @@ public class MyViewController implements IView, Observer {
     }
 
     public void MouseDrag(MouseEvent event) {
-        if (levelHard.isSelected()) {
+        if (levelHard.isSelected() || gameDisplayer.getZoomFactor() != 1.0D) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("ERROR");
-            alert.setContentText("You can't move the mouse in hard level!");
+            alert.setContentText("You can't move the mouse in hard level or when in Zoom!");
             alert.show();
             levelEasy.setSelected(true);
         }
@@ -628,40 +629,57 @@ public class MyViewController implements IView, Observer {
 
 
     public void openProp(ActionEvent actionEvent) {
-        Properties properties = new Properties();
-        try {
-            InputStream propFile = new FileInputStream("resources/config.properties");
-            properties.load(propFile);
+        try
+        {
+            FXMLLoader propLoader = new FXMLLoader();
+            Parent root = (Parent)propLoader.load(this.getClass().getResource("propFile.fxml").openStream());
+            Stage propStage = new Stage();
+            PropFile propController = propLoader.getController();
+            Scene propScene = new Scene(root);
+            propController.initProp(propStage);
 
-            FileReader propReader = new FileReader("resources/config.properties");
-            BufferedReader bufferedReader = new BufferedReader(propReader);
-
-            StringBuilder textProp = new StringBuilder();
-            String line = bufferedReader.readLine();
-            while (line != null) {
-                if (!line.contains("#")) {
-                    String[] myLine = line.split("=");
-                    textProp.append(myLine[0]);
-                    textProp.append(" = ");
-                    textProp.append(myLine[1]);
-                    textProp.append("\n");
-
-                }
-                line = bufferedReader.readLine();
-            }
-            textProp.append("\n\n");
-            bufferedReader.close();
-            propReader.close();
-            Alert propAlert = new Alert(Alert.AlertType.INFORMATION);
-            propAlert.setContentText(textProp.toString());
-            propAlert.setTitle("Properties Of The Game");
-            propAlert.setHeaderText("PROPERTIES");
-
-            propAlert.showAndWait();
-
-        } catch (Exception e) {
+            propStage.setScene(propScene);
+            propStage.showAndWait();
 
         }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+//        Properties properties = new Properties();
+//        try {
+//            InputStream propFile = new FileInputStream("resources/config.properties");
+//            properties.load(propFile);
+//
+//            FileReader propReader = new FileReader("resources/config.properties");
+//            BufferedReader bufferedReader = new BufferedReader(propReader);
+//
+//            StringBuilder textProp = new StringBuilder();
+//            String line = bufferedReader.readLine();
+//            while (line != null) {
+//                if (!line.contains("#")) {
+//                    String[] myLine = line.split("=");
+//                    textProp.append(myLine[0]);
+//                    textProp.append(" = ");
+//                    textProp.append(myLine[1]);
+//                    textProp.append("\n");
+//
+//                }
+//                line = bufferedReader.readLine();
+//            }
+//            textProp.append("\n\n");
+//            bufferedReader.close();
+//            propReader.close();
+//            Alert propAlert = new Alert(Alert.AlertType.INFORMATION);
+//            propAlert.setContentText(textProp.toString());
+//            propAlert.setTitle("Properties Of The Game");
+//            propAlert.setHeaderText("PROPERTIES");
+//
+//            propAlert.showAndWait();
+//
+//        } catch (Exception e) {
+//
+//        }
     }
 }
 
