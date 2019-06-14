@@ -412,18 +412,44 @@ public class MyViewController implements IView, Observer {
 
     private void characterZoomInAndOut() {
         double zoomDaveOnWin = gameDisplayer.getZoomFactor();
-        int dir = 1;
+        int dir = 1, zoomChange = 50;
+        double zoomSize=0.5D,zoomMaxSize=10D;
+
+        if(gameDisplayer.getMazeDisplayer().getMaze().getWidth() <= 10)
+        {
+            zoomChange = 50;
+            zoomSize = 0.5D;
+            zoomMaxSize = 10D;
+        }
+        else if(gameDisplayer.getMazeDisplayer().getMaze().getWidth() <= 25)
+        {
+            zoomChange = 30;
+            zoomSize = 0.65D;
+            zoomMaxSize = 25D;
+        }
+        else if(gameDisplayer.getMazeDisplayer().getMaze().getWidth() <= 50)
+        {
+            zoomChange = 15;
+            zoomSize = 0.75D;
+            zoomMaxSize = 50D;
+        }
+        else
+        {
+            zoomChange = 10;
+            zoomSize = 0.99D;
+            zoomMaxSize = 100D;
+        }
 
         while (finishedAlready) {
             gameDisplayer.getDaveDisplayer().drawDave(gameDisplayer.getMazeDisplayer().getMaze(), zoomDaveOnWin);
-            if (zoomDaveOnWin >= 10D * gameDisplayer.getZoomFactor()) {
+            if (zoomDaveOnWin >= zoomMaxSize ) {
                 dir = -1;
             } else if (zoomDaveOnWin <= 1D) {
                 dir = 1;
             }
-            zoomDaveOnWin += 0.5D * dir;
+            zoomDaveOnWin += zoomSize * dir;
             try {
-                Thread.sleep(50);
+                Thread.sleep(zoomChange);
 
             } catch (Exception e) {
 
