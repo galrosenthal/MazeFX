@@ -196,6 +196,7 @@ public class MyViewController implements IView, Observer {
         solDisplayer.clearSolution();
         gameDisplayer.setZoomFactor(1.0D);
         finishedAlready = false;
+        setDisableSolveButtons(true);
         primStage.setScene(strtScene);
     }
 
@@ -505,8 +506,10 @@ public class MyViewController implements IView, Observer {
         File file = fileChooser.showOpenDialog(loadWindow);
 
 
-        if (file != null)
+        if (file != null) {
             myViewModel.loadMazeFromDisk(file.toString());
+            setDisableSolveButtons(false);
+        }
 
 
     }
@@ -646,40 +649,7 @@ public class MyViewController implements IView, Observer {
         {
             e.printStackTrace();
         }
-//        Properties properties = new Properties();
-//        try {
-//            InputStream propFile = new FileInputStream("resources/config.properties");
-//            properties.load(propFile);
-//
-//            FileReader propReader = new FileReader("resources/config.properties");
-//            BufferedReader bufferedReader = new BufferedReader(propReader);
-//
-//            StringBuilder textProp = new StringBuilder();
-//            String line = bufferedReader.readLine();
-//            while (line != null) {
-//                if (!line.contains("#")) {
-//                    String[] myLine = line.split("=");
-//                    textProp.append(myLine[0]);
-//                    textProp.append(" = ");
-//                    textProp.append(myLine[1]);
-//                    textProp.append("\n");
-//
-//                }
-//                line = bufferedReader.readLine();
-//            }
-//            textProp.append("\n\n");
-//            bufferedReader.close();
-//            propReader.close();
-//            Alert propAlert = new Alert(Alert.AlertType.INFORMATION);
-//            propAlert.setContentText(textProp.toString());
-//            propAlert.setTitle("Properties Of The Game");
-//            propAlert.setHeaderText("PROPERTIES");
-//
-//            propAlert.showAndWait();
-//
-//        } catch (Exception e) {
-//
-//        }
+
     }
 }
 

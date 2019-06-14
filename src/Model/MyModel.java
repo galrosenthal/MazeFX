@@ -444,6 +444,7 @@ public class MyModel extends Observable implements IModel {
                 maze = (Maze)loadedMaze;
                 characterRowCurrentPosition = maze.getStartPosition().getRowIndex();
                 characterColumnCurrentPosition = maze.getStartPosition().getColumnIndex();
+                callClientSolveMaze();
 
             }
             setChanged();
