@@ -47,5 +47,10 @@ public interface IModel {
 
     String getConfigFile();
 
+    void modelSaveSoleToDisk(String file);
+
+    void loadSol(String pathToFileLoaded);
+
+
 //    void generateMaze(int height, int width);
 }

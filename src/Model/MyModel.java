@@ -351,7 +351,7 @@ public class MyModel extends Observable implements IModel {
     }
 
     public void solveGame() {
-        callClientSolveMaze();
+//        callClientSolveMaze();
         setChanged();
         notifyObservers();
     }
@@ -412,11 +412,31 @@ public class MyModel extends Observable implements IModel {
 
     }
 
+
+
+    public void modelSaveSoleToDisk(String fileName){
+        ObjectOutputStream out = null;
+        try {
+            if(fileName.toLowerCase().contains(".maze"))
+                fileName = fileName.replace(".maze",".sol");
+
+            out = new ObjectOutputStream(new FileOutputStream(fileName));
+            if(solution != null)
+            {
+                out.writeObject(solution);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void modelSaveMazeToDisk(String fileName){
         ObjectOutputStream out = null;
         try {
             if(!fileName.toLowerCase().contains(".maze"))
                 fileName = fileName + ".maze";
+
             out = new ObjectOutputStream(new FileOutputStream(fileName));
             if(maze != null)
             {
@@ -444,11 +464,39 @@ public class MyModel extends Observable implements IModel {
                 maze = (Maze)loadedMaze;
                 characterRowCurrentPosition = maze.getStartPosition().getRowIndex();
                 characterColumnCurrentPosition = maze.getStartPosition().getColumnIndex();
-                callClientSolveMaze();
-
             }
             setChanged();
             notifyObservers();
+            finishedGame = false;
+
+        } catch (IOException ioExcp) {
+            ioExcp.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadSol(String pathToFile)
+    {
+        ObjectInputStream inputStream;
+        try {
+            inputStream = new ObjectInputStream(new FileInputStream(pathToFile.replace(".maze",".sol")));
+            Object loadedMaze = inputStream.readObject();
+
+            if(loadedMaze == null)
+                solution = null;
+            else if(loadedMaze instanceof Solution)
+            {
+                solution = (Solution)loadedMaze;
+                getrandomPos(true);
+//                callClientSolveMaze();
+//                characterRowCurrentPosition = maze.getStartPosition().getRowIndex();
+//                characterColumnCurrentPosition = maze.getStartPosition().getColumnIndex();
+            }
+//            setChanged();
+//            notifyObservers();
+//            finishedGame = false;
+
         } catch (IOException ioExcp) {
             ioExcp.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -469,13 +517,18 @@ public class MyModel extends Observable implements IModel {
     }
 
     public Position getrandomPos() {
-        callClientSolveMaze();
+        return getrandomPos(false);
+    }
+
+    public Position getrandomPos(boolean isLoaded) {
+        if(!isLoaded) {
+            callClientSolveMaze();
+        }
         int index = solution.getSolutionPath().size()/2;
         Object o = solution.getSolutionPath().get(index);
         MazeState myMazeState = (MazeState) o ;
         return myMazeState.getPosition();
     }
-
 
 
 //    public Position getrandomPos() {
@@ -507,4 +560,8 @@ public class MyModel extends Observable implements IModel {
         string = string + "number of Threads in Server ThreadPool: " + Configurations.getInstance().getProperty("ThreadPoolNum")+ "\n";
         return string;
     }
+
+
+
+
 }

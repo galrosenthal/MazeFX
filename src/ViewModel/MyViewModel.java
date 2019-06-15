@@ -46,7 +46,9 @@ public class MyViewModel extends Observable implements Observer {
 
     public void viewModelSaveMazeToTheDisc(String file) throws FileNotFoundException {
         model.modelSaveMazeToDisk(file);
+        model.modelSaveSoleToDisk(file);
     }
+
 
 
     public void moveCharacter(KeyEvent keyEvent,int level) {
@@ -96,6 +98,7 @@ public class MyViewModel extends Observable implements Observer {
 
     public void loadMazeFromDisk(String pathToFileLoaded) {
         model.loadMaze(pathToFileLoaded);
+        model.loadSol(pathToFileLoaded);
     }
 
     public void moveChar(String s) {
@@ -109,7 +112,6 @@ public class MyViewModel extends Observable implements Observer {
     public String getConfigFile() {
         return model.getConfigFile();
     }
-
 
 }
 

@@ -213,6 +213,7 @@ public class MyViewController implements IView, Observer {
 
 
     public void solveMaze() {
+        myViewModel.solveGame();
         gameDisplayer.solDisplayer.setVisibleMaze(true);
         solDisplayer.setSol(myViewModel.getSolution());
         solDisplayer.drawSolution(myViewModel.getMaze(), gameDisplayer.getZoomFactor(), daveDisplayer.getCharacterPositionColumn(), daveDisplayer.getCharacterPositionRow());
@@ -534,10 +535,16 @@ public class MyViewController implements IView, Observer {
 
         if (file != null) {
             myViewModel.loadMazeFromDisk(file.toString());
+            solDisplayer.setSol(myViewModel.getSolution());
+            setPositonGoblet(mazeDisplayer.getRandomPost(myViewModel.getrandomPos()));
+
+            mazeDisplayer.golToken = false;
             setDisableSolveButtons(false);
+            solDisplayer.clearSolution();
+            gameDisplayer.solDisplayer.setVisibleMaze(false);
+            mazeDisplayer.redraw(1.00D,row,col);
+            daveDisplayer.drawDave(myViewModel.getMaze(),1.00D);
         }
-
-
     }
 
     private void finishToSave(String name) throws FileNotFoundException {
@@ -555,7 +562,7 @@ public class MyViewController implements IView, Observer {
             if (testMaze != null) {
                 mazeDisplayer.setMaze(myViewModel.getMaze());
                 gameDisplayer.setCharacterPosition(myViewModel.getPosition());
-
+                solDisplayer.setSol(myViewModel.getSolution());
                 this.cellWidth = this.mazeDisplayer.getWidth() / (double) this.mazeDisplayer.mw;
                 this.cellHeight = this.mazeDisplayer.getHeight() / (double) this.mazeDisplayer.mh;
                 this.characterMinX = (double) myViewModel.getPosition().getColumnIndex() * this.cellWidth;
