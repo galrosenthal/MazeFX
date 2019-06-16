@@ -536,7 +536,7 @@ public class MyViewController implements IView, Observer {
         if (file != null) {
             myViewModel.loadMazeFromDisk(file.toString());
             solDisplayer.setSol(myViewModel.getSolution());
-            setPositonGoblet(mazeDisplayer.getRandomPost(myViewModel.getrandomPos()));
+            setPositonGoblet(mazeDisplayer.getRandomPost(myViewModel.getGobletPos()));
 
             mazeDisplayer.golToken = false;
             setDisableSolveButtons(false);

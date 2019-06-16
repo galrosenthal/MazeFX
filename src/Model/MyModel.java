@@ -31,6 +31,16 @@ public class MyModel extends Observable implements IModel {
     public int level;
     private boolean isLegal = false;
 
+    public Position getGobletPos() {
+        return gobletPos;
+    }
+
+    public void setGobletPos(Position gobletPos) {
+        this.gobletPos = gobletPos;
+    }
+
+    public Position gobletPos;
+
     public Solution getSolution() {
         if (solution != null)
             return solution;
@@ -527,6 +537,7 @@ public class MyModel extends Observable implements IModel {
         int index = solution.getSolutionPath().size()/2;
         Object o = solution.getSolutionPath().get(index);
         MazeState myMazeState = (MazeState) o ;
+        gobletPos = myMazeState.getPosition();
         return myMazeState.getPosition();
     }
 

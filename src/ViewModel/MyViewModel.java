@@ -113,6 +113,9 @@ public class MyViewModel extends Observable implements Observer {
         return model.getConfigFile();
     }
 
+    public Position getGobletPos(){
+        return model.getGobletPos();
+    }
 }
 
 

@@ -1,729 +1,1058 @@
-2019.06.12 18:23:24.152 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
-2019.06.12 18:23:24.154 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\rosengal\AppData\Local\Temp
-2019.06.12 18:23:24.740 INFO  Server.Server - Server Has Started
-2019.06.12 18:23:24.742 INFO  Server.Server - Server Has Started
-2019.06.12 18:23:25.743 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:23:25.745 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:23:26.744 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:23:26.746 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:23:27.744 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:23:27.746 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:23:28.808 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:23:28.808 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:23:29.083 INFO  Server.Server - Client accepted: Socket[addr=/132.72.66.65,port=1751,localport=5400]
-2019.06.12 18:23:29.084 INFO  Server.Server - Handling client with socket: Socket[addr=/132.72.66.65,port=1751,localport=5400]
-2019.06.12 18:23:29.084 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
-2019.06.12 18:23:29.086 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
-2019.06.12 18:23:29.086 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
-2019.06.12 18:23:29.088 INFO  Server.Server - Server: Closed client socket: Socket[addr=/132.72.66.65,port=1751,localport=5400]
-2019.06.12 18:23:29.089 INFO  Server.Server - Finished handle client: Socket[addr=/132.72.66.65,port=1751,localport=5400]
-2019.06.12 18:23:29.118 INFO  Server.Server - Client accepted: Socket[addr=/132.72.66.65,port=1752,localport=5401]
-2019.06.12 18:23:29.118 INFO  Server.Server - Handling client with socket: Socket[addr=/132.72.66.65,port=1752,localport=5401]
-2019.06.12 18:23:29.122 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
-2019.06.12 18:23:29.123 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
-2019.06.12 18:23:29.139 INFO  Server.Server - Server: Closed client socket: Socket[addr=/132.72.66.65,port=1752,localport=5401]
-2019.06.12 18:23:29.139 INFO  Server.Server - Finished handle client: Socket[addr=/132.72.66.65,port=1752,localport=5401]
-2019.06.12 18:23:30.084 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:23:30.119 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:23:31.084 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:23:31.119 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:23:31.673 INFO  Server.Server - Stopping server..
-2019.06.12 18:23:31.673 INFO  Server.Server - Stopping server..
-2019.06.12 18:23:32.084 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:23:32.119 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:05.512 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
-2019.06.12 18:34:05.523 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\rosengal\AppData\Local\Temp
-2019.06.12 18:34:05.978 INFO  Server.Server - Server Has Started
-2019.06.12 18:34:05.981 INFO  Server.Server - Server Has Started
-2019.06.12 18:34:06.986 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:06.987 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:07.986 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:07.987 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:08.987 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:08.988 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:09.987 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:09.988 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:10.987 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:10.988 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:11.987 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:11.988 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:12.988 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:12.990 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:23.640 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
-2019.06.12 18:34:23.644 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\rosengal\AppData\Local\Temp
-2019.06.12 18:34:24.132 INFO  Server.Server - Server Has Started
-2019.06.12 18:34:24.135 INFO  Server.Server - Server Has Started
-2019.06.12 18:34:25.137 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:25.148 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:26.138 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:26.153 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:27.138 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:27.153 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:28.138 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:28.153 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:29.139 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:29.154 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:30.139 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:30.154 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:31.139 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:31.154 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:32.140 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:32.154 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:32.533 INFO  Server.Server - Stopping server..
-2019.06.12 18:34:32.533 INFO  Server.Server - Stopping server..
-2019.06.12 18:34:33.140 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:33.155 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:39.277 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
-2019.06.12 18:34:39.280 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\rosengal\AppData\Local\Temp
-2019.06.12 18:34:39.710 INFO  Server.Server - Server Has Started
-2019.06.12 18:34:39.712 INFO  Server.Server - Server Has Started
-2019.06.12 18:34:40.718 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:40.720 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:41.719 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:41.720 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:42.719 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:42.720 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:43.719 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:43.720 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:44.720 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:44.721 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:45.720 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:45.721 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:46.720 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:46.721 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:47.721 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:47.722 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:48.721 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:48.722 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:49.721 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:49.722 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:50.722 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:50.723 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:51.722 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:51.723 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:52.722 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:52.723 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:53.723 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:53.724 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:54.723 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:54.724 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:55.724 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:55.724 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:56.725 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:56.725 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:57.725 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:57.725 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:58.726 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:58.726 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:59.727 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:34:59.727 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:00.727 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:00.727 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:01.727 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:01.727 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:02.728 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:02.728 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:03.728 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:03.728 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:04.728 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:04.728 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:05.729 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:05.729 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:06.729 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:06.729 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:07.729 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:07.729 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:07.879 INFO  Server.Server - Stopping server..
-2019.06.12 18:35:07.880 INFO  Server.Server - Stopping server..
-2019.06.12 18:35:08.730 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:35:08.730 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:09.149 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
-2019.06.12 18:36:09.152 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\rosengal\AppData\Local\Temp
-2019.06.12 18:36:09.623 INFO  Server.Server - Server Has Started
-2019.06.12 18:36:09.626 INFO  Server.Server - Server Has Started
-2019.06.12 18:36:10.630 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:10.631 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:11.631 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:11.637 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:12.631 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:12.637 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:13.631 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:13.637 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:14.632 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:14.637 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:15.632 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:15.638 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:16.632 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:16.638 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:17.632 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:17.638 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:18.633 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:18.639 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:19.633 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:19.639 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:19.761 INFO  Server.Server - Client accepted: Socket[addr=/132.72.66.65,port=1805,localport=5400]
-2019.06.12 18:36:19.763 INFO  Server.Server - Handling client with socket: Socket[addr=/132.72.66.65,port=1805,localport=5400]
-2019.06.12 18:36:19.763 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
-2019.06.12 18:36:19.766 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
-2019.06.12 18:36:19.766 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [25][25]
-2019.06.12 18:36:19.771 INFO  Server.Server - Server: Closed client socket: Socket[addr=/132.72.66.65,port=1805,localport=5400]
-2019.06.12 18:36:19.771 INFO  Server.Server - Finished handle client: Socket[addr=/132.72.66.65,port=1805,localport=5400]
-2019.06.12 18:36:19.806 INFO  Server.Server - Client accepted: Socket[addr=/132.72.66.65,port=1806,localport=5401]
-2019.06.12 18:36:19.806 INFO  Server.Server - Handling client with socket: Socket[addr=/132.72.66.65,port=1806,localport=5401]
-2019.06.12 18:36:19.810 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [25][25]
-2019.06.12 18:36:19.811 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
-2019.06.12 18:36:19.842 INFO  Server.Server - Server: Closed client socket: Socket[addr=/132.72.66.65,port=1806,localport=5401]
-2019.06.12 18:36:19.842 INFO  Server.Server - Finished handle client: Socket[addr=/132.72.66.65,port=1806,localport=5401]
-2019.06.12 18:36:20.762 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:20.806 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:21.762 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:21.806 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:22.763 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:22.807 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:23.763 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:23.807 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:24.763 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:24.807 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:25.764 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:25.808 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:26.764 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:26.808 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:27.764 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:27.808 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:28.765 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:28.809 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:29.765 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:29.809 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:30.765 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:30.809 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:31.766 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:31.810 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:32.766 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:32.810 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:33.767 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:33.811 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:34.767 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:34.811 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:35.767 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:35.811 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:36.769 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:36.812 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:37.769 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:37.812 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:38.769 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:38.812 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:39.770 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:39.812 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:40.771 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:40.812 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:41.772 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:41.813 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:42.772 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:42.813 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:43.772 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:43.813 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:44.772 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:44.813 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:45.773 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:45.814 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:46.773 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:46.814 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:47.773 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:47.814 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:48.774 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:48.815 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:49.774 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:49.815 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:50.774 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:50.815 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:51.775 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:51.816 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:52.775 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:52.816 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:53.775 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:53.816 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:54.776 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:54.817 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:55.777 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:55.817 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:56.777 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:56.818 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:57.777 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:57.818 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:58.778 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:58.819 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:59.778 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:36:59.819 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:00.779 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:00.820 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:01.779 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:01.820 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:02.779 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:02.820 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:03.780 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:03.820 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:04.780 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:04.821 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:05.780 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:05.821 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:06.781 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:06.821 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:07.781 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:07.822 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:08.781 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:08.822 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:09.782 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:09.822 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:10.782 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:10.823 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:11.782 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:11.823 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:12.783 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:12.830 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:13.784 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:13.831 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:14.784 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:14.831 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:15.784 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:15.831 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:16.785 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:16.832 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:17.785 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:17.832 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:18.785 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:18.832 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:19.786 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:19.833 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:20.786 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:20.833 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:21.786 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:21.833 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:22.788 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:22.834 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:23.788 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:23.834 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:24.788 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:24.834 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:25.789 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:25.835 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:26.789 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:26.835 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:27.789 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:27.835 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:28.790 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:28.836 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:29.790 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:29.836 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:30.790 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:30.836 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:31.791 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:31.837 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:32.791 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:32.837 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:33.791 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:33.837 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:34.792 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:34.837 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:35.792 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:35.838 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:36.792 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:36.838 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:37.793 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:37.838 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:38.793 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:38.839 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:39.793 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:39.839 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:40.794 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:40.840 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:41.794 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:41.840 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:42.795 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:42.841 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:43.795 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:43.841 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:44.795 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:44.841 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:45.796 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:45.842 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:46.796 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:46.842 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:47.796 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:47.842 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:48.797 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:48.843 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:37:49.798 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:02.266 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
-2019.06.12 18:38:02.270 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\rosengal\AppData\Local\Temp
-2019.06.12 18:38:02.775 INFO  Server.Server - Server Has Started
-2019.06.12 18:38:02.777 INFO  Server.Server - Server Has Started
-2019.06.12 18:38:03.780 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:03.787 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:04.780 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:04.791 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:05.781 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:05.792 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:06.781 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:06.792 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:07.781 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:07.792 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:08.782 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:08.793 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:09.782 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:09.793 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:10.782 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:10.793 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:11.783 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:11.794 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:12.783 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:12.794 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:12.920 INFO  Server.Server - Client accepted: Socket[addr=/132.72.66.65,port=1822,localport=5400]
-2019.06.12 18:38:12.921 INFO  Server.Server - Handling client with socket: Socket[addr=/132.72.66.65,port=1822,localport=5400]
-2019.06.12 18:38:12.921 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
-2019.06.12 18:38:12.924 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
-2019.06.12 18:38:12.924 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [100][100]
-2019.06.12 18:38:12.933 INFO  Server.Server - Server: Closed client socket: Socket[addr=/132.72.66.65,port=1822,localport=5400]
-2019.06.12 18:38:12.933 INFO  Server.Server - Finished handle client: Socket[addr=/132.72.66.65,port=1822,localport=5400]
-2019.06.12 18:38:12.972 INFO  Server.Server - Client accepted: Socket[addr=/132.72.66.65,port=1823,localport=5401]
-2019.06.12 18:38:12.973 INFO  Server.Server - Handling client with socket: Socket[addr=/132.72.66.65,port=1823,localport=5401]
-2019.06.12 18:38:12.982 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [100][100]
-2019.06.12 18:38:12.984 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
-2019.06.12 18:38:13.073 INFO  Server.Server - Server: Closed client socket: Socket[addr=/132.72.66.65,port=1823,localport=5401]
-2019.06.12 18:38:13.073 INFO  Server.Server - Finished handle client: Socket[addr=/132.72.66.65,port=1823,localport=5401]
-2019.06.12 18:38:13.921 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:13.974 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:14.921 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:14.974 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:15.922 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:15.974 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:16.922 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:16.975 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:17.922 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:17.975 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:18.923 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:18.975 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:19.923 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:19.976 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:20.923 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:20.976 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:21.923 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:21.976 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:22.924 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:22.977 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:23.924 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:23.977 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:24.924 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:24.977 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:25.925 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:25.979 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:26.926 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:26.979 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:27.926 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:27.980 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:28.927 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:28.981 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:29.928 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:29.982 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:30.928 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:30.982 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:31.928 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:31.982 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:32.929 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:32.983 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:33.930 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:33.984 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:34.930 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:34.984 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:35.930 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:35.984 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:36.589 INFO  Server.Server - Stopping server..
-2019.06.12 18:38:36.589 INFO  Server.Server - Stopping server..
-2019.06.12 18:38:36.931 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:38:36.985 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:04.445 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
-2019.06.12 18:40:04.447 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\rosengal\AppData\Local\Temp
-2019.06.12 18:40:04.804 INFO  Server.Server - Server Has Started
-2019.06.12 18:40:04.807 INFO  Server.Server - Server Has Started
-2019.06.12 18:40:05.809 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:05.812 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:06.809 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:06.812 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:07.809 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:07.812 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:08.810 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:08.813 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:09.810 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:09.813 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:10.810 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:10.813 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:11.811 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:11.814 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:12.811 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:12.814 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:13.811 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:13.814 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:14.812 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:14.815 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:15.398 INFO  Server.Server - Stopping server..
-2019.06.12 18:40:15.399 INFO  Server.Server - Stopping server..
-2019.06.12 18:40:15.812 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:15.815 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:19.882 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
-2019.06.12 18:40:19.884 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\rosengal\AppData\Local\Temp
-2019.06.12 18:40:20.226 INFO  Server.Server - Server Has Started
-2019.06.12 18:40:20.228 INFO  Server.Server - Server Has Started
-2019.06.12 18:40:21.231 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:21.235 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:22.232 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:22.236 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:23.232 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:23.236 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:24.232 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:24.236 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:25.233 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:25.237 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:25.381 INFO  Server.Server - Stopping server..
-2019.06.12 18:40:25.381 INFO  Server.Server - Stopping server..
-2019.06.12 18:40:26.233 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:26.237 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:57.483 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
-2019.06.12 18:40:57.485 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\rosengal\AppData\Local\Temp
-2019.06.12 18:40:57.910 INFO  Server.Server - Server Has Started
-2019.06.12 18:40:57.912 INFO  Server.Server - Server Has Started
-2019.06.12 18:40:58.914 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:58.918 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:59.918 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:40:59.914 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:00.918 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:00.918 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:01.918 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:01.918 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:02.919 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:02.919 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:03.919 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:03.919 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:04.919 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:04.919 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:05.920 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:05.920 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:06.921 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:06.921 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:07.921 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:07.921 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:08.922 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:08.922 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:09.922 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:09.922 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:10.922 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:10.922 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:11.923 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:11.923 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:12.923 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:12.923 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:13.923 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:13.923 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:14.924 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:14.924 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:15.924 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:15.924 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:16.924 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:16.924 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:17.925 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:17.925 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:18.925 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:18.925 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:19.326 INFO  Server.Server - Client accepted: Socket[addr=/132.72.66.65,port=16685,localport=5400]
-2019.06.12 18:41:19.327 INFO  Server.Server - Handling client with socket: Socket[addr=/132.72.66.65,port=16685,localport=5400]
-2019.06.12 18:41:19.327 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
-2019.06.12 18:41:19.329 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
-2019.06.12 18:41:19.330 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [25][25]
-2019.06.12 18:41:19.332 INFO  Server.Server - Server: Closed client socket: Socket[addr=/132.72.66.65,port=16685,localport=5400]
-2019.06.12 18:41:19.333 INFO  Server.Server - Finished handle client: Socket[addr=/132.72.66.65,port=16685,localport=5400]
-2019.06.12 18:41:19.362 INFO  Server.Server - Client accepted: Socket[addr=/132.72.66.65,port=16686,localport=5401]
-2019.06.12 18:41:19.362 INFO  Server.Server - Handling client with socket: Socket[addr=/132.72.66.65,port=16686,localport=5401]
-2019.06.12 18:41:19.366 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [25][25]
-2019.06.12 18:41:19.367 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
-2019.06.12 18:41:19.398 INFO  Server.Server - Server: Closed client socket: Socket[addr=/132.72.66.65,port=16686,localport=5401]
-2019.06.12 18:41:19.398 INFO  Server.Server - Finished handle client: Socket[addr=/132.72.66.65,port=16686,localport=5401]
-2019.06.12 18:41:20.328 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:20.363 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:21.328 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:21.363 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:22.328 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:22.363 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:23.329 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:23.363 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:24.329 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:24.364 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:25.329 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:25.364 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:26.330 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:26.364 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:27.330 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:27.365 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:28.330 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:28.365 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:29.330 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:29.365 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:30.331 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:30.366 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:31.331 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:31.366 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:32.332 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:32.367 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:33.332 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:33.367 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:34.332 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:34.367 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:34.965 INFO  Server.Server - Stopping server..
-2019.06.12 18:41:34.965 INFO  Server.Server - Stopping server..
-2019.06.12 18:41:35.333 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:41:35.368 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:08.011 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
-2019.06.12 18:43:08.013 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\rosengal\AppData\Local\Temp
-2019.06.12 18:43:08.345 INFO  Server.Server - Server Has Started
-2019.06.12 18:43:08.347 INFO  Server.Server - Server Has Started
-2019.06.12 18:43:09.348 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:09.349 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:10.348 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:10.349 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:11.349 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:11.350 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:12.349 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:12.350 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:13.349 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:13.350 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:14.350 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:14.351 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:15.350 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:15.351 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:16.350 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:16.351 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:17.350 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:17.351 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:18.351 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:18.352 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:19.351 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:19.352 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:20.351 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:20.352 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:21.352 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:21.353 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:22.352 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:22.353 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:23.352 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:23.353 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:23.795 INFO  Server.Server - Stopping server..
-2019.06.12 18:43:23.796 INFO  Server.Server - Stopping server..
-2019.06.12 18:43:24.353 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:24.354 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:38.933 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
-2019.06.12 18:43:38.935 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\rosengal\AppData\Local\Temp
-2019.06.12 18:43:39.267 INFO  Server.Server - Server Has Started
-2019.06.12 18:43:39.269 INFO  Server.Server - Server Has Started
-2019.06.12 18:43:40.270 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:40.271 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:41.270 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:41.271 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:42.271 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:42.272 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:43.271 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:43.272 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:44.271 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:44.272 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:45.272 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:45.273 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:46.272 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:46.273 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:47.272 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:47.273 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:48.164 INFO  Server.Server - Stopping server..
-2019.06.12 18:43:48.164 INFO  Server.Server - Stopping server..
-2019.06.12 18:43:48.273 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:43:48.274 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:36.144 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
-2019.06.12 18:44:36.146 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\rosengal\AppData\Local\Temp
-2019.06.12 18:44:36.499 INFO  Server.Server - Server Has Started
-2019.06.12 18:44:36.501 INFO  Server.Server - Server Has Started
-2019.06.12 18:44:37.503 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:37.504 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:38.503 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:38.504 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:39.504 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:39.505 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:40.504 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:40.505 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:41.504 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:41.505 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:42.505 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:42.506 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:43.505 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:43.506 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:44.505 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:44.506 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:45.506 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:45.506 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:46.506 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:46.507 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:46.572 INFO  Server.Server - Stopping server..
-2019.06.12 18:44:46.572 INFO  Server.Server - Stopping server..
-2019.06.12 18:44:47.506 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:44:47.507 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:03.915 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
-2019.06.12 18:45:03.918 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\rosengal\AppData\Local\Temp
-2019.06.12 18:45:04.253 INFO  Server.Server - Server Has Started
-2019.06.12 18:45:04.256 INFO  Server.Server - Server Has Started
-2019.06.12 18:45:05.260 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:05.263 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:06.260 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:06.263 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:07.260 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:07.263 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:08.261 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:08.264 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:09.261 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:09.264 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:10.261 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:10.264 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:10.604 INFO  Server.Server - Stopping server..
-2019.06.12 18:45:10.604 INFO  Server.Server - Stopping server..
-2019.06.12 18:45:11.262 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:11.265 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:54.905 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
-2019.06.12 18:45:54.907 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\rosengal\AppData\Local\Temp
-2019.06.12 18:45:55.213 INFO  Server.Server - Server Has Started
-2019.06.12 18:45:55.215 INFO  Server.Server - Server Has Started
-2019.06.12 18:45:56.216 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:56.217 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:57.217 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:57.218 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:58.217 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:58.218 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:59.217 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:45:59.218 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:00.218 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:00.219 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:01.218 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:01.219 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:02.218 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:02.219 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:03.219 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:03.220 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:04.219 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:04.220 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:05.219 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:05.220 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:06.220 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:06.221 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:07.221 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:07.222 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:08.221 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:08.222 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:09.221 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:09.222 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:10.222 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:10.223 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:10.716 INFO  Server.Server - Stopping server..
-2019.06.12 18:46:10.716 INFO  Server.Server - Stopping server..
-2019.06.12 18:46:11.222 DEBUG Server.Server - Socket Timeout - No clients pending!
-2019.06.12 18:46:11.223 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:30.647 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:30.606 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:31.693 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:31.693 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:32.693 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:32.693 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:33.696 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:33.696 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:34.697 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:34.697 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:35.700 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:35.700 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:36.479 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55017,localport=5401]
+2019.06.16 02:12:36.481 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55017,localport=5401]
+2019.06.16 02:12:36.482 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 02:12:36.483 ERROR Server.ServerStrategySolveSearchProblem - FileNotFound C:\Users\user\AppData\Local\Temp\346 (The system cannot find the file specified)
+2019.06.16 02:12:36.483 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55017,localport=5401]
+2019.06.16 02:12:36.484 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55017,localport=5401]
+2019.06.16 02:12:36.700 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:37.481 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:37.701 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:38.482 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:38.703 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:39.484 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:39.704 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:40.484 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:40.706 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:41.485 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:41.708 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:42.487 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:42.709 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:43.487 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:43.711 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:44.487 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:44.712 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:45.488 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:45.714 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:46.490 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:46.716 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:47.491 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:47.717 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:48.493 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:48.719 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:49.494 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:49.720 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:50.496 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:50.610 INFO  Server.Server - Stopping server..
+2019.06.16 02:12:50.610 INFO  Server.Server - Stopping server..
+2019.06.16 02:12:50.722 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:12:51.498 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:04.835 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
+2019.06.16 02:14:04.837 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\user\AppData\Local\Temp
+2019.06.16 02:14:04.948 INFO  Server.Server - Server Has Started
+2019.06.16 02:14:04.951 INFO  Server.Server - Server Has Started
+2019.06.16 02:14:05.951 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:05.952 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:06.952 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:06.953 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:07.952 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:07.953 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:08.952 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:08.953 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:09.320 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55025,localport=5400]
+2019.06.16 02:14:09.322 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55025,localport=5400]
+2019.06.16 02:14:09.322 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 02:14:09.325 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 02:14:09.325 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 02:14:09.328 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55025,localport=5400]
+2019.06.16 02:14:09.329 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55025,localport=5400]
+2019.06.16 02:14:09.369 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55026,localport=5401]
+2019.06.16 02:14:09.369 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55026,localport=5401]
+2019.06.16 02:14:09.374 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 02:14:09.375 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 02:14:09.403 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55026,localport=5401]
+2019.06.16 02:14:09.403 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55026,localport=5401]
+2019.06.16 02:14:10.321 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:10.370 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:11.323 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:11.371 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:12.324 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:12.372 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:13.324 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:13.372 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:14.325 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:14.373 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:15.325 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:15.374 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:16.044 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55028,localport=5401]
+2019.06.16 02:14:16.048 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55028,localport=5401]
+2019.06.16 02:14:16.050 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 02:14:16.050 ERROR Server.ServerStrategySolveSearchProblem - FileNotFound C:\Users\user\AppData\Local\Temp\346 (The system cannot find the file specified)
+2019.06.16 02:14:16.051 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55028,localport=5401]
+2019.06.16 02:14:16.051 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55028,localport=5401]
+2019.06.16 02:14:16.325 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:17.045 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:17.327 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:18.045 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:18.327 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:19.045 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:19.327 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:20.046 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:20.328 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:21.047 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:21.328 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:22.048 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:22.329 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:23.048 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:23.329 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:23.575 INFO  Server.Server - Stopping server..
+2019.06.16 02:14:23.575 INFO  Server.Server - Stopping server..
+2019.06.16 02:14:24.050 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:14:24.332 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:25.043 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
+2019.06.16 02:16:25.045 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\user\AppData\Local\Temp
+2019.06.16 02:16:25.166 INFO  Server.Server - Server Has Started
+2019.06.16 02:16:25.169 INFO  Server.Server - Server Has Started
+2019.06.16 02:16:26.171 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:26.175 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:27.172 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:27.176 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:28.172 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:28.176 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:29.172 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:29.178 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:29.384 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55037,localport=5400]
+2019.06.16 02:16:29.386 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55037,localport=5400]
+2019.06.16 02:16:29.386 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 02:16:29.389 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 02:16:29.389 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 02:16:29.393 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55037,localport=5400]
+2019.06.16 02:16:29.393 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55037,localport=5400]
+2019.06.16 02:16:29.433 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55038,localport=5401]
+2019.06.16 02:16:29.434 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55038,localport=5401]
+2019.06.16 02:16:29.439 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 02:16:29.441 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 02:16:29.470 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55038,localport=5401]
+2019.06.16 02:16:29.470 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55038,localport=5401]
+2019.06.16 02:16:30.385 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:30.434 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:31.386 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:31.435 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:32.388 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:32.437 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:33.390 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:33.439 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:34.392 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:34.441 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:35.393 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:35.442 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:36.393 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:36.444 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:37.395 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:37.445 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:38.397 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:38.446 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:39.397 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:39.447 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:40.398 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:40.448 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:41.398 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:41.449 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:42.308 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55040,localport=5401]
+2019.06.16 02:16:42.309 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55040,localport=5401]
+2019.06.16 02:16:42.311 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 02:16:42.311 ERROR Server.ServerStrategySolveSearchProblem - FileNotFound C:\Users\user\AppData\Local\Temp\346 (The system cannot find the file specified)
+2019.06.16 02:16:42.312 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55040,localport=5401]
+2019.06.16 02:16:42.312 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55040,localport=5401]
+2019.06.16 02:16:42.399 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:43.309 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:43.399 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:44.311 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:44.400 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:45.312 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:45.402 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:46.313 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:46.402 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:47.316 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:47.404 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:48.317 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:48.406 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:49.319 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:49.470 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:50.321 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:50.471 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:51.322 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:51.472 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:52.323 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:52.473 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:53.323 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:53.474 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:54.338 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:54.475 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:55.338 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:55.475 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:56.340 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:56.476 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:57.341 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:57.381 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55042,localport=5400]
+2019.06.16 02:16:57.381 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55042,localport=5400]
+2019.06.16 02:16:57.382 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 02:16:57.382 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 02:16:57.383 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 02:16:57.383 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55042,localport=5400]
+2019.06.16 02:16:57.384 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55042,localport=5400]
+2019.06.16 02:16:57.412 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55043,localport=5401]
+2019.06.16 02:16:57.413 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55043,localport=5401]
+2019.06.16 02:16:57.414 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 02:16:57.414 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 02:16:57.439 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55043,localport=5401]
+2019.06.16 02:16:57.439 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55043,localport=5401]
+2019.06.16 02:16:58.382 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:58.413 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:59.383 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:16:59.414 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:00.385 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:00.416 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:01.385 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:01.417 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:02.386 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:02.418 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:03.333 INFO  Server.Server - Stopping server..
+2019.06.16 02:17:03.334 INFO  Server.Server - Stopping server..
+2019.06.16 02:17:03.387 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:03.418 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:39.009 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
+2019.06.16 02:17:39.013 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\user\AppData\Local\Temp
+2019.06.16 02:17:39.154 INFO  Server.Server - Server Has Started
+2019.06.16 02:17:39.157 INFO  Server.Server - Server Has Started
+2019.06.16 02:17:40.156 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:40.165 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:41.157 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:41.165 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:42.157 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:42.166 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:43.158 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:43.167 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:43.299 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55051,localport=5400]
+2019.06.16 02:17:43.300 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55051,localport=5400]
+2019.06.16 02:17:43.300 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 02:17:43.302 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 02:17:43.303 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 02:17:43.305 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55051,localport=5400]
+2019.06.16 02:17:43.306 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55051,localport=5400]
+2019.06.16 02:17:43.343 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55052,localport=5401]
+2019.06.16 02:17:43.344 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55052,localport=5401]
+2019.06.16 02:17:43.349 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 02:17:43.350 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 02:17:43.381 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55052,localport=5401]
+2019.06.16 02:17:43.381 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55052,localport=5401]
+2019.06.16 02:17:44.300 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:44.344 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:45.301 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:45.344 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:46.303 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:46.345 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:47.305 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:47.347 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:48.307 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:48.349 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:49.308 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:49.350 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:49.827 INFO  Server.Server - Stopping server..
+2019.06.16 02:17:49.827 INFO  Server.Server - Stopping server..
+2019.06.16 02:17:50.309 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 02:17:50.352 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:29.781 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
+2019.06.16 11:00:29.784 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\user\AppData\Local\Temp
+2019.06.16 11:00:32.602 INFO  Server.Server - Server Has Started
+2019.06.16 11:00:32.604 INFO  Server.Server - Server Has Started
+2019.06.16 11:00:33.604 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:33.605 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:34.605 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:34.606 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:35.605 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:35.606 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:36.607 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:36.607 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:37.147 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55156,localport=5400]
+2019.06.16 11:00:37.149 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55156,localport=5400]
+2019.06.16 11:00:37.151 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:00:37.154 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:00:37.154 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:00:37.157 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55156,localport=5400]
+2019.06.16 11:00:37.158 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55156,localport=5400]
+2019.06.16 11:00:37.215 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55157,localport=5401]
+2019.06.16 11:00:37.216 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55157,localport=5401]
+2019.06.16 11:00:37.221 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:00:37.222 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:00:37.253 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55157,localport=5401]
+2019.06.16 11:00:37.254 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55157,localport=5401]
+2019.06.16 11:00:38.149 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:38.216 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:39.150 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:39.217 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:40.152 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:40.218 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:41.160 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:41.218 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:42.160 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:42.219 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:42.893 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55159,localport=5401]
+2019.06.16 11:00:42.894 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55159,localport=5401]
+2019.06.16 11:00:42.895 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:00:42.895 ERROR Server.ServerStrategySolveSearchProblem - FileNotFound C:\Users\user\AppData\Local\Temp\346 (The system cannot find the file specified)
+2019.06.16 11:00:42.896 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55159,localport=5401]
+2019.06.16 11:00:42.896 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55159,localport=5401]
+2019.06.16 11:00:43.160 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:43.893 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:44.161 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:44.894 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:45.162 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:45.896 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:46.163 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:46.897 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:47.163 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:47.228 INFO  Server.Server - Stopping server..
+2019.06.16 11:00:47.228 INFO  Server.Server - Stopping server..
+2019.06.16 11:00:47.898 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:00:48.172 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:13.240 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
+2019.06.16 11:01:13.243 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\user\AppData\Local\Temp
+2019.06.16 11:01:13.359 INFO  Server.Server - Server Has Started
+2019.06.16 11:01:13.363 INFO  Server.Server - Server Has Started
+2019.06.16 11:01:14.363 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:14.366 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:15.363 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:15.367 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:16.365 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:16.368 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:17.365 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:17.368 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:18.366 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:18.370 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:19.059 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55170,localport=5400]
+2019.06.16 11:01:19.061 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55170,localport=5400]
+2019.06.16 11:01:19.062 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:01:19.064 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:01:19.065 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:01:19.069 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55170,localport=5400]
+2019.06.16 11:01:19.069 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55170,localport=5400]
+2019.06.16 11:01:19.115 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55171,localport=5401]
+2019.06.16 11:01:19.115 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55171,localport=5401]
+2019.06.16 11:01:19.122 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:01:19.123 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:01:19.154 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55171,localport=5401]
+2019.06.16 11:01:19.154 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55171,localport=5401]
+2019.06.16 11:01:20.060 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:20.116 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:21.062 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:21.118 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:22.064 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:22.120 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:23.065 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:23.123 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:24.067 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:24.123 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:25.068 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:25.124 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:26.069 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:26.126 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:26.590 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55177,localport=5401]
+2019.06.16 11:01:26.591 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55177,localport=5401]
+2019.06.16 11:01:26.593 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:01:26.593 ERROR Server.ServerStrategySolveSearchProblem - FileNotFound C:\Users\user\AppData\Local\Temp\346 (The system cannot find the file specified)
+2019.06.16 11:01:26.594 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55177,localport=5401]
+2019.06.16 11:01:26.594 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55177,localport=5401]
+2019.06.16 11:01:27.070 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:27.591 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:28.072 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:28.592 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:29.073 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:29.594 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:30.075 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:30.595 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:31.076 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:31.595 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:32.077 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:32.597 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:33.078 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:33.599 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:34.082 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:34.601 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:35.082 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:35.602 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:36.009 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55179,localport=5400]
+2019.06.16 11:01:36.010 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55179,localport=5400]
+2019.06.16 11:01:36.011 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:01:36.011 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:01:36.011 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:01:36.012 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55179,localport=5400]
+2019.06.16 11:01:36.012 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55179,localport=5400]
+2019.06.16 11:01:36.041 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55180,localport=5401]
+2019.06.16 11:01:36.042 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55180,localport=5401]
+2019.06.16 11:01:36.043 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:01:36.044 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:01:36.055 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55180,localport=5401]
+2019.06.16 11:01:36.056 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55180,localport=5401]
+2019.06.16 11:01:37.010 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:37.042 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:38.012 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:38.044 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:39.015 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:39.044 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:40.017 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:40.046 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:41.020 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:41.047 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:42.022 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:42.049 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:43.023 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:43.050 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:44.024 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:44.050 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:45.026 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:45.052 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:46.027 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:46.055 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:47.028 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:47.057 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:48.031 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:48.058 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:49.033 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:49.060 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:50.034 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:50.061 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:51.035 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:51.063 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:52.037 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:52.065 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:53.048 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:53.090 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:54.048 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:54.090 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:55.048 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:55.090 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:56.050 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:56.092 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:57.052 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:57.093 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:58.052 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:58.095 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:59.054 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:01:59.095 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:02:00.056 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:02:00.096 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:02:01.058 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:02:01.096 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:02:02.059 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:02:02.097 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:02:02.382 INFO  Server.Server - Stopping server..
+2019.06.16 11:02:02.382 INFO  Server.Server - Stopping server..
+2019.06.16 11:02:03.060 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:02:03.098 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:02:58.274 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
+2019.06.16 11:02:58.277 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\user\AppData\Local\Temp
+2019.06.16 11:02:58.391 INFO  Server.Server - Server Has Started
+2019.06.16 11:02:58.395 INFO  Server.Server - Server Has Started
+2019.06.16 11:02:59.397 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:02:59.402 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:03:00.398 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:03:00.403 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:03:01.398 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:03:01.403 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:03:02.400 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:03:02.404 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:03:03.400 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:03:03.404 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:03:04.401 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:03:04.404 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:03:05.403 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:03:05.406 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:03:05.690 INFO  Server.Server - Stopping server..
+2019.06.16 11:03:05.690 INFO  Server.Server - Stopping server..
+2019.06.16 11:03:06.404 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:03:06.408 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:48.243 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
+2019.06.16 11:07:48.246 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\user\AppData\Local\Temp
+2019.06.16 11:07:48.370 INFO  Server.Server - Server Has Started
+2019.06.16 11:07:48.373 INFO  Server.Server - Server Has Started
+2019.06.16 11:07:49.373 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:49.376 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:50.374 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:50.377 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:51.374 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:51.377 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:52.374 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:52.378 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:53.376 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:53.380 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:54.378 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:54.381 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:55.379 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:55.383 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:56.380 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:56.386 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:57.381 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:57.388 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:57.826 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55213,localport=5400]
+2019.06.16 11:07:57.830 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55213,localport=5400]
+2019.06.16 11:07:57.830 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:07:57.832 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:07:57.833 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:07:57.836 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55213,localport=5400]
+2019.06.16 11:07:57.836 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55213,localport=5400]
+2019.06.16 11:07:57.876 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55214,localport=5401]
+2019.06.16 11:07:57.877 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55214,localport=5401]
+2019.06.16 11:07:57.885 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:07:57.886 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:07:57.914 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55214,localport=5401]
+2019.06.16 11:07:57.914 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55214,localport=5401]
+2019.06.16 11:07:58.828 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:58.877 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:59.829 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:07:59.877 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:00.830 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:00.879 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:01.831 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:01.881 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:02.833 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:02.884 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:03.835 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:03.885 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:04.838 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:04.886 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:05.839 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:05.888 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:06.841 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:06.890 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:07.842 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:07.893 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:08.854 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:08.895 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:09.854 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:09.896 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:10.856 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:10.897 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:11.857 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:11.899 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:12.859 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:12.906 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:13.861 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:13.913 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:14.863 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:14.915 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:15.865 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:15.916 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:16.866 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:16.917 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:17.866 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:17.918 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:18.867 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:18.919 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:19.868 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:19.920 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:20.871 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:20.921 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:21.873 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:21.922 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:26.331 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
+2019.06.16 11:08:26.333 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\user\AppData\Local\Temp
+2019.06.16 11:08:26.453 INFO  Server.Server - Server Has Started
+2019.06.16 11:08:26.458 INFO  Server.Server - Server Has Started
+2019.06.16 11:08:27.456 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:27.463 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:28.458 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:28.464 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:29.458 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:29.464 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:30.458 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:30.465 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:31.458 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:31.468 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:32.460 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:32.468 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:33.462 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:33.470 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:34.464 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:34.471 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:35.466 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:35.473 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:36.468 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:36.475 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:36.759 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55222,localport=5400]
+2019.06.16 11:08:36.764 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55222,localport=5400]
+2019.06.16 11:08:36.765 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:08:36.767 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:08:36.768 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:08:36.771 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55222,localport=5400]
+2019.06.16 11:08:36.772 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55222,localport=5400]
+2019.06.16 11:08:36.813 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55223,localport=5401]
+2019.06.16 11:08:36.814 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55223,localport=5401]
+2019.06.16 11:08:36.820 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:08:36.822 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:08:36.849 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55223,localport=5401]
+2019.06.16 11:08:36.849 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55223,localport=5401]
+2019.06.16 11:08:37.762 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:37.813 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:38.765 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:38.815 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:39.766 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:39.816 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:40.768 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:40.818 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:41.770 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:41.820 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:42.772 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:42.823 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:43.773 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:43.824 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:44.774 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:44.826 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:45.776 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:45.828 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:46.777 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:46.830 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:47.778 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:47.832 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:48.779 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:48.834 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:49.781 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:49.835 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:50.782 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:50.838 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:51.784 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:51.838 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:52.786 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:52.840 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:53.788 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:53.842 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:54.790 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:54.844 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:55.792 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:55.844 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:56.794 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:56.845 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:57.794 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:57.845 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:58.794 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:58.846 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:59.795 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:08:59.847 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:00.796 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:00.848 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:01.798 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:01.849 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:02.801 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:02.852 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:03.803 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:03.854 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:04.805 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:04.854 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:05.806 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:05.855 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:06.808 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:06.856 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:07.808 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:07.857 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:08.809 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:08.858 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:09.810 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:09.859 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:10.812 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:10.861 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:11.814 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:11.835 INFO  Server.Server - Stopping server..
+2019.06.16 11:09:11.835 INFO  Server.Server - Stopping server..
+2019.06.16 11:09:11.861 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:09:12.814 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:37.676 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
+2019.06.16 11:12:37.678 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\user\AppData\Local\Temp
+2019.06.16 11:12:37.791 INFO  Server.Server - Server Has Started
+2019.06.16 11:12:37.794 INFO  Server.Server - Server Has Started
+2019.06.16 11:12:38.798 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:38.799 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:39.799 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:39.800 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:40.800 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:40.800 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:41.800 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:41.802 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:42.800 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:42.803 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:42.877 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55235,localport=5400]
+2019.06.16 11:12:42.879 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55235,localport=5400]
+2019.06.16 11:12:42.879 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:12:42.881 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:12:42.882 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:12:42.885 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55235,localport=5400]
+2019.06.16 11:12:42.886 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55235,localport=5400]
+2019.06.16 11:12:42.932 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55236,localport=5401]
+2019.06.16 11:12:42.933 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55236,localport=5401]
+2019.06.16 11:12:42.938 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:12:42.940 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:12:42.974 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55236,localport=5401]
+2019.06.16 11:12:42.974 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55236,localport=5401]
+2019.06.16 11:12:43.879 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:43.933 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:44.881 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:44.934 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:45.882 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:45.936 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:46.884 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:46.937 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:47.885 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:47.938 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:48.111 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55237,localport=5401]
+2019.06.16 11:12:48.112 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55237,localport=5401]
+2019.06.16 11:12:48.113 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:12:48.113 ERROR Server.ServerStrategySolveSearchProblem - FileNotFound C:\Users\user\AppData\Local\Temp\405 (The system cannot find the file specified)
+2019.06.16 11:12:48.114 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55237,localport=5401]
+2019.06.16 11:12:48.114 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55237,localport=5401]
+2019.06.16 11:12:48.885 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:49.111 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:49.887 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:50.113 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:50.889 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:51.115 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:51.891 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:52.117 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:52.311 INFO  Server.Server - Stopping server..
+2019.06.16 11:12:52.311 INFO  Server.Server - Stopping server..
+2019.06.16 11:12:52.893 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:12:53.126 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:45.504 INFO  Server.ServerStrategySolveSearchProblem - Started Solving Mazes Server
+2019.06.16 11:13:45.507 INFO  Server.ServerStrategySolveSearchProblem - Saving solution dir is C:\Users\user\AppData\Local\Temp
+2019.06.16 11:13:45.645 INFO  Server.Server - Server Has Started
+2019.06.16 11:13:45.649 INFO  Server.Server - Server Has Started
+2019.06.16 11:13:46.647 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:46.652 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:47.648 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:47.653 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:48.648 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:48.654 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:49.650 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:49.654 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:50.650 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:50.654 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:51.662 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:51.662 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:52.119 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55244,localport=5400]
+2019.06.16 11:13:52.121 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55244,localport=5400]
+2019.06.16 11:13:52.121 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:13:52.123 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:13:52.123 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:13:52.126 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55244,localport=5400]
+2019.06.16 11:13:52.127 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55244,localport=5400]
+2019.06.16 11:13:52.162 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55245,localport=5401]
+2019.06.16 11:13:52.163 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55245,localport=5401]
+2019.06.16 11:13:52.168 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:13:52.169 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:13:52.194 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55245,localport=5401]
+2019.06.16 11:13:52.195 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55245,localport=5401]
+2019.06.16 11:13:53.120 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:53.163 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:54.122 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:54.166 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:55.124 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:55.167 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:56.126 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:56.167 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:57.129 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:57.168 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:58.130 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:58.170 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:59.131 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:59.172 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:13:59.823 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55246,localport=5400]
+2019.06.16 11:13:59.824 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55246,localport=5400]
+2019.06.16 11:13:59.825 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:13:59.825 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:13:59.825 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:13:59.826 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55246,localport=5400]
+2019.06.16 11:13:59.827 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55246,localport=5400]
+2019.06.16 11:13:59.863 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55247,localport=5401]
+2019.06.16 11:13:59.864 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55247,localport=5401]
+2019.06.16 11:13:59.865 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:13:59.865 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:13:59.891 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55247,localport=5401]
+2019.06.16 11:13:59.892 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55247,localport=5401]
+2019.06.16 11:14:00.824 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:00.865 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:01.825 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:01.867 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:02.826 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:02.868 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:03.827 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:03.869 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:04.829 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:04.871 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:05.563 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55248,localport=5400]
+2019.06.16 11:14:05.564 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55248,localport=5400]
+2019.06.16 11:14:05.564 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:14:05.565 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:14:05.565 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:14:05.566 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55248,localport=5400]
+2019.06.16 11:14:05.566 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55248,localport=5400]
+2019.06.16 11:14:05.594 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55249,localport=5401]
+2019.06.16 11:14:05.595 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55249,localport=5401]
+2019.06.16 11:14:05.596 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:14:05.596 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:14:05.618 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55249,localport=5401]
+2019.06.16 11:14:05.618 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55249,localport=5401]
+2019.06.16 11:14:06.563 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:06.595 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:07.565 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:07.597 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:08.566 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:08.598 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:09.567 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55250,localport=5400]
+2019.06.16 11:14:09.567 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55250,localport=5400]
+2019.06.16 11:14:09.567 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:14:09.568 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:14:09.568 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:14:09.569 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55250,localport=5400]
+2019.06.16 11:14:09.569 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55250,localport=5400]
+2019.06.16 11:14:09.595 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55251,localport=5401]
+2019.06.16 11:14:09.595 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55251,localport=5401]
+2019.06.16 11:14:09.596 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:14:09.597 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:14:09.617 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55251,localport=5401]
+2019.06.16 11:14:09.617 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55251,localport=5401]
+2019.06.16 11:14:10.568 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:10.595 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:11.569 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:11.597 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:12.570 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:12.598 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:13.571 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:13.599 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:14.571 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:14.600 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:15.571 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:15.601 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:16.572 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:16.603 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:17.573 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:17.605 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:18.574 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:18.606 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:19.387 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55254,localport=5400]
+2019.06.16 11:14:19.388 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55254,localport=5400]
+2019.06.16 11:14:19.388 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:14:19.389 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:14:19.389 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:14:19.390 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55254,localport=5400]
+2019.06.16 11:14:19.390 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55254,localport=5400]
+2019.06.16 11:14:19.420 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55255,localport=5401]
+2019.06.16 11:14:19.420 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55255,localport=5401]
+2019.06.16 11:14:19.421 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:14:19.421 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:14:19.438 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55255,localport=5401]
+2019.06.16 11:14:19.439 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55255,localport=5401]
+2019.06.16 11:14:20.389 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:20.421 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:20.765 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55256,localport=5400]
+2019.06.16 11:14:20.766 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55256,localport=5400]
+2019.06.16 11:14:20.766 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:14:20.767 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:14:20.767 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:14:20.768 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55256,localport=5400]
+2019.06.16 11:14:20.768 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55256,localport=5400]
+2019.06.16 11:14:20.796 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55257,localport=5401]
+2019.06.16 11:14:20.796 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55257,localport=5401]
+2019.06.16 11:14:20.798 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:14:20.798 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:14:20.829 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55257,localport=5401]
+2019.06.16 11:14:20.829 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55257,localport=5401]
+2019.06.16 11:14:21.119 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55258,localport=5400]
+2019.06.16 11:14:21.120 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55258,localport=5400]
+2019.06.16 11:14:21.120 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:14:21.121 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:14:21.121 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:14:21.121 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55258,localport=5400]
+2019.06.16 11:14:21.122 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55258,localport=5400]
+2019.06.16 11:14:21.149 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55259,localport=5401]
+2019.06.16 11:14:21.149 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55259,localport=5401]
+2019.06.16 11:14:21.150 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:14:21.150 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:14:21.168 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55259,localport=5401]
+2019.06.16 11:14:21.168 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55259,localport=5401]
+2019.06.16 11:14:21.893 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55260,localport=5400]
+2019.06.16 11:14:21.894 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55260,localport=5400]
+2019.06.16 11:14:21.894 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:14:21.895 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:14:21.895 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:14:21.895 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55260,localport=5400]
+2019.06.16 11:14:21.896 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55260,localport=5400]
+2019.06.16 11:14:21.926 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55261,localport=5401]
+2019.06.16 11:14:21.926 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55261,localport=5401]
+2019.06.16 11:14:21.927 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:14:21.928 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:14:21.944 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55261,localport=5401]
+2019.06.16 11:14:21.944 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55261,localport=5401]
+2019.06.16 11:14:22.835 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55262,localport=5400]
+2019.06.16 11:14:22.836 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55262,localport=5400]
+2019.06.16 11:14:22.836 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:14:22.837 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:14:22.837 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:14:22.837 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55262,localport=5400]
+2019.06.16 11:14:22.838 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55262,localport=5400]
+2019.06.16 11:14:22.868 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55263,localport=5401]
+2019.06.16 11:14:22.869 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55263,localport=5401]
+2019.06.16 11:14:22.869 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:14:22.870 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:14:22.891 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55263,localport=5401]
+2019.06.16 11:14:22.891 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55263,localport=5401]
+2019.06.16 11:14:23.724 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55264,localport=5400]
+2019.06.16 11:14:23.726 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55264,localport=5400]
+2019.06.16 11:14:23.726 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:14:23.726 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:14:23.727 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:14:23.727 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55264,localport=5400]
+2019.06.16 11:14:23.727 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55264,localport=5400]
+2019.06.16 11:14:23.755 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55265,localport=5401]
+2019.06.16 11:14:23.756 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55265,localport=5401]
+2019.06.16 11:14:23.757 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:14:23.757 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:14:23.770 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55265,localport=5401]
+2019.06.16 11:14:23.771 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55265,localport=5401]
+2019.06.16 11:14:24.726 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:24.756 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:25.728 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:25.757 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:26.729 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:26.758 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:27.730 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:27.759 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:28.732 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:28.760 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:29.733 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:29.761 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:30.733 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:30.763 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:31.735 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:31.764 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:32.735 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:32.765 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:33.736 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:33.766 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:34.737 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:34.768 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:35.738 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:35.768 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:36.739 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:36.769 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:37.171 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55266,localport=5400]
+2019.06.16 11:14:37.171 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55266,localport=5400]
+2019.06.16 11:14:37.172 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:14:37.172 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:14:37.172 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:14:37.173 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55266,localport=5400]
+2019.06.16 11:14:37.173 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55266,localport=5400]
+2019.06.16 11:14:37.201 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55267,localport=5401]
+2019.06.16 11:14:37.202 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55267,localport=5401]
+2019.06.16 11:14:37.203 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:14:37.203 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:14:37.220 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55267,localport=5401]
+2019.06.16 11:14:37.221 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55267,localport=5401]
+2019.06.16 11:14:38.171 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:38.201 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:39.194 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:39.203 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:40.195 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:40.204 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:41.196 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:41.218 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:42.197 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:42.218 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:43.197 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:43.220 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:44.198 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:44.221 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:44.309 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55268,localport=5400]
+2019.06.16 11:14:44.309 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55268,localport=5400]
+2019.06.16 11:14:44.310 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:14:44.310 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:14:44.310 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [10][10]
+2019.06.16 11:14:44.312 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55268,localport=5400]
+2019.06.16 11:14:44.312 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55268,localport=5400]
+2019.06.16 11:14:44.341 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55269,localport=5401]
+2019.06.16 11:14:44.342 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55269,localport=5401]
+2019.06.16 11:14:44.342 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [10][10]
+2019.06.16 11:14:44.343 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:14:44.355 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55269,localport=5401]
+2019.06.16 11:14:44.355 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55269,localport=5401]
+2019.06.16 11:14:45.309 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:45.342 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:46.311 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:46.344 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:47.312 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:47.344 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:48.313 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:48.346 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:49.314 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:49.347 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:50.314 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:50.347 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:51.316 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:51.348 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:52.316 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:52.349 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:53.317 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:53.349 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:54.318 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:54.350 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:55.318 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:55.350 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:56.319 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:56.351 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:57.320 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:57.353 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:58.321 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:58.354 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:59.321 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:14:59.354 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:00.323 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:00.354 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:01.324 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:01.354 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:02.217 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55271,localport=5400]
+2019.06.16 11:15:02.218 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55271,localport=5400]
+2019.06.16 11:15:02.218 INFO  Server.ServerStrategyGenerateMaze - Started Maze Generator Server
+2019.06.16 11:15:02.218 INFO  Server.ServerStrategyGenerateMaze - Generating Maze Using MyMazeGenerator
+2019.06.16 11:15:02.218 INFO  Server.ServerStrategyGenerateMaze - Generating Maze of Sizes [100][100]
+2019.06.16 11:15:02.226 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55271,localport=5400]
+2019.06.16 11:15:02.226 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55271,localport=5400]
+2019.06.16 11:15:02.258 INFO  Server.Server - Client accepted: Socket[addr=/192.168.56.1,port=55272,localport=5401]
+2019.06.16 11:15:02.259 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.56.1,port=55272,localport=5401]
+2019.06.16 11:15:02.262 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze of Sizes [100][100]
+2019.06.16 11:15:02.262 INFO  Server.ServerStrategySolveSearchProblem - Solving Maze Using Best First Search Algorithm
+2019.06.16 11:15:02.382 INFO  Server.Server - Server: Closed client socket: Socket[addr=/192.168.56.1,port=55272,localport=5401]
+2019.06.16 11:15:02.382 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.56.1,port=55272,localport=5401]
+2019.06.16 11:15:03.217 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:03.259 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:04.218 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:04.261 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:05.219 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:05.262 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:06.219 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:06.263 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:07.219 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:07.264 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:08.220 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:08.266 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:09.220 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:09.267 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:10.265 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:10.268 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:11.266 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:11.269 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:12.268 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:12.271 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:13.268 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:13.271 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:13.480 INFO  Server.Server - Stopping server..
+2019.06.16 11:15:13.481 INFO  Server.Server - Stopping server..
+2019.06.16 11:15:14.269 DEBUG Server.Server - Socket Timeout - No clients pending!
+2019.06.16 11:15:14.274 DEBUG Server.Server - Socket Timeout - No clients pending!

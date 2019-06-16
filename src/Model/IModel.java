@@ -51,6 +51,8 @@ public interface IModel {
 
     void loadSol(String pathToFileLoaded);
 
+    Position getGobletPos();
+
 
 //    void generateMaze(int height, int width);
 }
