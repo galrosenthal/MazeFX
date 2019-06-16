@@ -108,6 +108,7 @@ public class MyViewController implements IView, Observer {
     public MenuItem blueStyle;
     public MenuItem colorfulStyle;
     public MenuItem brownStyle;
+    public MenuItem saveButton;
 
     private MyViewModel myViewModel;
 
@@ -139,6 +140,7 @@ public class MyViewController implements IView, Observer {
     public void initialize(MyViewModel myViewModel, Stage primaryStage, Scene startScene) {
         this.myViewModel = myViewModel;
         finishedAlready = false;
+        saveButton.setDisable(true);
         primStage = primaryStage;
         strtScene = startScene;
         loadMaze = false;
@@ -190,6 +192,7 @@ public class MyViewController implements IView, Observer {
 
     public void changeScene()
     {
+
         System.out.println("Changing Scene");
         mazeDisplayer.clearMaze();
         daveDisplayer.clearDave();
@@ -197,6 +200,7 @@ public class MyViewController implements IView, Observer {
         gameDisplayer.setZoomFactor(1.0D);
         finishedAlready = false;
         setDisableSolveButtons(true);
+        saveButton.setDisable(true);
         primStage.setScene(strtScene);
     }
 
@@ -224,6 +228,7 @@ public class MyViewController implements IView, Observer {
 
         mazeDisplayer.golToken = false;
         gameDisplayer.cleanGameBoard();
+        gameDisplayer.daveDisplayer.clearDave();
         gameDisplayer.setZoomFactor(1.0D);
         gameDisplayer.solDisplayer.setVisibleMaze(false);
         myViewModel.generateMaze(row, col);
@@ -233,6 +238,7 @@ public class MyViewController implements IView, Observer {
         finishedAlready = false;
         stopWiningThread();
         setDisableAllButtons(false);
+        saveButton.setDisable(false);
     }
 
 
@@ -366,6 +372,7 @@ public class MyViewController implements IView, Observer {
             winningThread = new Thread(this::characterZoomInAndOut);
             winningThread.start();
             setDisableAllButtons(true);
+            saveButton.setDisable(true);
 
 
             Alert EndGame = new Alert(Alert.AlertType.INFORMATION, "Congratulations!!! You have Won the Game, Dave is Resuced =)");
@@ -540,6 +547,7 @@ public class MyViewController implements IView, Observer {
 
             mazeDisplayer.golToken = false;
             setDisableSolveButtons(false);
+            saveButton.setDisable(false);
             solDisplayer.clearSolution();
             gameDisplayer.solDisplayer.setVisibleMaze(false);
             mazeDisplayer.redraw(1.00D,row,col);
