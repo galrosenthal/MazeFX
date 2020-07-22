@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ATP-GUI:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ATP_GUI_jar</output-path>
+    <root id="archive" name="ATP-GUI.jar">
+      <element id="module-output" name="ATP-GUI" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/ATP – Project - PartB.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

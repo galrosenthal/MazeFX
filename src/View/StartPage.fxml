@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.StartPage">
+   <children>
+      <ImageView fitHeight="214.0" fitWidth="275.0" layoutX="250.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/Images/mazeCover.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="288.0" layoutY="111.0" onMouseClicked="#EasterEgg" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/Images/start.gif" />
+         </image>
+      </ImageView>
+       <Pane layoutX="192.0" layoutY="404.0" prefHeight="50.0" prefWidth="431.0" style="-fx-background-color: black;">
+         <children>
+            <ImageView fx:id="smallIV" fitHeight="50.0" fitWidth="103.0" onMouseClicked="#smallOnClick" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: grey;">
+               <image>
+                  <Image url="@/Images/small-crop.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="mediumIV" fitHeight="50.0" fitWidth="130.0" layoutX="89.0" layoutY="-1.0" onMouseClicked="#mediumOnClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/Images/Medium-crop.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="largeIV" fitHeight="50.0" fitWidth="95.0" layoutX="213.0" layoutY="8.0" onMouseClicked="#largeOnClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/Images/Large-crop.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="115.0" layoutX="307.0" layoutY="7.0" onMouseClicked="#xlargeOnClick" pickOnBounds="true" preserveRatio="true" fx:id="xlargeIV">
+               <image>
+                  <Image url="@/Images/xLarge-crop.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="288.0" layoutY="454.0" onMouseClicked="#startOnClick" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="startButton" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#startOnClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/Images/StartIcon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TextField accessibleRole="TEXT" editable="false" focusTraversable="false" layoutX="29.0" layoutY="372.0" opacity="0.66" prefHeight="28.0" prefWidth="169.0" text="Choose Your Maze Size:">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect>
+      </TextField>
+   </children>
+</Pane>
